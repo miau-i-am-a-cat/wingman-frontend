@@ -29,59 +29,128 @@
 <body>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
 
-  <!-- Wingman Labs Header Component -->
-  <header class="header solid">
+  <!-- Header Component -->
+  <header class="header header--solid" id="mainHeader">
     <div class="header-container">
+      <!-- Mobile Menu Button (left on mobile) -->
+      <button class="header-menu-btn" id="menuToggle" aria-label="Open menu">
+        <svg class="menu-icon-open" width="20" height="20" viewBox="0 0 14 14" fill="none">
+          <path d="M1 3.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M1 10.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <svg class="menu-icon-close" width="20" height="20" viewBox="0 0 14 14" fill="none">
+          <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <!-- Logo -->
       <a href="/" class="header-logo">
-        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs">
+        <picture>
+          <source media="(max-width: 749px)" srcset="../assets/images/logo-mobile.png">
+          <img src="../assets/images/logo-desktop.png" alt="Wingman Labs" class="logo-img">
+        </picture>
       </a>
-      
-      <nav class="header-nav">
-        <a href="/products/energy.html" class="active">Energy</a>
-        <a href="/products/sleep.html">Sleep</a>
-        <a href="/pages/science.html">Science</a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header-nav" id="desktopNav">
+        <a href="/products/energy.html" class="nav-link">Energy</a>
+        <a href="/products/sleep.html" class="nav-link">Sleep</a>
+        <a href="/pages/science.html" class="nav-link">Science</a>
         
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-toggle">
+        <!-- More Dropdown -->
+        <div class="nav-dropdown" id="moreDropdown">
+          <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
             More
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
+              <path d="M11 5.5L7 9.5L3 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
           <div class="nav-dropdown-menu">
-            <a href="/pages/about.html">About Us</a>
             <a href="/pages/partners.html">Partners</a>
             <a href="/pages/quality.html">Quality</a>
             <a href="/pages/help.html">Help/FAQ</a>
           </div>
         </div>
       </nav>
-      
+
+      <!-- Quick Buy Button -->
       <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
-      
+
+      <!-- Header Actions -->
       <div class="header-actions">
-        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
+        <!-- Account -->
+        <button class="header-icon-btn" id="accountBtn" aria-label="Account">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </button>
-        
-        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
+
+        <!-- Cart -->
+        <button class="header-icon-btn" id="cartBtn" aria-label="Shopping cart">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 4h2l3.6 12h8.8l2.6-8H7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="10" cy="20" r="1.5" fill="currentColor"/>
+            <circle cx="18" cy="20" r="1.5" fill="currentColor"/>
           </svg>
-          <span id="cartCount" style="display: none;">0</span>
-        </button>
-        
-        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">
-          ☰
+          <span class="cart-badge" id="cartBadge">0</span>
         </button>
       </div>
     </div>
   </header>
+
+  <!-- Mobile Menu Drawer -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
+        <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+    <ul class="mobile-menu-list">
+      <li><a href="/products/energy.html" class="mobile-menu-link">Energy</a></li>
+      <li><a href="/products/sleep.html" class="mobile-menu-link">Sleep</a></li>
+      <li><a href="/pages/science.html" class="mobile-menu-link">Science</a></li>
+      <li class="mobile-menu-accordion">
+        <button class="mobile-menu-link mobile-accordion-toggle" aria-expanded="false">
+          More
+          <svg class="accordion-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path class="v-line" d="M7 2.75V11.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M2.75 7H11.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <ul class="mobile-submenu">
+          <li><a href="/pages/partners.html">Partners</a></li>
+          <li><a href="/pages/quality.html">Quality</a></li>
+          <li><a href="/pages/help.html">Help/FAQ</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <button class="cart-drawer-close" id="cartClose" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
+          <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="cart-drawer-content" id="cartContent">
+      <div class="cart-empty">
+        <h3 class="cart-empty-title">Your cart is empty</h3>
+        <p>Have an account? <a href="#">Log in</a> to check out faster.</p>
+        <a href="/pages/quickbuy.html" class="cart-continue-btn">Continue shopping</a>
+      </div>
+    </div>
+  </aside>
 
   <main id="main-content">
     
@@ -1746,69 +1815,29 @@
   <!-- Footer -->
   <footer class="wl-footer">
     <div class="wl-est">
-      <p class="wl-est-text">
-        <span class="wl-est-dot"></span>
-        EST. 2023
-        <span class="wl-est-dot"></span>
-        AUSTIN, TX
-        <span class="wl-est-dot"></span>
-      </p>
+      <div class="wl-est-text"><span>EST. 2025</span><span class="wl-est-dot"></span><span>CALIFORNIA</span></div>
     </div>
-    
-    <div class="wl-footer-main">
-      <div class="wl-footer-container">
-        <div class="wl-footer-grid">
-          <div class="wl-footer-col wl-footer-brand">
-            <a href="/" class="wl-footer-logo">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logoblack.png?v=1747491479" alt="Wingman Labs">
-            </a>
-            <p class="wl-footer-tagline">Performance supplements that fit in your pocket.</p>
-          </div>
-          
-          <div class="wl-footer-col">
-            <h4 class="wl-footer-heading">Products</h4>
-            <ul class="wl-footer-links">
-              <li><a href="/products/energy.html">Energy Strips</a></li>
-              <li><a href="/products/sleep.html">Sleep Strips</a></li>
-              <li><a href="/pages/quickbuy.html">Quick Buy</a></li>
-            </ul>
-          </div>
-          
-          <div class="wl-footer-col">
-            <h4 class="wl-footer-heading">Company</h4>
-            <ul class="wl-footer-links">
-              <li><a href="/pages/about.html">About Us</a></li>
-              <li><a href="/pages/science.html">Science</a></li>
-              <li><a href="/pages/quality.html">Quality</a></li>
-              <li><a href="/pages/partners.html">Partners</a></li>
-            </ul>
-          </div>
-          
-          <div class="wl-footer-col">
-            <h4 class="wl-footer-heading">Support</h4>
-            <ul class="wl-footer-links">
-              <li><a href="/pages/help.html">Help/FAQ</a></li>
-              <li><a href="/pages/shipping.html">Shipping</a></li>
-              <li><a href="/pages/returns.html">Returns</a></li>
-              <li><a href="mailto:hello@thewingmanlabs.com">Contact</a></li>
-            </ul>
-          </div>
+    <div class="wl-footer-container">
+      <div class="wl-grid">
+        <div class="wl-brand"><h2>Wingman Labs</h2><p>Premium supplements engineered for peak performance</p></div>
+        <div class="wl-links-wrapper">
+          <div class="wl-link-group"><h3>Shop</h3><ul><li><a href="/products/energy.html">Energy</a></li><li><a href="/products/sleep.html">Sleep</a></li><li><a href="/pages/quickbuy.html">Bundle</a></li></ul></div>
+          <div class="wl-link-group"><h3>Company</h3><ul><li><a href="/pages/science.html">Science</a></li><li><a href="/pages/partners.html">Partners</a></li><li><a href="/pages/quality.html">Quality</a></li></ul></div>
+          <div class="wl-link-group"><h3>Support</h3><ul><li><a href="/pages/help.html">FAQ</a></li><li><a href="/pages/help.html">Contact</a></li><li><a href="/pages/quickbuy.html">Quick Buy</a></li></ul></div>
+          <div class="wl-link-group"><h3>Legal</h3><ul><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/accessibility.html">Accessibility</a></li></ul></div>
         </div>
+        <div class="wl-stay-connected"><h3>Stay Connected</h3><div class="wl-social"><a href="https://www.instagram.com/thewingmanlabs/" aria-label="Instagram" target="_blank" rel="noopener"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@wingmanlabs" aria-label="TikTok" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.34 6.34 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a></div></div>
       </div>
-    </div>
-    
-    <div class="wl-footer-bottom">
-      <div class="wl-footer-container">
-        <p class="wl-footer-copyright">© 2025 Wingman Labs. All rights reserved.</p>
-        <div class="wl-footer-legal">
-          <a href="/pages/privacy.html">Privacy Policy</a>
-          <a href="/pages/terms.html">Terms of Service</a>
-        </div>
+      <div class="wl-bottom">
+        <div class="wl-fda">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+        <span class="wl-copy">© 2026 Wingman Labs</span>
       </div>
     </div>
   </footer>
 
-  <!-- Page JavaScript -->
+  <!-- Scripts -->
+  <script src="../config.js"></script>
+  <script src="../assets/js/header.js"></script>
   <script src="../assets/js/page-energy.js"></script>
   
 </body>
