@@ -64,16 +64,26 @@
 /* Mobile header layout */
 @media (max-width: 749px) {
   .header-container {
-    display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: space-between;
   }
   
   .header-logo {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .header-actions {
+    z-index: 2;
   }
 }
 
@@ -111,22 +121,30 @@
 @media (max-width: 749px) {
   .header-menu-btn {
     order: 1;
+    flex-shrink: 0;
   }
   
   .header-quick-buy {
     order: 2;
+    flex-shrink: 0;
+    margin-right: auto;
   }
   
   .header-logo {
     order: 3;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
   }
   
   .header-nav {
-    order: 4;
+    display: none;
   }
   
   .header-actions {
     order: 5;
+    flex-shrink: 0;
+    margin-left: auto;
   }
 }
 
