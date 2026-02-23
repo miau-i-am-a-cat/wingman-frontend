@@ -1,23 +1,38 @@
 <!-- Wingman Labs Header Component -->
-<header class="header">
+<header class="header" id="mainHeader">
   <div class="header-container">
+    <!-- Mobile Menu Button (left on mobile) -->
+    <button class="header-menu-btn" id="menuToggle" aria-label="Open menu">
+      <svg class="menu-icon-open" width="20" height="20" viewBox="0 0 14 14" fill="none">
+        <path d="M1 3.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M1 10.5H13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <svg class="menu-icon-close" width="20" height="20" viewBox="0 0 14 14" fill="none">
+        <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
+
     <!-- Logo -->
     <a href="/" class="header-logo">
-      <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs">
+      <picture>
+        <source media="(max-width: 749px)" srcset="/assets/images/logo-mobile.png">
+        <img src="/assets/images/logo-desktop.png" alt="Wingman Labs" class="logo-img">
+      </picture>
     </a>
-    
-    <!-- Navigation -->
-    <nav class="header-nav">
-      <a href="/products/energy.html">Energy</a>
-      <a href="/products/sleep.html">Sleep</a>
-      <a href="/pages/science.html">Science</a>
+
+    <!-- Desktop Navigation -->
+    <nav class="header-nav" id="desktopNav">
+      <a href="/products/energy.html" class="nav-link">Energy</a>
+      <a href="/products/sleep.html" class="nav-link">Sleep</a>
+      <a href="/pages/science.html" class="nav-link">Science</a>
       
       <!-- More Dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle">
+      <div class="nav-dropdown" id="moreDropdown">
+        <button class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
           More
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg width="10" height="10" viewBox="0 0 14 14" fill="none">
+            <path d="M11 5.5L7 9.5L3 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <div class="nav-dropdown-menu">
@@ -28,56 +43,195 @@
         </div>
       </div>
     </nav>
-    
+
     <!-- Quick Buy Button -->
     <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
-    
+
     <!-- Header Actions -->
     <div class="header-actions">
       <!-- Account -->
-      <button class="header-icon" id="headerAccountBtn" aria-label="Account">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
+      <button class="header-icon-btn" id="accountBtn" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <circle cx="10" cy="6.5" r="2.75" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M5.172 14.591l-.437.786a.588.588 0 00.514.873h9.502a.588.588 0 00.514-.873l-.437-.786a5.523 5.523 0 00-9.656 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
-      
+
       <!-- Cart -->
-      <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 0 1-8 0"/>
+      <button class="header-icon-btn" id="cartBtn" aria-label="Shopping cart">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M3.392 6.875h13.216v8.016c0 .567-.224 1.112-.624 1.513-.4.402-.941.627-1.506.627H5.522a2.13 2.13 0 01-1.506-.627 2.15 2.15 0 01-.624-1.513z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.818 2.969h2.333c.618 0 1.211.247 1.649.686a2.35 2.35 0 01.683 1.658v1.562H6.486V5.313c0-.622.246-1.218.683-1.658a2.33 2.33 0 011.65-.686" stroke="currentColor" stroke-width="1.5"/>
         </svg>
-        <span id="cartCount" style="display: none;">0</span>
-      </button>
-      
-      <!-- Mobile Menu Toggle -->
-      <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">
-        ☰
+        <span class="cart-badge" id="cartBadge">0</span>
       </button>
     </div>
   </div>
 </header>
 
+<!-- Mobile Menu Drawer -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+    <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
+      <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </button>
+  
+  <ul class="mobile-menu-list">
+    <li><a href="/products/energy.html" class="mobile-menu-link">Energy</a></li>
+    <li><a href="/products/sleep.html" class="mobile-menu-link">Sleep</a></li>
+    <li><a href="/pages/science.html" class="mobile-menu-link">Science</a></li>
+    <li class="mobile-menu-accordion">
+      <button class="mobile-menu-link mobile-accordion-toggle" aria-expanded="false">
+        More
+        <svg class="accordion-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path class="v-line" d="M7 2.75V11.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M2.75 7H11.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="mobile-submenu">
+        <li><a href="/pages/about.html">About Us</a></li>
+        <li><a href="/pages/partners.html">Partners</a></li>
+        <li><a href="/pages/quality.html">Quality</a></li>
+        <li><a href="/pages/help.html">Help/FAQ</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
 <!-- Cart Drawer -->
-<div class="cart-drawer" id="cartDrawer">
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
   <div class="cart-drawer-header">
-    <div class="cart-drawer-title">CART</div>
-    <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
+    <button class="cart-drawer-close" id="cartClose" aria-label="Close cart">
+      <svg width="20" height="20" viewBox="0 0 14 14" fill="none">
+        <path d="M12 2L2 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M12 12L2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </button>
   </div>
-  <div class="cart-drawer-body" id="cartBody">
-    <div class="cart-empty">Your cart is empty</div>
-  </div>
-  <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
-    <div class="cart-subtotal">
-      <span>Subtotal</span>
-      <span id="cartSubtotal">$0.00</span>
+  
+  <div class="cart-drawer-content" id="cartContent">
+    <div class="cart-empty">
+      <h3 class="cart-empty-title">Your cart is empty</h3>
+      <p>Have an account? <a href="#">Log in</a> to check out faster.</p>
+      <a href="/pages/quickbuy.html" class="cart-continue-btn">Continue shopping</a>
     </div>
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">$0.00</span>
-    </div>
-    <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
   </div>
-</div>
+</aside>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Header scroll behavior
+  const header = document.getElementById('mainHeader');
+  let lastScroll = 0;
+  
+  function updateHeaderState() {
+    const scrollY = window.scrollY;
+    if (scrollY > 50) {
+      header.classList.add('header--solid');
+      header.classList.remove('header--transparent');
+    } else {
+      header.classList.remove('header--solid');
+      header.classList.add('header--transparent');
+    }
+    lastScroll = scrollY;
+  }
+  
+  // Check if homepage (transparent header initially)
+  if (document.body.classList.contains('homepage') || window.location.pathname === '/' || window.location.pathname === '/index.html') {
+    header.classList.add('header--transparent');
+  } else {
+    header.classList.add('header--solid');
+  }
+  
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+  updateHeaderState();
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('active');
+    mobileMenuOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    menuToggle.classList.add('active');
+  }
+
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('active');
+    mobileMenuOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+    menuToggle.classList.remove('active');
+  }
+
+  menuToggle.addEventListener('click', function() {
+    if (mobileMenu.classList.contains('active')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  mobileMenuClose.addEventListener('click', closeMobileMenu);
+  mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+  // Mobile accordion
+  const accordionToggles = document.querySelectorAll('.mobile-accordion-toggle');
+  accordionToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !isExpanded);
+      this.parentElement.classList.toggle('open');
+    });
+  });
+
+  // Desktop More dropdown
+  const moreDropdown = document.getElementById('moreDropdown');
+  const dropdownToggle = moreDropdown.querySelector('.nav-dropdown-toggle');
+  
+  moreDropdown.addEventListener('mouseenter', function() {
+    this.classList.add('active');
+    dropdownToggle.setAttribute('aria-expanded', 'true');
+  });
+  
+  moreDropdown.addEventListener('mouseleave', function() {
+    this.classList.remove('active');
+    dropdownToggle.setAttribute('aria-expanded', 'false');
+  });
+
+  // Cart drawer
+  const cartBtn = document.getElementById('cartBtn');
+  const cartDrawer = document.getElementById('cartDrawer');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartClose = document.getElementById('cartClose');
+
+  function openCart() {
+    cartDrawer.classList.add('active');
+    cartOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeCart() {
+    cartDrawer.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  cartBtn.addEventListener('click', openCart);
+  cartClose.addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+
+  // Cart badge visibility
+  const cartBadge = document.getElementById('cartBadge');
+  const cartCount = parseInt(cartBadge.textContent) || 0;
+  if (cartCount > 0) {
+    cartBadge.classList.add('visible');
+  }
+});
+</script>
