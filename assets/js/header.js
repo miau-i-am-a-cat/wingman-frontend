@@ -358,13 +358,7 @@ function showAccountModal() {
             <p class="account-modal-text">Sign in to track orders and save your preferences.</p>
             
             <!-- Sign in with Shop Button -->
-            <button onclick="signInWithShop()" class="shop-pay-btn">
-              <svg class="shop-logo" viewBox="0 0 24 24" fill="none">
-                <path d="M15.5 8.5c0-1.5-1-3-3.5-3s-3.5 1.5-3.5 3c0 2.5 3.5 2.5 3.5 5 0 1.5-1 2.5-2.5 2.5s-2.5-1-2.5-2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                <path d="M12 3v18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="0 6"/>
-              </svg>
-              Sign in with Shop
-            </button>
+            <button onclick="signInWithShop()" class="shop-pay-btn">Sign in with Shop</button>
             
             <div class="account-divider">
               <span>or</span>
@@ -462,12 +456,6 @@ function showAccountModal() {
       
       .shop-pay-btn:hover {
         background: #4925d1;
-      }
-      
-      .shop-pay-btn .shop-logo {
-        width: 22px;
-        height: 22px;
-        flex-shrink: 0;
       }
       
       .account-divider {
