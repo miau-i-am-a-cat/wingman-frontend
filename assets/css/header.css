@@ -184,8 +184,8 @@
 .nav-link {
   color: var(--white);
   text-decoration: none;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
@@ -261,13 +261,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 10px;
-  background: transparent;
-  border: 1px solid var(--white);
+  padding: 3px 8px;
+  background: #5CA9FF;
+  border: none;
   color: var(--white);
   text-decoration: none;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transition: all 0.3s ease;
@@ -276,14 +276,15 @@
 }
 
 .header-quick-buy:hover {
-  background: var(--white);
-  color: var(--black);
+  background: #4A97ED;
+  color: var(--white);
 }
 
 @media (min-width: 750px) {
   .header-quick-buy {
     padding: 4px 10px;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 700;
   }
 }
 
@@ -308,7 +309,7 @@
   border: none;
   color: var(--white);
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
   position: relative;
   transition: opacity 0.2s ease;
 }
@@ -318,8 +319,19 @@
 }
 
 .header-icon-btn svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+@media (min-width: 750px) {
+  .header-icon-btn {
+    padding: 8px;
+  }
+  
+  .header-icon-btn svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Cart Badge */
