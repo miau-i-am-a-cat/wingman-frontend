@@ -4,6 +4,7 @@
   --black: #0a0a0a;
   --dark: #111;
   --dark-border: #222;
+  --header-bg: #1A1D23;
   --white: #fff;
   --gray: #666;
   --light-gray: #999;
@@ -35,13 +36,12 @@ body {
 
 /* Transparent on homepage before scroll */
 .header.transparent {
-  background: rgba(17, 17, 17, 0.3);
-  backdrop-filter: blur(10px);
+  background: transparent;
 }
 
 /* Solid after scroll or on other pages */
 .header.solid {
-  background: var(--dark);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--dark-border);
 }
 
@@ -60,15 +60,12 @@ body {
   align-items: center;
   text-decoration: none;
   color: var(--white);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
 }
 
 .header-logo img {
-  height: 24px;
+  height: 28px;
   width: auto;
+  display: block;
 }
 
 /* Navigation */
