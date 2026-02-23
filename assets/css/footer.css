@@ -1,0 +1,391 @@
+/* ============================================
+   Wingman Labs - Footer Styles
+   ============================================ */
+
+.wl-footer {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #111;
+  background: #fff;
+  border-top: 2px solid #1A1D23;
+}
+
+/* EST Banner */
+.wl-est {
+  background: #1A1D23;
+  padding: 14px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.wl-est::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(92,169,255,0.5), transparent);
+  animation: sweep 6s linear infinite;
+}
+
+@keyframes sweep {
+  to { left: 100%; }
+}
+
+.wl-est-text {
+  font-family: 'Boucherie Block', 'boucherie-block', 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: #fff;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.wl-est-dot {
+  width: 6px;
+  height: 6px;
+  background: #5CA9FF;
+  border-radius: 50%;
+  animation: glow 8s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Container */
+.wl-footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 50px 40px 40px;
+}
+
+/* Main Grid */
+.wl-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr 320px;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 50px;
+}
+
+/* Brand Section */
+.wl-brand h2 {
+  font-family: 'Boucherie Block', 'boucherie-block', 'Bebas Neue', sans-serif;
+  font-size: 38px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #5CA9FF;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.wl-brand h2::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: #111;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wl-brand:hover h2::after {
+  width: 100%;
+}
+
+.wl-brand p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Links Grid */
+.wl-links-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.wl-link-group h3 {
+  font-family: 'Boucherie Block', 'boucherie-block', 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  color: #111;
+}
+
+.wl-link-group ul {
+  list-style: none;
+}
+
+.wl-link-group li {
+  margin-bottom: 12px;
+}
+
+.wl-link-group a {
+  color: #666;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+.wl-link-group a::before {
+  content: '→';
+  position: absolute;
+  left: -20px;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.wl-link-group a:hover {
+  color: #111;
+  padding-left: 15px;
+}
+
+.wl-link-group a:hover::before {
+  left: -15px;
+  opacity: 1;
+}
+
+/* Stay Connected Section */
+.wl-stay-connected h3 {
+  font-family: 'Boucherie Block', 'boucherie-block', 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #111;
+  margin-bottom: 18px;
+}
+
+.wl-social {
+  display: flex;
+  gap: 12px;
+}
+
+.wl-social a {
+  width: 36px;
+  height: 36px;
+  border: 2px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1A1D23;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.wl-social a::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(45deg, #5CA9FF, #1A1D23);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.wl-social a:hover::before {
+  opacity: 1;
+}
+
+.wl-social a:hover {
+  transform: translateY(-2px);
+}
+
+.wl-social svg {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Bottom Bar */
+.wl-bottom {
+  padding-top: 40px;
+  border-top: 2px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.wl-fda {
+  font-size: 13px;
+  color: #888;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+.wl-copy {
+  font-size: 13px;
+  color: #888;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .wl-footer-container {
+    padding: 40px 30px 30px;
+  }
+
+  .wl-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .wl-brand {
+    text-align: center;
+  }
+
+  .wl-brand h2 {
+    display: inline-block;
+  }
+
+  .wl-brand p {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .wl-links-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 50px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .wl-stay-connected {
+    width: 100%;
+    text-align: center;
+  }
+
+  .wl-social {
+    justify-content: center;
+  }
+
+  .wl-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .wl-fda {
+    max-width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .wl-footer-container {
+    padding: 30px 20px 25px;
+  }
+
+  .wl-est-text {
+    font-size: 14px;
+    gap: 20px;
+    letter-spacing: 3px;
+  }
+
+  .wl-grid {
+    margin-bottom: 30px;
+  }
+
+  .wl-brand {
+    text-align: center;
+  }
+
+  .wl-brand h2 {
+    font-size: 32px;
+    display: inline-block;
+  }
+
+  .wl-brand p {
+    font-size: 14px;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .wl-links-wrapper {
+    gap: 25px 20px;
+    max-width: none;
+    margin: 0;
+    padding: 0 10px;
+  }
+
+  .wl-link-group {
+    text-align: center;
+  }
+
+  .wl-link-group h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .wl-link-group a {
+    font-size: 14px;
+    border-bottom: 1px solid #999;
+    padding-bottom: 2px;
+  }
+
+  .wl-link-group li {
+    margin-bottom: 6px;
+  }
+
+  .wl-stay-connected {
+    width: 100%;
+    text-align: center;
+  }
+
+  .wl-stay-connected h3 {
+    font-size: 16px;
+    margin-bottom: 14px;
+  }
+
+  .wl-social {
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .wl-social a {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wl-social svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .wl-bottom {
+    padding-top: 30px;
+  }
+
+  .wl-fda {
+    font-size: 10px;
+    line-height: 1.4;
+  }
+
+  .wl-copy {
+    font-size: 12px;
+  }
+}

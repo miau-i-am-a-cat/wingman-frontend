@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Science - Wingman Labs</title>
+  <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/pages.css">
+  <style>
+    .science-hero {
+      background-image: url('https://cdn.shopify.com/s/files/1/0606/2433/9038/files/bioavail-sciencebackground.jpg?v=1762824899');
+      background-size: cover;
+      background-position: center;
+      padding: 140px 20px 100px;
+    }
+    .science-hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); max-width: 1000px; }
+    .science-intro { max-width: 680px; font-size: 1.125rem; line-height: 1.8; color: #E5E5E5; margin-top: 30px; }
+    .bioavail-section { background: #1A1D23; padding: 80px 20px; }
+    .bioavail-container { max-width: 1000px; margin: 0 auto; }
+    .bioavail-header { text-align: center; margin-bottom: 60px; }
+    .bioavail-header h2 { font-size: 2.5rem; color: #fff; margin-bottom: 20px; }
+    .bioavail-header p { color: rgba(255,255,255,0.8); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+    .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+    @media (max-width: 768px) { .comparison-grid { grid-template-columns: 1fr; } }
+    .comparison-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 40px; }
+    .comparison-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 20px; text-transform: uppercase; }
+    .comparison-card .stat { font-size: 4rem; font-weight: 900; margin-bottom: 10px; }
+    .comparison-card .stat.good { color: #5CA9FF; }
+    .comparison-card .stat.bad { color: #ff6b6b; }
+    .comparison-card p { color: rgba(255,255,255,0.7); line-height: 1.6; }
+    .how-it-works { background: #fff; padding: 80px 20px; }
+    .how-it-works-container { max-width: 1000px; margin: 0 auto; }
+    .how-it-works h2 { font-size: 2.5rem; color: #0B1F3A; margin-bottom: 50px; text-align: center; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
+    .step { text-align: center; }
+    .step-number { width: 60px; height: 60px; background: #0B1F3A; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 900; margin: 0 auto 20px; }
+    .step h3 { font-size: 1.25rem; color: #0B1F3A; margin-bottom: 15px; text-transform: uppercase; }
+    .step p { color: #666; line-height: 1.6; }
+    .ingredients-section { background: #F7F7F7; padding: 80px 20px; }
+    .ingredients-container { max-width: 1200px; margin: 0 auto; }
+    .ingredients-section h2 { font-size: 2.5rem; color: #0B1F3A; margin-bottom: 50px; text-align: center; }
+    .ingredients-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    @media (max-width: 768px) { .ingredients-grid { grid-template-columns: 1fr; } }
+    .ingredient-card { background: #fff; border: 2px solid #E5E5E5; padding: 30px; transition: all 0.3s ease; }
+    .ingredient-card:hover { border-color: #0B1F3A; transform: translateY(-5px); }
+    .ingredient-name { font-family: 'Boucherie Block', sans-serif; font-size: 1.25rem; color: #0B1F3A; margin-bottom: 10px; text-transform: uppercase; }
+    .ingredient-type { font-size: 0.875rem; color: #5CA9FF; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+    .ingredient-desc { color: #666; line-height: 1.6; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <header class="header solid">
+    <div class="header-container">
+      <a href="/" class="header-logo">WINGMAN LABS</a>
+      <nav class="header-nav">
+        <a href="/products/energy.html">Energy</a>
+        <a href="/products/sleep.html">Sleep</a>
+        <a href="/pages/science.html">Science</a>
+        <a href="/pages/quickbuy.html">Quick Buy</a>
+      </nav>
+      <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
+      <div class="header-actions">
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" style="display: none;">0</span></button>
+        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header science-hero">
+      <div class="page-header-content">
+        <h1 class="boucherie">THE SCIENCE OF <em>NOT</em> SWALLOWING YOUR SUPPLEMENTS</h1>
+        <p class="science-intro">Up to 90% of swallowed supplements never reach circulation. They're destroyed by stomach acid, metabolized by the liver, or simply pass through your system. Oral strips change everything.</p>
+      </div>
+    </div>
+
+    <section class="bioavail-section">
+      <div class="bioavail-container">
+        <div class="bioavail-header">
+          <h2 class="boucherie">Bioavailability Matters</h2>
+          <p>Bioavailability is the percentage of an ingredient that actually reaches your bloodstream. Higher bioavailability means more effect per dose.</p>
+        </div>
+        <div class="comparison-grid">
+          <div class="comparison-card">
+            <h3 class="boucherie">Traditional Pills</h3>
+            <div class="stat bad boucherie">~15%</div>
+            <p>Pills must survive stomach acid, be absorbed through the gut, and pass through the liver before reaching circulation. Most of the active ingredient is destroyed along the way.</p>
+          </div>
+          <div class="comparison-card">
+            <h3 class="boucherie">Oral Strips</h3>
+            <div class="stat good boucherie">Up to 90%</div>
+            <p>Strips dissolve on your tongue and absorb through the mucosal membrane, entering your bloodstream directly. No acid, no first-pass metabolism, no waste.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works">
+      <div class="how-it-works-container">
+        <h2 class="boucherie">How Oral Strips Work</h2>
+        <div class="steps-grid">
+          <div class="step">
+            <div class="step-number boucherie">1</div>
+            <h3 class="boucherie">Dissolve</h3>
+            <p>Place the strip on your tongue. It dissolves in approximately 30 seconds, releasing active ingredients into your saliva.</p>
+          </div>
+          <div class="step">
+            <div class="step-number boucherie">2</div>
+            <h3 class="boucherie">Absorb</h3>
+            <p>Ingredients absorb through the sublingual and buccal membranes in your mouth, bypassing the digestive system entirely.</p>
+          </div>
+          <div class="step">
+            <div class="step-number boucherie">3</div>
+            <h3 class="boucherie">Feel</h3>
+            <p>Active compounds enter your bloodstream directly, so you feel effects in minutes instead of waiting 30-45 minutes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ingredients-section">
+      <div class="ingredients-container">
+        <h2 class="boucherie">Clinically Researched Ingredients</h2>
+        <div class="ingredients-grid">
+          <div class="ingredient-card">
+            <div class="ingredient-type">Energy</div>
+            <div class="ingredient-name">Natural Caffeine</div>
+            <p class="ingredient-desc">Derived from green coffee beans. Provides clean, sustained energy without the synthetic jitters. 100mg per strip, equivalent to one cup of coffee.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-type">Energy</div>
+            <div class="ingredient-name">L-Theanine</div>
+            <p class="ingredient-desc">An amino acid found in green tea that promotes calm focus. When combined with caffeine, it smooths out the energy curve and prevents the crash.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-type">Sleep</div>
+            <div class="ingredient-name">Melatonin</div>
+            <p class="ingredient-desc">Your body's natural sleep hormone. Our strips deliver 3mg of pharmaceutical-grade melatonin for fast, effective sleep onset.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-type">Sleep</div>
+            <div class="ingredient-name">Calming Botanicals</div>
+            <p class="ingredient-desc">A proprietary blend of natural extracts that work synergistically with melatonin to promote relaxation and deeper sleep.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-section">
+      <h2 class="contact-title">Questions About Our Formulations?</h2>
+      <p class="contact-text">Our team is happy to discuss the science behind our products.</p>
+      <a href="mailto:team@thewingmanlabs.com" class="contact-email">team@thewingmanlabs.com</a>
+    </div>
+  </main>
+
+  <footer class="wl-footer">
+    <div class="wl-est"><div class="wl-est-text"><span>EST. 2025</span><span class="wl-est-dot"></span><span>CALIFORNIA</span></div></div>
+    <div class="wl-footer-container">
+      <div class="wl-grid">
+        <div class="wl-brand"><h2>Wingman Labs</h2><p>Premium supplements engineered for peak performance</p></div>
+        <div class="wl-links-wrapper">
+          <div class="wl-link-group"><h3>Shop</h3><ul><li><a href="/products/energy.html">Energy</a></li><li><a href="/products/sleep.html">Sleep</a></li><li><a href="/pages/quickbuy.html">Bundle</a></li></ul></div>
+          <div class="wl-link-group"><h3>Company</h3><ul><li><a href="/pages/science.html">Science</a></li><li><a href="/pages/partners.html">Partners</a></li><li><a href="/pages/quality.html">Quality</a></li></ul></div>
+          <div class="wl-link-group"><h3>Support</h3><ul><li><a href="/pages/help.html">FAQ</a></li><li><a href="/pages/help.html">Contact</a></li><li><a href="/pages/quickbuy.html">Quick Buy</a></li></ul></div>
+          <div class="wl-link-group"><h3>Legal</h3><ul><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/accessibility.html">Accessibility</a></li></ul></div>
+        </div>
+        <div class="wl-stay-connected"><h3>Stay Connected</h3><div class="wl-social"><a href="https://www.instagram.com/thewingmanlabs/" aria-label="Instagram" target="_blank" rel="noopener"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@wingmanlabs" aria-label="TikTok" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.34 6.34 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a></div></div>
+      </div>
+      <div class="wl-bottom"><div class="wl-fda">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div><span class="wl-copy">© 2026 Wingman Labs</span></div>
+    </div>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../assets/js/header.js"></script>
+</body>
+</html>

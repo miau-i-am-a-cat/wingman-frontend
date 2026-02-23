@@ -3,196 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Wingman Labs - Energy & Sleep In Seconds</title>
+  <title>Wingman Labs - Energy & Sleep Strips</title>
+  <meta name="description" content="Experience energy and sleep in seconds. Wingman Labs oral strips dissolve on your tongue for rapid, functional results.">
+  
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <!-- Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/global.css">
   <link rel="stylesheet" href="assets/css/header.css">
-  <style>
-    /* Hero Section - Dark background for transparent header demo */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 80px 40px 40px;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at 50% 50%, rgba(230, 57, 70, 0.1) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    
-    .hero-content {
-      max-width: 800px;
-      text-align: center;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero h1 {
-      font-size: 64px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      letter-spacing: -0.02em;
-    }
-    
-    .hero h1 span {
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .hero p {
-      font-size: 18px;
-      color: var(--light-gray);
-      margin-bottom: 40px;
-      line-height: 1.6;
-    }
-    
-    .hero-cta {
-      padding: 16px 40px;
-      background: #E63946;
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: inline-block;
-      transition: opacity 0.2s;
-    }
-    
-    .hero-cta:hover {
-      opacity: 0.9;
-    }
-    
-    /* Content Section - to demonstrate scroll behavior */
-    .content {
-      padding: 100px 40px;
-      background: var(--black);
-      min-height: 100vh;
-    }
-    
-    .content-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .content h2 {
-      font-size: 36px;
-      margin-bottom: 24px;
-      letter-spacing: -0.01em;
-    }
-    
-    .content p {
-      font-size: 16px;
-      color: var(--gray);
-      line-height: 1.8;
-      max-width: 600px;
-      margin: 0 auto 40px;
-    }
-    
-    .product-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      margin-top: 60px;
-    }
-    
-    .product-card {
-      background: var(--dark);
-      border: 1px solid var(--dark-border);
-      padding: 32px;
-      text-align: center;
-      transition: border-color 0.3s;
-    }
-    
-    .product-card:hover {
-      border-color: var(--light-gray);
-    }
-    
-    .product-card h3 {
-      font-size: 18px;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    
-    .product-card p {
-      font-size: 14px;
-      color: var(--gray);
-      margin-bottom: 20px;
-    }
-    
-    .product-card-price {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    
-    .product-card button {
-      width: 100%;
-      padding: 12px;
-      background: transparent;
-      border: 1px solid white;
-      color: white;
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    
-    .product-card button:hover {
-      background: white;
-      color: var(--black);
-    }
-    
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 40px;
-      }
-      
-      .hero p {
-        font-size: 16px;
-      }
-      
-      .content h2 {
-        font-size: 28px;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/favicon-32x32.png">
 </head>
 <body class="homepage">
-  
-  <!-- Include Header Component -->
-  <header class="header">
+  <!-- Skip Navigation -->
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
+  <!-- Header Component -->
+  <header class="header transparent">
     <div class="header-container">
       <a href="/" class="header-logo">WINGMAN LABS</a>
-      
       <nav class="header-nav">
-        <a href="/products/energy">Energy</a>
-        <a href="/products/sleep">Sleep</a>
-        <a href="/pages/science">Science</a>
-        <a href="/pages/more">More</a>
+        <a href="/products/energy.html">Energy</a>
+        <a href="/products/sleep.html">Sleep</a>
+        <a href="/pages/science.html">Science</a>
+        <a href="/pages/quickbuy.html">Quick Buy</a>
       </nav>
-      
-      <a href="/pages/quick-buy" class="header-quick-buy">QUICK BUY</a>
-      
+      <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
       <div class="header-actions">
         <button class="header-icon" id="headerAccountBtn" aria-label="Account">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -200,7 +46,6 @@
             <circle cx="12" cy="7" r="4"/>
           </svg>
         </button>
-        
         <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <circle cx="9" cy="21" r="1"/>
@@ -209,54 +54,10 @@
           </svg>
           <span id="cartCount" style="display: none;">0</span>
         </button>
-        
         <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
       </div>
     </div>
   </header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>
-        energy & sleep
-        <span>IN SECONDS.</span>
-      </h1>
-      <p>Rapid, Functional Results, by Melting on your Tongue.</p>
-      <a href="/pages/quick-buy" class="hero-cta">TRY RISK-FREE →</a>
-    </div>
-  </section>
-
-  <!-- Content Section -->
-  <section class="content">
-    <div class="content-inner">
-      <h2>Ultra-fast-acting supplements are here.</h2>
-      <p>Formulations that provide best-in-class results with clinically studied natural botanicals. Experience the difference with strips that work in minutes, not hours.</p>
-      
-      <div class="product-grid" id="productGrid">
-        <div class="product-card">
-          <h3>Energy</h3>
-          <p>Focus-driven & jitter free.</p>
-          <div class="product-card-price">$73</div>
-          <button onclick="alert('Product page coming soon!')">Discover</button>
-        </div>
-        
-        <div class="product-card">
-          <h3>Sleep</h3>
-          <p>Restful, regenerative sleep.</p>
-          <div class="product-card-price">$73</div>
-          <button onclick="alert('Product page coming soon!')">Discover</button>
-        </div>
-        
-        <div class="product-card">
-          <h3>Bundle</h3>
-          <p>30 Days of Energy. 30 Nights of Sleep.</p>
-          <div class="product-card-price">$109</div>
-          <button onclick="alert('Bundle page coming soon!')">Shop Now</button>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Cart Drawer -->
   <div class="cart-drawer" id="cartDrawer">
@@ -268,21 +69,372 @@
       <div class="cart-empty">Your cart is empty</div>
     </div>
     <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
-      <div class="cart-subtotal">
-        <span>Subtotal</span>
-        <span id="cartSubtotal">$0.00</span>
-      </div>
-      <div class="cart-total">
-        <span>Total</span>
-        <span id="cartTotal">$0.00</span>
-      </div>
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
       <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
     </div>
   </div>
 
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- SECTION 1: Hero -->
+    <section class="wingman-hero">
+      <div class="hero-container">
+        <img class="hero-image desktop-image" 
+             src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_16_9_Floating.png?v=1765232128" 
+             alt="Wingman Labs Energy and Sleep Strips"
+             loading="eager"
+             fetchpriority="high">
+        <img class="hero-image mobile-image" 
+             src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_1_1_Floating.jpg?v=1765240667" 
+             alt="Wingman Labs Energy and Sleep Strips"
+             loading="eager"
+             fetchpriority="high">
+        
+        <div class="hero-content">
+          <div class="hero-text-top">
+            <h1 class="hero-header">energy & sleep<br>IN SECONDS.</h1>
+            <p class="hero-subheader">Rapid, Functional Results, by Melting on your Tongue.</p>
+          </div>
+          <div class="hero-cta-wrapper">
+            <a href="/pages/quickbuy.html" class="hero-button">TRY RISK-FREE <span class="arrow">→</span></a>
+            <p class="money-back-text">30 day money back guarantee</p>
+          </div>
+        </div>
+
+        <div class="trust-bar">
+          <div class="trust-container">
+            <div class="trust-grid">
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/clinically_researched.png?v=1759808722" alt="Clinically Researched" loading="lazy">
+                </div>
+                <div class="trust-text">
+                  <h3 class="trust-headline">Clinically Researched</h3>
+                  <p class="trust-subtext">Ingredients</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/clean_formulationssssssss.png?v=1759808743" alt="Clean Ingredients" loading="lazy">
+                </div>
+                <div class="trust-text">
+                  <h3 class="trust-headline">Clean Formulations</h3>
+                  <p class="trust-subtext">0 Calories</p>
+                </div>
+              </div>
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/3rd_partyyy.png?v=1759808735" alt="3rd Party Tested" loading="lazy">
+                </div>
+                <div class="trust-text">
+                  <h3 class="trust-headline">3rd Party Verified</h3>
+                  <p class="trust-subtext">GMP Facility</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 3D Product Showcase -->
+    <section id="canvas-container"></section>
+
+    <!-- SECTION 3: Tagline -->
+    <section class="hero-section">
+      <div class="headline-container">
+        <h2 class="headline">Like breath strips, if they had <span class="underline">superpowers</span>.</h2>
+      </div>
+      <p class="subtext">You can feel the effects of the strips in minutes, much faster than a coffee gives you energy, or melatonin gummies make you sleepy.</p>
+    </section>
+
+    <!-- SECTION 4: Stats -->
+    <section class="stats-underline-section">
+      <div class="stats-underline-grid">
+        <div class="stat-underline stat-2">
+          <div style="margin-bottom: 16px;"><span class="stat-number-underline boucherie">3.3<span class="stat-unit-underline">min</span></span></div>
+          <div class="stat-text-content">
+            <div class="stat-label-underline boucherie">Average Time to Feel</div>
+            <div class="stat-desc-underline">71% feel an effect within 3 minutes</div>
+          </div>
+        </div>
+        <div class="stat-underline stat-1">
+          <div style="margin-bottom: 16px;"><span class="stat-number-underline boucherie">96<span class="stat-unit-underline">%</span></span></div>
+          <div class="stat-text-content">
+            <div class="stat-label-underline boucherie">Recommend</div>
+            <div class="stat-desc-underline">And would never go back</div>
+          </div>
+        </div>
+        <div class="stat-underline stat-3">
+          <div style="margin-bottom: 16px;"><span class="stat-number-underline boucherie">88<span class="stat-unit-underline">%</span></span></div>
+          <div class="stat-text-content">
+            <div class="stat-label-underline boucherie">Feel More Energized</div>
+            <div class="stat-desc-underline">Than when drinking coffee</div>
+          </div>
+        </div>
+        <div class="stat-underline stat-4">
+          <div style="margin-bottom: 16px;"><span class="stat-number-underline boucherie">84<span class="stat-unit-underline">%</span></span></div>
+          <div class="stat-text-content">
+            <div class="stat-label-underline boucherie">Better Than Other Melatonin</div>
+            <div class="stat-desc-underline">Prefer Wingman Sleep over pills and gummies</div>
+          </div>
+        </div>
+      </div>
+      <div class="disclaimer-underline">*Self-reported results from voluntary participants, including customers and sample recipients. No compensation provided. Survey includes 83 responses to date and is not a clinical study.</div>
+    </section>
+
+    <!-- SECTION 5: Product Carousel -->
+    <section class="wm-clinical-carousel-v1">
+      <div class="wm-clinical-container">
+        <div class="wm-clinical-header">
+          <h2 class="boucherie">Ultra-fast-acting supplements are here.</h2>
+          <p>Formulations that provide best-in-class results with clinically studied natural botanicals.</p>
+          <div class="feature-bubbles">
+            <div class="feature-bubble">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              Engineered for fast absorption
+            </div>
+            <div class="feature-bubble">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              High bioavailability format
+            </div>
+            <div class="feature-bubble">
+              <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              0 Calories
+            </div>
+          </div>
+        </div>
+
+        <div class="wm-clinical-track-container">
+          <div class="wm-clinical-track">
+            <div class="wm-clinical-card" data-product="energy" data-index="0">
+              <div class="wm-clinical-img-container">
+                <div class="wm-clinical-img-wrapper">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-energy-strips-coffee-product-flatlay-hero.png?v=1762569824&width=400" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-energy-strips-coffee-product-flatlay-hero.png?v=1762569824&width=300 300w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-energy-strips-coffee-product-flatlay-hero.png?v=1762569824&width=400 400w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-energy-strips-coffee-product-flatlay-hero.png?v=1762569824&width=600 600w"
+                       sizes="(max-width: 767px) 65vw, 360px" alt="Energy" class="wm-clinical-img" width="400" height="400" loading="lazy" decoding="async">
+                </div>
+                <span class="wm-clinical-badge boucherie">New</span>
+              </div>
+              <div class="wm-clinical-info-box">
+                <h3 class="wm-clinical-title boucherie">Energy</h3>
+                <div class="wm-clinical-subtitle">Focus-driven & jitter free.</div>
+                <div class="wm-clinical-cta">
+                  <a href="/products/energy.html" class="wm-clinical-btn boucherie">Discover <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                  <div class="wm-clinical-price">As low as $0.67 per strip</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wm-clinical-card" data-product="sleep" data-index="1">
+              <div class="wm-clinical-img-container">
+                <div class="wm-clinical-img-wrapper">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-sleep-strips-cranberry-mint-product-flatlay-hero.png?v=1762122034&width=400" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-sleep-strips-cranberry-mint-product-flatlay-hero.png?v=1762122034&width=300 300w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-sleep-strips-cranberry-mint-product-flatlay-hero.png?v=1762122034&width=400 400w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/wingman-sleep-strips-cranberry-mint-product-flatlay-hero.png?v=1762122034&width=600 600w"
+                       sizes="(max-width: 767px) 65vw, 360px" alt="Sleep" class="wm-clinical-img" width="400" height="400" loading="lazy" decoding="async">
+                </div>
+                <span class="wm-clinical-badge boucherie">New</span>
+              </div>
+              <div class="wm-clinical-info-box">
+                <h3 class="wm-clinical-title boucherie">Sleep</h3>
+                <div class="wm-clinical-subtitle">Restful, regenerative sleep.</div>
+                <div class="wm-clinical-cta">
+                  <a href="/products/sleep.html" class="wm-clinical-btn boucherie">Discover <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                  <div class="wm-clinical-price">As low as $0.67 per strip</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="wm-clinical-card" data-product="bundle" data-index="2">
+              <div class="wm-clinical-img-container">
+                <div class="wm-clinical-img-wrapper">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanBundlePreview.jpg?v=1764705832&width=400" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanBundlePreview.jpg?v=1764705832&width=300 300w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanBundlePreview.jpg?v=1764705832&width=400 400w, https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanBundlePreview.jpg?v=1764705832&width=600 600w"
+                       sizes="(max-width: 767px) 65vw, 360px" alt="Wingman Bundle" class="wm-clinical-img" width="400" height="400" loading="lazy" decoding="async">
+                </div>
+                <span class="wm-clinical-badge boucherie">Bundle</span>
+              </div>
+              <div class="wm-clinical-info-box">
+                <h3 class="wm-clinical-title boucherie">Wingman Bundle</h3>
+                <div class="wm-clinical-subtitle">30 Days of Energy. 30 Nights of Sleep.</div>
+                <div class="wm-clinical-cta">
+                  <a href="/pages/quickbuy.html" class="wm-clinical-btn boucherie">Shop Now <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></a>
+                  <div class="wm-clinical-price">Best value at $0.47 per strip</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-indicator">
+          <div class="scroll-dot active" data-index="0"></div>
+          <div class="scroll-dot" data-index="1"></div>
+          <div class="scroll-dot" data-index="2"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Quiz -->
+    <section class="quiz-section">
+      <div class="quiz-container">
+        <div class="quiz-header-banner">
+          <div class="quiz-header-text">
+            <h2 class="quiz-main-title boucherie">NEED A WINGMAN?</h2>
+            <p class="quiz-main-subtitle">See how Wingman Energy & Sleep <br class="mobile-br"> are designed to support you.</p>
+          </div>
+          <button class="quiz-toggle-btn" id="quizToggleBtn">Start Quiz</button>
+        </div>
+        <div class="quiz-dropdown-wrapper" id="quizDropdown">
+          <div class="quiz-inner-content">
+            <div class="quiz-card" id="quizCard"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: Experience Grid -->
+    <section class="experience-section">
+      <div class="experience-container">
+        <div class="content-left">
+          <div class="badge-blue">Strips say Hi</div>
+          <h2 class="main-header boucherie"><u>Say goodbye</u> to slow onsets, inconsistent doses, and piles of questionable additives.</h2>
+          <p class="subheader">Experience <span class="underline now-style">now</span>—not "<span class="italic">maybe</span> <span class="italic">later</span>."</p>
+        </div>
+        <div class="content-right">
+          <div class="image-card">
+            <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SleepPDPArtboard8-8vf.jpg?v=1763610637" alt="Strip dissolving" loading="lazy">
+            <p class="tile-text no-wrap">Dissolves in ~30 seconds. Absorbs in the mouth.</p>
+          </div>
+          <div class="image-card">
+            <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/u7298426852_semi_transparent_15_transparency._Orange_square._2c_70a21b43-0a9e-4840-8ce9-eb802d77b646_1.jpg?v=1763682402" alt="Strip ingredients" loading="lazy">
+            <p class="tile-text">Actives. Binders. Flavor.<br>That's basically it.</p>
+          </div>
+          <div class="image-card">
+            <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/u7298426852_Professional_laboratory_macro_photography_of_two__ded131ba-98cb-4a78-9660-cdbffc9d7106_0_2.png?v=1763611569" alt="Strip in water" loading="lazy">
+            <p class="tile-text">80 microns thin<br>(like a human hair).</p>
+          </div>
+          <div class="image-card">
+            <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energystripphoto.png?v=1759878824" alt="Energy strip" loading="lazy">
+            <p class="tile-text">Skips digestive acid & enzymes.<br>More actives reach your system.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: Bioavailability -->
+    <section class="strips-section">
+      <div class="strips-container-wrapper">
+        <div class="glass-card liquid-glass-grainy">
+          <div class="strips-content-left">
+            <div class="brand-tag glass-text-white"><span></span>DIGESTION DESTROYS ACTIVES</div>
+            <h2 class="main-heading glass-text-white boucherie">UP TO 90% OF SWALLOWED ACTIVES <u>NEVER</u> REACH CIRCULATION.</h2>
+            <div class="stat-box">
+              <div class="stat-content glass-text-white">
+                <div class="stat-label">Skip digestion.<br class="mobile-break"> Get up to <br><strong>9x more availability.</strong>*</div>
+                <div class="stat-value boucherie">
+                  <svg class="custom-arrow" viewBox="0 0 28 48" fill="none"><path d="M14 45V3M14 3L3 15M14 3L25 15" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  <span class="percent-number">900</span>%
+                </div>
+              </div>
+            </div>
+            <p class="disclaimer glass-text-white">*Bioavailability varies by ingredient. Improvements refer to oral-dissolvable delivery vs. traditional low-bioavailability swallowed forms.</p>
+          </div>
+          <div class="strips-content-right">
+            <div class="strips-diagram">
+              <div class="callout callout-outer">
+                <h3 class="callout-title">SUBLINGUAL UPTAKE</h3>
+                <p class="callout-text">Dissolves on contact. Ingredients enter the membrane—<strong>nature's shortcut to circulation.</strong></p>
+              </div>
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/strips_dissolving.gif?v=1763179711" alt="Oral strips dissolving diagram" class="strips-image" loading="lazy">
+              <div class="callout callout-inner">
+                <h3 class="callout-title">DIRECT DELIVERY</h3>
+                <p class="callout-text">Actives bypass the stomach and liver. <strong>More potency delivered where it counts.</strong></p>
+              </div>
+            </div>
+          </div>
+          <div class="cta-banner">
+            <p class="cta-text">See why oral strips are the supplement revolution of the 21st century.</p>
+            <div class="cta-buttons">
+              <a href="/pages/science.html" class="cta-button">Read SCIENCE</a>
+              <a href="/pages/quickbuy.html" class="cta-button secondary">Try Risk-Free</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 9: Home FAQ -->
+    <section class="home-faq-wrapper">
+      <div class="home-faq-container">
+        <div class="home-faq-header">
+          <h2 class="home-faq-title boucherie">Common Questions</h2>
+          <p class="home-faq-subtitle">The essentials about strips</p>
+        </div>
+        <div class="home-faq-items">
+          <div class="home-faq-item">
+            <div class="home-faq-question">How quickly do strips work vs pills?</div>
+            <div class="home-faq-answer"><p><strong>Typically 5-10 minutes</strong> for strips vs 30-45 minutes for pills. Strips dissolve on your tongue and absorb through your mouth. No waiting for pills to break down, no losing potency to stomach acid.*</p></div>
+          </div>
+          <div class="home-faq-item">
+            <div class="home-faq-question">Will energy strips make me jittery?</div>
+            <div class="home-faq-answer"><p><strong>No jitters, no crash.</strong> We pair caffeine with L-theanine – a natural amino acid derived from green tea that smooths out the energy boost. It's why our strips give you focus without anxiety, energy without the afternoon crash. Many customers who can't handle coffee love our strips.</p></div>
+          </div>
+          <div class="home-faq-item">
+            <div class="home-faq-question">What's the bioavailability compared to pills?</div>
+            <div class="home-faq-answer"><p>Oral-mucosal delivery (strips) can achieve higher bioavailability than pills. For example, melatonin pills have only <strong>15% bioavailability</strong> – meaning up to 85% is wasted on digestive functions.*</p></div>
+          </div>
+          <div class="home-faq-item">
+            <div class="home-faq-question">Can I travel with strips?</div>
+            <div class="home-faq-answer"><p><strong>TSA-approved and travel perfect.</strong> No liquids to spill, no pills to count, no gummies to melt. Each strip is individually sealed and takes up virtually no space. Many customers buy strips specifically for travel – energy strips for jet lag, sleep strips for hotel rooms.</p></div>
+          </div>
+          <div class="home-faq-item">
+            <div class="home-faq-question">What if I don't like them?</div>
+            <div class="home-faq-answer"><p>We offer a <strong>30-day money-back guarantee</strong> for first-time customers. If you're not completely satisfied, email us at team@thewingmanlabs.com within 30 days. That's how confident we are that you'll love the convenience and effectiveness of strips.</p></div>
+          </div>
+        </div>
+        <p class="faq-disclaimer">*Exact numbers vary by person, active ingredient, and delivery method.</p>
+        <div class="home-faq-footer">
+          <div class="home-faq-divider"></div>
+          <p class="home-faq-footer-text">Have more questions?</p>
+          <div class="home-faq-buttons">
+            <a href="/pages/quickbuy.html" class="home-faq-btn home-faq-btn-primary">Try Strips</a>
+            <a href="/pages/help.html" class="home-faq-btn home-faq-btn-secondary">Full FAQ</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="wl-footer">
+    <div class="wl-est">
+      <div class="wl-est-text"><span>EST. 2025</span><span class="wl-est-dot"></span><span>CALIFORNIA</span></div>
+    </div>
+    <div class="wl-footer-container">
+      <div class="wl-grid">
+        <div class="wl-brand"><h2>Wingman Labs</h2><p>Premium supplements engineered for peak performance</p></div>
+        <div class="wl-links-wrapper">
+          <div class="wl-link-group"><h3>Shop</h3><ul><li><a href="/products/energy.html">Energy</a></li><li><a href="/products/sleep.html">Sleep</a></li><li><a href="/pages/quickbuy.html">Bundle</a></li></ul></div>
+          <div class="wl-link-group"><h3>Company</h3><ul><li><a href="/pages/science.html">Science</a></li><li><a href="/pages/partners.html">Partners</a></li><li><a href="/pages/quality.html">Quality</a></li></ul></div>
+          <div class="wl-link-group"><h3>Support</h3><ul><li><a href="/pages/help.html">FAQ</a></li><li><a href="/pages/help.html">Contact</a></li><li><a href="/pages/quickbuy.html">Quick Buy</a></li></ul></div>
+          <div class="wl-link-group"><h3>Legal</h3><ul><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/accessibility.html">Accessibility</a></li></ul></div>
+        </div>
+        <div class="wl-stay-connected"><h3>Stay Connected</h3><div class="wl-social"><a href="https://www.instagram.com/thewingmanlabs/" aria-label="Instagram" target="_blank" rel="noopener"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@wingmanlabs" aria-label="TikTok" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.34 6.34 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a></div></div>
+      </div>
+      <div class="wl-bottom">
+        <div class="wl-fda">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div>
+        <span class="wl-copy">© 2026 Wingman Labs</span>
+      </div>
+    </div>
+  </footer>
+
   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="config.js"></script>
   <script src="assets/js/header.js"></script>
-  
+  <script src="assets/js/home.js"></script>
 </body>
 </html>
