@@ -31,7 +31,7 @@ body {
   right: 0;
   z-index: 100;
   padding: 16px 40px;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  transition: background 0.3s ease;
 }
 
 /* Transparent on homepage before scroll */
@@ -60,10 +60,11 @@ body {
   align-items: center;
   text-decoration: none;
   color: var(--white);
+  flex-shrink: 0;
 }
 
 .header-logo img {
-  height: 28px;
+  height: 20px;
   width: auto;
   display: block;
 }
@@ -76,7 +77,8 @@ body {
   gap: 32px;
 }
 
-.header-nav a {
+.header-nav > a,
+.header-nav > .nav-dropdown {
   color: var(--white);
   text-decoration: none;
   font-size: 13px;
@@ -86,8 +88,67 @@ body {
   position: relative;
 }
 
-.header-nav a:hover {
+.header-nav > a:hover {
   opacity: 0.7;
+}
+
+/* Dropdown Menu */
+.nav-dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-dropdown-toggle:hover {
+  opacity: 0.7;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 0;
+  background: var(--header-bg);
+  border: 1px solid var(--dark-border);
+  min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.active .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Quick Buy Button */
@@ -103,6 +164,7 @@ body {
   text-transform: uppercase;
   transition: all 0.3s ease;
   display: inline-block;
+  white-space: nowrap;
 }
 
 .header-quick-buy:hover {
@@ -137,7 +199,7 @@ body {
 .header-icon svg {
   width: 20px;
   height: 20px;
-  stroke-width: 1.5;
+  stroke-width: 1.8;
 }
 
 /* Badge Count */
@@ -379,7 +441,11 @@ body {
 /* Mobile Responsive */
 @media (max-width: 968px) {
   .header {
-    padding: 16px 24px;
+    padding: 12px 20px;
+  }
+  
+  .header-logo img {
+    height: 32px;
   }
   
   .header-nav {
@@ -387,11 +453,17 @@ body {
   }
   
   .header-quick-buy {
-    display: none;
+    display: block;
+    padding: 6px 14px;
+    font-size: 10px;
   }
   
   .header-menu-toggle {
     display: block;
+  }
+  
+  .header-actions {
+    gap: 8px;
   }
   
   .cart-drawer {
@@ -402,15 +474,24 @@ body {
 
 @media (max-width: 480px) {
   .header {
-    padding: 12px 20px;
+    padding: 12px 16px;
   }
   
-  .header-logo {
-    font-size: 12px;
+  .header-logo img {
+    height: 28px;
+  }
+  
+  .header-quick-buy {
+    padding: 5px 12px;
+    font-size: 9px;
   }
   
   .header-actions {
-    gap: 12px;
+    gap: 4px;
+  }
+  
+  .header-icon {
+    padding: 6px;
   }
   
   .cart-drawer-body {

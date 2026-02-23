@@ -22,45 +22,90 @@
 <body>
   <a href="#main-content" class="skip-nav">Skip to main content</a>
 
-  <header class="header solid">
-    <div class="header-container">
-      <a href="/" class="header-logo">
-        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs" width="140" height="28">
-      </a>
-      <nav class="header-nav">
-        <a href="/products/energy.html" class="active">Energy</a>
-        <a href="/products/sleep.html">Sleep</a>
-        <a href="/pages/science.html">Science</a>
-              </nav>
-      <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
-      <div class="header-actions">
-        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
+  <!-- Wingman Labs Header Component -->
+<header class="header solid">
+  <div class="header-container">
+    <!-- Logo -->
+    <a href="/" class="header-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs">
+    </a>
+    
+    <!-- Navigation -->
+    <nav class="header-nav">
+      <a href="/products/energy.html">Energy</a>
+      <a href="/products/sleep.html">Sleep</a>
+      <a href="/pages/science.html">Science</a>
+      
+      <!-- More Dropdown -->
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle">
+          More
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
-        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 0 1-8 0"/>
-          </svg>
-          <span id="cartCount" style="display: none;">0</span>
-        </button>
-        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
+        <div class="nav-dropdown-menu">
+          <a href="/pages/about.html">About Us</a>
+          <a href="/pages/partners.html">Partners</a>
+          <a href="/pages/quality.html">Quality</a>
+          <a href="/pages/help.html">Help/FAQ</a>
+        </div>
       </div>
+    </nav>
+    
+    <!-- Quick Buy Button -->
+    <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
+    
+    <!-- Header Actions -->
+    <div class="header-actions">
+      <!-- Account -->
+      <button class="header-icon" id="headerAccountBtn" aria-label="Account">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </button>
+      
+      <!-- Cart -->
+      <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span id="cartCount" style="display: none;">0</span>
+      </button>
+      
+      <!-- Mobile Menu Toggle -->
+      <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">
+        ☰
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <div class="cart-drawer" id="cartDrawer">
-    <div class="cart-drawer-header">
-      <div class="cart-drawer-title">CART</div>
-      <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
+<!-- Cart Drawer -->
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-header">
+    <div class="cart-drawer-title">CART</div>
+    <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
+  </div>
+  <div class="cart-drawer-body" id="cartBody">
+    <div class="cart-empty">Your cart is empty</div>
+  </div>
+  <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cartSubtotal">$0.00</span>
     </div>
-    <div class="cart-drawer-body" id="cartBody">
-      <div class="cart-empty">Your cart is empty</div>
+    <div class="cart-total">
+      <span>Total</span>
+      <span id="cartTotal">$0.00</span>
     </div>
+    <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+  </div>
+</div>
+
     <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
       <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
       <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>

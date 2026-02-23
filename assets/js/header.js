@@ -328,6 +328,23 @@ document.addEventListener('DOMContentLoaded', () => {
     accountBtn.addEventListener('click', showAccountModal);
   }
   
+  // Dropdown menu toggle
+  const dropdownToggles = document.querySelectorAll('.nav-dropdown-toggle');
+  dropdownToggles.forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const dropdown = toggle.closest('.nav-dropdown');
+      dropdown.classList.toggle('active');
+    });
+  });
+  
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.nav-dropdown.active').forEach(dropdown => {
+      dropdown.classList.remove('active');
+    });
+  });
+  
   // Initialize cart count on load
   if (cartId) {
     refreshCart();
