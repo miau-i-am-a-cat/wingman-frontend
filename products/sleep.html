@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Strips - Wingman Labs</title>
+  <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
+  <link rel="stylesheet" href="../assets/css/global.css">
+  <link rel="stylesheet" href="../assets/css/header.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/product.css">
+</head>
+<body>
+  <header class="header solid">
+    <div class="header-container">
+      <a href="/" class="header-logo">WINGMAN LABS</a>
+      <nav class="header-nav">
+        <a href="/products/energy.html">Energy</a>
+        <a href="/products/sleep.html">Sleep</a>
+        <a href="/pages/science.html">Science</a>
+        <a href="/pages/quickbuy.html">Quick Buy</a>
+      </nav>
+      <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
+      <div class="header-actions">
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" style="display: none;">0</span></button>
+        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">CART</div>
+      <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-drawer-body" id="cartBody"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
+      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+  </div>
+
+  <main class="product-main">
+    <section class="product-hero">
+      <div class="product-gallery sleep">
+        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-main.png?v=1762824900" alt="Sleep Strips" class="product-main-image" loading="lazy">
+        <div class="product-thumbnails">
+          <button class="product-thumbnail active"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-main.png?v=1762824900" alt="Main view"></button>
+          <button class="product-thumbnail"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-back.png?v=1762824900" alt="Back view"></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-badge sleep">Sleep</span>
+        <h1 class="product-title">Sleep Strips</h1>
+        <p class="product-tagline">Fall asleep fast. Wake up refreshed. 30 strips per pack.</p>
+
+        <div class="product-price-block">
+          <span class="product-price" id="product-price">$19.99</span>
+          <span class="product-compare-price" id="compare-price">$22.99</span>
+          <span class="product-per-strip">$0.67 per strip</span>
+        </div>
+
+        <div class="purchase-options">
+          <div class="purchase-option" data-option="onetime">
+            <div class="purchase-option-header">
+              <span class="purchase-option-title">One-Time Purchase</span>
+              <span class="purchase-option-price">$22.99</span>
+            </div>
+            <p class="purchase-option-desc">+ $5.99 shipping</p>
+          </div>
+          <div class="purchase-option selected" data-option="subscribe">
+            <span class="purchase-save-badge">Save 20%</span>
+            <div class="purchase-option-header">
+              <span class="purchase-option-title">Subscribe & Save</span>
+              <span class="purchase-option-price">$19.99</span>
+            </div>
+            <p class="purchase-option-desc">Free shipping • Delivered every 30 days • Cancel anytime</p>
+          </div>
+        </div>
+
+        <div class="quantity-selector">
+          <span class="quantity-label">Quantity</span>
+          <div class="quantity-controls">
+            <button class="quantity-btn" id="qty-minus">−</button>
+            <input type="number" class="quantity-value" id="qty-value" value="1" min="1" max="10" readonly>
+            <button class="quantity-btn" id="qty-plus">+</button>
+          </div>
+        </div>
+
+        <button class="add-to-cart-btn sleep" id="add-to-cart">
+          <span>Add to Cart</span>
+        </button>
+
+        <div class="product-guarantees">
+          <div class="guarantee-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span>30-Day Guarantee</span>
+          </div>
+          <div class="guarantee-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
+            <span>Free Shipping on Subscribe</span>
+          </div>
+          <div class="guarantee-item">
+            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Non-Habit Forming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ingredients-section">
+      <div class="ingredients-container">
+        <h2 class="boucherie">What's Inside</h2>
+        <div class="ingredients-grid">
+          <div class="ingredient-card">
+            <div class="ingredient-name">Melatonin</div>
+            <div class="ingredient-dosage">3mg</div>
+            <p class="ingredient-desc">Your body's natural sleep hormone delivered at an optimal dose for fast, effective sleep onset.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-name">L-Theanine</div>
+            <div class="ingredient-dosage">100mg</div>
+            <p class="ingredient-desc">Promotes relaxation and calm without sedation, helping you wind down naturally.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-name">GABA</div>
+            <div class="ingredient-dosage">100mg</div>
+            <p class="ingredient-desc">A calming neurotransmitter that helps reduce anxiety and promote restful sleep.</p>
+          </div>
+          <div class="ingredient-card">
+            <div class="ingredient-name">Chamomile</div>
+            <div class="ingredient-dosage">Extract</div>
+            <p class="ingredient-desc">Traditional botanical known for its gentle, soothing effects on mind and body.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits-section">
+      <div class="benefits-container">
+        <h2 class="boucherie">Why Sleep Strips?</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </div>
+            <h3 class="benefit-title">Fall Asleep Fast</h3>
+            <p class="benefit-desc">Sublingual absorption means you'll feel relaxed in minutes, not hours.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 class="benefit-title">No Grogginess</h3>
+            <p class="benefit-desc">Precise dosing means you wake up refreshed, not foggy.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+            </div>
+            <h3 class="benefit-title">Non-Habit Forming</h3>
+            <p class="benefit-desc">Use as needed without developing dependency.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+            </div>
+            <h3 class="benefit-title">Perfect for Travel</h3>
+            <p class="benefit-desc">TSA-approved. Great for jet lag and hotel stays.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wl-footer">
+    <div class="wl-est"><div class="wl-est-text"><span>EST. 2025</span><span class="wl-est-dot"></span><span>CALIFORNIA</span></div></div>
+    <div class="wl-footer-container">
+      <div class="wl-grid">
+        <div class="wl-brand"><h2>Wingman Labs</h2><p>Premium supplements engineered for peak performance</p></div>
+        <div class="wl-links-wrapper">
+          <div class="wl-link-group"><h3>Shop</h3><ul><li><a href="/products/energy.html">Energy</a></li><li><a href="/products/sleep.html">Sleep</a></li><li><a href="/pages/quickbuy.html">Bundle</a></li></ul></div>
+          <div class="wl-link-group"><h3>Company</h3><ul><li><a href="/pages/science.html">Science</a></li><li><a href="/pages/partners.html">Partners</a></li><li><a href="/pages/quality.html">Quality</a></li></ul></div>
+          <div class="wl-link-group"><h3>Support</h3><ul><li><a href="/pages/help.html">FAQ</a></li><li><a href="/pages/help.html">Contact</a></li><li><a href="/pages/quickbuy.html">Quick Buy</a></li></ul></div>
+          <div class="wl-link-group"><h3>Legal</h3><ul><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/accessibility.html">Accessibility</a></li></ul></div>
+        </div>
+        <div class="wl-stay-connected"><h3>Stay Connected</h3><div class="wl-social"><a href="https://www.instagram.com/thewingmanlabs/" aria-label="Instagram" target="_blank" rel="noopener"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@wingmanlabs" aria-label="TikTok" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.34 6.34 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a></div></div>
+      </div>
+      <div class="wl-bottom"><div class="wl-fda">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div><span class="wl-copy">© 2026 Wingman Labs</span></div>
+    </div>
+  </footer>
+
+  <script src="../config.js"></script>
+  <script src="../assets/js/header.js"></script>
+  <script src="../assets/js/product.js"></script>
+</body>
+</html>

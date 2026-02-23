@@ -2,6 +2,50 @@
    Wingman Labs - Shared Page Styles
    ============================================ */
 
+/* Cart Drawer Styles */
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 420px;
+  height: 100vh;
+  background: #fff;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  transition: right 0.3s ease;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+}
+.cart-drawer.open { right: 0; }
+.cart-drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.cart-drawer-title { font-family: 'Boucherie Block', sans-serif; font-size: 20px; }
+.cart-drawer-close { background: none; border: none; font-size: 28px; cursor: pointer; padding: 0; line-height: 1; }
+.cart-drawer-body { flex: 1; overflow-y: auto; padding: 20px; }
+.cart-empty { text-align: center; color: #666; padding: 40px 0; }
+.cart-drawer-footer { padding: 20px; border-top: 1px solid #e0e0e0; }
+.cart-subtotal, .cart-total { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.cart-total { font-weight: 700; font-size: 1.125rem; margin-bottom: 20px; }
+.cart-checkout-btn {
+  width: 100%;
+  padding: 16px;
+  background: #000;
+  color: #fff;
+  border: none;
+  font-family: 'Boucherie Block', sans-serif;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cart-checkout-btn:hover { background: #333; }
+
 /* Page Headers */
 .page-header {
   background: #0B1F3A;
