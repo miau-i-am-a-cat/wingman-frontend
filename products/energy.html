@@ -4,18 +4,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Energy Strips - Wingman Labs</title>
-  <meta name="description" content="Clean, sustained energy in minutes. Wingman Energy Strips dissolve on your tongue in 30 seconds with natural caffeine and L-theanine for smooth focus without jitters.">
+  <meta name="description" content="Get clean, sustained energy in minutes with Wingman Energy Strips. 50mg natural caffeine + L-theanine dissolves in 30 seconds for smooth focus without the crash.">
   
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   
+  <!-- Adobe Fonts (Boucherie Block) -->
   <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400&display=swap" rel="stylesheet">
   
+  <!-- Core styles -->
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-  <link rel="stylesheet" href="../assets/css/products.css">
+  
+  <!-- Page-specific styles -->
+  <link rel="stylesheet" href="../assets/css/page-energy.css">
   
   <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/favicon-32x32.png">
 </head>
@@ -23,507 +30,1786 @@
   <a href="#main-content" class="skip-nav">Skip to main content</a>
 
   <!-- Wingman Labs Header Component -->
-<header class="header solid">
-  <div class="header-container">
-    <!-- Logo -->
-    <a href="/" class="header-logo">
-      <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs">
-    </a>
-    
-    <!-- Navigation -->
-    <nav class="header-nav">
-      <a href="/products/energy.html">Energy</a>
-      <a href="/products/sleep.html">Sleep</a>
-      <a href="/pages/science.html">Science</a>
+  <header class="header solid">
+    <div class="header-container">
+      <a href="/" class="header-logo">
+        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logowhite.png?v=1747491479" alt="Wingman Labs">
+      </a>
       
-      <!-- More Dropdown -->
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-toggle">
-          More
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <nav class="header-nav">
+        <a href="/products/energy.html" class="active">Energy</a>
+        <a href="/products/sleep.html">Sleep</a>
+        <a href="/pages/science.html">Science</a>
+        
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-toggle">
+            More
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="/pages/about.html">About Us</a>
+            <a href="/pages/partners.html">Partners</a>
+            <a href="/pages/quality.html">Quality</a>
+            <a href="/pages/help.html">Help/FAQ</a>
+          </div>
+        </div>
+      </nav>
+      
+      <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
+      
+      <div class="header-actions">
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
           </svg>
         </button>
-        <div class="nav-dropdown-menu">
-          <a href="/pages/about.html">About Us</a>
-          <a href="/pages/partners.html">Partners</a>
-          <a href="/pages/quality.html">Quality</a>
-          <a href="/pages/help.html">Help/FAQ</a>
-        </div>
-      </div>
-    </nav>
-    
-    <!-- Quick Buy Button -->
-    <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
-    
-    <!-- Header Actions -->
-    <div class="header-actions">
-      <!-- Account -->
-      <button class="header-icon" id="headerAccountBtn" aria-label="Account">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-      </button>
-      
-      <!-- Cart -->
-      <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <path d="M16 10a4 4 0 0 1-8 0"/>
-        </svg>
-        <span id="cartCount" style="display: none;">0</span>
-      </button>
-      
-      <!-- Mobile Menu Toggle -->
-      <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">
-        ☰
-      </button>
-    </div>
-  </div>
-</header>
-
-<!-- Cart Drawer -->
-<div class="cart-drawer" id="cartDrawer">
-  <div class="cart-drawer-header">
-    <div class="cart-drawer-title">CART</div>
-    <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
-  </div>
-  <div class="cart-drawer-body" id="cartBody">
-    <div class="cart-empty">Your cart is empty</div>
-  </div>
-  <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
-    <div class="cart-subtotal">
-      <span>Subtotal</span>
-      <span id="cartSubtotal">$0.00</span>
-    </div>
-    <div class="cart-total">
-      <span>Total</span>
-      <span id="cartTotal">$0.00</span>
-    </div>
-    <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
-  </div>
-</div>
-
-    <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
-      <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
-      <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
-      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
-    </div>
-  </div>
-
-  <main id="main-content" class="product-page" data-product="energy">
-    
-    <div class="zoom-overlay" id="zoomOverlay">
-      <button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button>
-      <img id="zoomImage" src="" alt="Zoomed product image">
-    </div>
-
-    <div class="product-container">
-      
-      <div class="product-title-section">
-        <h1 class="product-main-title boucherie">ENERGY STRIPS</h1>
-        <p class="product-subtitle">Clean focus, pocket-thin</p>
-      </div>
-
-      <div class="product-content">
         
-        <div class="product-gallery">
-          <div class="gallery-thumbs" id="galleryThumbs">
-            <button class="gallery-thumb active" data-index="0">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=120" 
-                   alt="Energy strips package" width="60" height="60" loading="eager">
-            </button>
-            <button class="gallery-thumb" data-index="1">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=120" 
-                   alt="Coffee in your pocket" width="60" height="60" loading="lazy">
-            </button>
-            <button class="gallery-thumb" data-index="2">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=120" 
-                   alt="How to use" width="60" height="60" loading="lazy">
-            </button>
-            <button class="gallery-thumb" data-index="3">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=120" 
-                   alt="Ingredients" width="60" height="60" loading="lazy">
-            </button>
-            <button class="gallery-thumb" data-index="4">
-              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=120" 
-                   alt="Supplement facts" width="60" height="60" loading="lazy">
-            </button>
-          </div>
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+          <span id="cartCount" style="display: none;">0</span>
+        </button>
+        
+        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
 
-          <div class="gallery-main" id="galleryMain">
-            <span class="image-counter" id="imageCounter">1/5</span>
-            <div class="gallery-nav" id="galleryNav">
-              <button class="gallery-nav-btn prev" data-nav="-1" aria-label="Previous image">‹</button>
-              <button class="gallery-nav-btn next" data-nav="1" aria-label="Next image">›</button>
-            </div>
-            <div class="gallery-slider" id="gallerySlider">
-              <div class="gallery-slide">
-                <span class="gallery-badge">DARK-ROAST COFFEE</span>
-                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600" 
-                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=400 400w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600 600w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=800 800w"
-                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
-                     alt="Energy Strips product" width="600" height="600" fetchpriority="high">
-              </div>
-              <div class="gallery-slide">
-                <span class="gallery-badge">DARK-ROAST COFFEE</span>
-                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600" 
-                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=400 400w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600 600w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=800 800w"
-                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
-                     alt="Coffee in your pocket" width="600" height="600" loading="lazy">
-              </div>
-              <div class="gallery-slide">
-                <span class="gallery-badge">DARK-ROAST COFFEE</span>
-                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600" 
-                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=400 400w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600 600w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=800 800w"
-                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
-                     alt="How to use" width="600" height="600" loading="lazy">
-              </div>
-              <div class="gallery-slide">
-                <span class="gallery-badge">DARK-ROAST COFFEE</span>
-                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600" 
-                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=400 400w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600 600w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=800 800w"
-                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
-                     alt="Ingredients" width="600" height="600" loading="lazy">
-              </div>
-              <div class="gallery-slide">
-                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600" 
-                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=400 400w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600 600w,
-                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=800 800w"
-                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
-                     alt="Supplement Facts" width="600" height="600" loading="lazy">
-              </div>
-            </div>
-          </div>
+  <main id="main-content">
+    
+    <!-- ===========================================
+         SECTION 1: MAIN PRODUCT SECTION
+         Gallery, tabs, cart functionality
+         =========================================== -->
+    <div class="wingman-energy-container">
+      <!-- Zoom Overlay for Mobile -->
+      <div class="wm-zoom-overlay" id="energyZoomOverlay">
+        <button class="wm-zoom-close" id="energyZoomClose">×</button>
+        <img id="energyZoomImage" src="" alt="Zoomed image">
+      </div>
 
-          <div class="metric-cards">
-            <div class="metric-card">
-              <div class="metric-highlight"></div>
-              <span class="metric-value boucherie">0</span>
-              <span class="metric-label">Sugar</span>
-            </div>
-            <div class="metric-card">
-              <div class="metric-highlight"></div>
-              <span class="metric-value boucherie">0</span>
-              <span class="metric-label">Calories</span>
-            </div>
-            <div class="metric-card">
-              <div class="metric-highlight"></div>
-              <span class="metric-value boucherie">
-                <span class="time-number">30</span> <span class="time-unit">sec</span>
-              </span>
-              <span class="metric-label">Dissolve</span>
-            </div>
-          </div>
+      <div class="wm-container">
+        <!-- Title Section -->
+        <div class="wm-title-section">
+          <h1 class="wm-main-title wm-boucherie">ENERGY STRIPS</h1>
+          <p class="wm-subtitle">Clean focus, pocket-thin</p>
         </div>
 
-        <div class="product-details">
-          
-          <div class="product-description">
-            Get clean, sustained energy in minutes—not an hour. Wingman Energy Strips dissolve on your tongue in about 30 seconds and begin absorbing in the mouth, so actives reach your system faster than drinks or pills that must pass through the stomach. Powered by natural caffeine and L-theanine for smooth focus without the jittery spike, it's your pocket-sized upgrade for mornings, afternoons, work, workouts, and anytime you need energy and focus.
+        <!-- Product Content Wrapper -->
+        <div class="wm-product-content">
+          <!-- Gallery Section -->
+          <div class="wm-gallery-section">
+            <!-- Thumb Strip (Mobile: Left side) -->
+            <div class="wm-thumb-strip" id="energyThumbStrip">
+              <div class="wm-thumb-box active" data-energy-index="0">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=120" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=60 60w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=120 120w"
+                     sizes="60px"
+                     alt="Energy strips package"
+                     width="60" height="60"
+                     fetchpriority="high" decoding="async">
+              </div>
+              <div class="wm-thumb-box" data-energy-index="1">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=120" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=60 60w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=120 120w"
+                     sizes="60px"
+                     alt="Coffee in your pocket"
+                     width="60" height="60"
+                     loading="lazy" decoding="async">
+              </div>
+              <div class="wm-thumb-box" data-energy-index="2">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=120" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=60 60w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=120 120w"
+                     sizes="60px"
+                     alt="How to use"
+                     width="60" height="60"
+                     loading="lazy" decoding="async">
+              </div>
+              <div class="wm-thumb-box" data-energy-index="3">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=120" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=60 60w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=120 120w"
+                     sizes="60px"
+                     alt="Ingredients"
+                     width="60" height="60"
+                     loading="lazy" decoding="async">
+              </div>
+              <div class="wm-thumb-box" data-energy-index="4">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=120" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=60 60w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=120 120w"
+                     sizes="60px"
+                     alt="Supplement facts"
+                     width="60" height="60"
+                     loading="lazy" decoding="async">
+              </div>
+            </div>
+
+            <!-- Main Gallery (Mobile: Right side) -->
+            <div class="wm-gallery-main" id="energyGalleryMain">
+              <span class="wm-image-counter">1/5</span>
+              <div class="wm-gallery-nav" id="energyGalleryNav">
+                <button class="wm-gallery-nav-btn prev" data-energy-nav="-1">‹</button>
+                <button class="wm-gallery-nav-btn next" data-energy-nav="1">›</button>
+              </div>
+              <div class="wm-gallery-slider" id="energyGallerySlider">
+                <div class="wm-gallery-slide">
+                  <span class="wm-trust-badge">DARK-ROAST COFFEE</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=400 400w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600 600w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=800 800w"
+                       sizes="(max-width: 500px) calc(100vw - 100px), 45vw"
+                       alt="Energy Strips"
+                       width="600" height="600"
+                       fetchpriority="high" decoding="async">
+                </div>
+                <div class="wm-gallery-slide">
+                  <span class="wm-trust-badge">DARK-ROAST COFFEE</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=400 400w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600 600w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=800 800w"
+                       sizes="(max-width: 500px) calc(100vw - 100px), 45vw"
+                       alt="Energy Strips"
+                       width="600" height="600"
+                       loading="lazy" decoding="async">
+                </div>
+                <div class="wm-gallery-slide">
+                  <span class="wm-trust-badge">DARK-ROAST COFFEE</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=400 400w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600 600w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=800 800w"
+                       sizes="(max-width: 500px) calc(100vw - 100px), 45vw"
+                       alt="Energy Strips"
+                       width="600" height="600"
+                       loading="lazy" decoding="async">
+                </div>
+                <div class="wm-gallery-slide">
+                  <span class="wm-trust-badge">DARK-ROAST COFFEE</span>
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=400 400w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600 600w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=800 800w"
+                       sizes="(max-width: 500px) calc(100vw - 100px), 45vw"
+                       alt="Energy Strips"
+                       width="600" height="600"
+                       loading="lazy" decoding="async">
+                </div>
+                <div class="wm-gallery-slide">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=400 400w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600 600w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=800 800w"
+                       sizes="(max-width: 500px) calc(100vw - 100px), 45vw"
+                       alt="Supplement Facts"
+                       width="600" height="600"
+                       loading="lazy" decoding="async">
+                </div>
+              </div>
+            </div>
+
+            <!-- Metric Cards (Desktop only - below thumbnails) -->
+            <div class="wm-metric-cards">
+              <div class="wm-metric-card">
+                <div class="wm-metric-highlight"></div>
+                <span class="wm-metric-value wm-boucherie">0</span>
+                <span class="wm-metric-label">Sugar</span>
+              </div>
+              <div class="wm-metric-card">
+                <div class="wm-metric-highlight"></div>
+                <span class="wm-metric-value wm-boucherie">0</span>
+                <span class="wm-metric-label">Calories</span>
+              </div>
+              <div class="wm-metric-card">
+                <div class="wm-metric-highlight"></div>
+                <span class="wm-metric-value wm-boucherie">
+                  <span class="wm-time-number">30</span> <span class="wm-time-unit">seconds</span>
+                </span>
+                <span class="wm-metric-label">Dissolve</span>
+              </div>
+            </div>
           </div>
 
-          <div class="purchase-widget">
-            <div class="tab-nav" id="tabNav">
-              <button class="tab-btn" data-tab="onetime">One-Time</button>
-              <button class="tab-btn active" data-tab="subscribe">Subscribe & Save</button>
-              <button class="tab-btn" data-tab="bundle">
-                WINGMAN Bundle
-                <span class="tab-badge">BEST VALUE</span>
-              </button>
+          <!-- Details Content -->
+          <div class="wm-details-content">
+            <!-- Product Description -->
+            <div class="wm-product-description">
+              Get clean, sustained energy in minutes—not an hour. Wingman Energy Strips dissolve on your tongue in about 30 seconds and begin absorbing in the mouth, so actives reach your system faster than drinks or pills that must pass through the stomach. Powered by natural caffeine and L-theanine for smooth focus without the jittery spike, it's your pocket-sized upgrade for mornings, afternoons, work, workouts, and anytime you need energy and focus.
             </div>
 
-            <div class="tab-content" id="onetime-tab">
-              <div class="pack-selector">
-                <span class="pack-label">Select Quantity</span>
-                <div class="pack-options" id="packOptions">
-                  <button class="pack-btn pack-energy active" data-pack="1">1</button>
-                  <button class="pack-btn pack-energy" data-pack="2">
-                    2
-                    <span class="discount-badge">-15%</span>
-                  </button>
-                  <button class="pack-btn pack-split" data-pack="3">
-                    1+1
-                    <span class="discount-badge">-15%</span>
-                  </button>
-                </div>
+            <!-- Purchase Widget -->
+            <div class="wm-purchase-widget">
+              <!-- Tab Navigation -->
+              <div class="wm-tab-nav" id="energyTabNav">
+                <button class="wm-tab-btn" data-energy-tab="onetime">
+                  One-Time
+                </button>
+                <button class="wm-tab-btn active" data-energy-tab="subscribe">
+                  Subscribe & Save
+                </button>
+                <button class="wm-tab-btn" data-energy-tab="exclusive">
+                  WINGMAN Bundle
+                  <span class="wm-badge">BEST VALUE</span>
+                </button>
               </div>
 
-              <div class="price-display">
-                <div class="price-main">
-                  <span class="price-value boucherie" id="onetime-price">$22.99</span>
-                  <span class="price-compare" id="onetime-compare">$32</span>
-                </div>
-                <div class="price-badges" id="onetime-badges">
-                  <span class="price-per-strip" id="onetime-perstrip">$0.77 PER STRIP</span>
-                </div>
-                <div class="price-desc shipping-emphasis" id="onetime-desc">30 strips • + $5.99 SHIPPING</div>
-              </div>
-
-              <button class="action-primary" data-action="quickbuy-onetime">
-                <span id="onetime-cta">BUY NOW — $22.99</span>
-              </button>
-              <button class="action-secondary" id="onetime-add-cart" data-action="add-onetime">
-                Add to Cart
-              </button>
-
-              <div class="promo-link">
-                <a data-action="promo">Got a code?</a>
-              </div>
-            </div>
-
-            <div class="tab-content active" id="subscribe-tab">
-              <div class="price-display">
-                <div class="price-main">
-                  <span class="price-value boucherie" id="subscribe-price">$19.99</span>
-                  <span class="price-compare" id="subscribe-compare">$32</span>
-                  <div class="quantity-selector" id="qtySelector">
-                    <div class="quantity-controls">
-                      <button class="quantity-btn" id="qty-minus" data-qty-action="minus" disabled>−</button>
-                      <span class="quantity-display" id="qty-display">1</span>
-                      <button class="quantity-btn" id="qty-plus" data-qty-action="plus">+</button>
-                    </div>
+              <!-- One-Time Tab -->
+              <div class="wm-tab-content" id="energy-onetime-tab">
+                <div class="wm-pack-selector">
+                  <span class="wm-pack-label">Select Quantity</span>
+                  <div class="wm-pack-options" id="energyPackOptions">
+                    <button class="wm-pack-btn wm-pack-orange active" data-energy-pack="1">1</button>
+                    <button class="wm-pack-btn wm-pack-orange" data-energy-pack="2">
+                      2
+                      <span class="wm-discount">-15%</span>
+                    </button>
+                    <button class="wm-pack-btn wm-pack-split" data-energy-pack="3">
+                      1+1
+                      <span class="wm-discount">-15%</span>
+                    </button>
                   </div>
                 </div>
-                <span class="price-per-strip" id="subscribe-perstrip">$0.67 PER STRIP</span>
-                <div class="free-shipping-badge">
-                  <span>✓</span>
-                  <span>FREE SHIPPING</span>
-                </div>
-                <div class="price-desc" id="subscribe-desc">30 strips • Deliver every 30 days • Cancel anytime</div>
-              </div>
 
-              <button class="action-primary" data-action="subscribe">
-                <span id="subscribe-cta">SUBSCRIBE — $19.99/mo</span>
-              </button>
-              <button class="action-secondary" id="subscribe-add-cart" data-action="add-subscribe">
-                Add to Cart
-              </button>
+                <div class="wm-price-display">
+                  <div class="wm-price-main">
+                    <span class="wm-price-value wm-boucherie" id="energy-onetime-price">$22.99</span>
+                    <span class="wm-price-compare" id="energy-onetime-compare">$32</span>
+                  </div>
+                  <div class="wm-price-badges-row" id="energy-onetime-badges">
+                    <span class="wm-price-per-strip" id="energy-onetime-perstrip">$0.77 PER STRIP</span>
+                  </div>
+                  <div class="wm-price-desc wm-shipping-emphasis" id="energy-onetime-desc">30 strips • + $5.99 SHIPPING</div>
+                </div>
 
-              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
-            </div>
+                <button class="wm-action-primary" data-energy-action="quickbuy-onetime">
+                  <span id="energy-onetime-cta">BUY NOW — $22.99</span>
+                </button>
+                <button class="wm-action-secondary" id="energy-onetime-add-cart" data-energy-action="add-onetime">
+                  Add to Cart
+                </button>
 
-            <div class="tab-content" id="bundle-tab">
-              <div class="pack-selector">
-                <span class="pack-label">Become a WINGMAN Partner — Elite Monthly Access</span>
-              </div>
-
-              <div class="price-display">
-                <div class="price-main">
-                  <span class="price-value boucherie">$29.99</span>
-                  <span class="price-compare">$82</span>
-                </div>
-                <span class="price-per-strip">$0.47 PER STRIP</span>
-                <div class="free-shipping-badge">
-                  <span>✓</span>
-                  <span>FREE SHIPPING + PERKS</span>
-                </div>
-                <div class="price-desc">60 strips/month • Energy + Sleep combo</div>
-              </div>
-
-              <div class="value-stack">
-                <div class="value-item">
-                  <span class="value-icon">☯</span>
-                  <span>YIN YANG: <span class="underline-energy">30</span> pack of <span class="underline-energy">Energy</span> + <span class="underline-sleep">30</span> pack of <span class="underline-sleep">Sleep</span></span>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">✓</span>
-                  <span>Member pricing -20%</span>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">✓</span>
-                  <span>Extra sample packs in every delivery</span>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">✓</span>
-                  <span>Exclusive gift on month 3</span>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">✓</span>
-                  <span>Early access to new flavors</span>
-                </div>
-                <div class="value-item">
-                  <span class="value-icon">✓</span>
-                  <span>Free shipping + pause/skip anytime</span>
+                <div class="wm-promo-link">
+                  <a data-energy-action="promo">Got a code?</a>
                 </div>
               </div>
 
-              <button class="action-primary" data-action="bundle">
-                <span>JOIN WINGMAN EXCLUSIVE — $29.99/mo</span>
-              </button>
-              <button class="action-secondary" id="bundle-add-cart" data-action="add-bundle">
-                Add to Cart
-              </button>
+              <!-- Subscribe & Save Tab (DEFAULT) -->
+              <div class="wm-tab-content active" id="energy-subscribe-tab">
+                <div class="wm-price-display">
+                  <div class="wm-price-main">
+                    <span class="wm-price-value wm-boucherie" id="energy-subscribe-price">$19.99</span>
+                    <span class="wm-price-compare" id="energy-subscribe-compare">$32</span>
+                    <div class="wm-quantity-selector" id="energyQtySelector">
+                      <div class="wm-quantity-controls">
+                        <button class="wm-quantity-btn" id="energy-qty-minus" data-energy-qty-action="minus">−</button>
+                        <span class="wm-quantity-display" id="energy-qty-display">1</span>
+                        <button class="wm-quantity-btn" id="energy-qty-plus" data-energy-qty-action="plus">+</button>
+                      </div>
+                    </div>
+                  </div>
+                  <span class="wm-price-per-strip" id="energy-subscribe-perstrip">$0.67 PER STRIP</span>
+                  <div class="wm-free-shipping-badge">
+                    <span>✓</span>
+                    <span>FREE SHIPPING</span>
+                  </div>
+                  <div class="wm-price-desc" id="energy-subscribe-desc">30 strips • Deliver every 30 days • Cancel anytime</div>
+                </div>
 
-              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
-            </div>
-          </div>
+                <button class="wm-action-primary" data-energy-action="subscribe">
+                  <span id="energy-subscribe-cta">SUBSCRIBE — $19.99/mo</span>
+                </button>
+                <button class="wm-action-secondary" id="energy-subscribe-add-cart" data-energy-action="add-subscribe">
+                  Add to Cart
+                </button>
 
-          <div class="trust-bar">
-            <div class="trust-point">
-              <span class="trust-icon">✓</span>
-              <span class="trust-text">Lab Tested</span>
-            </div>
-            <div class="trust-point">
-              <span class="trust-icon">↻</span>
-              <span class="trust-text">30-Day Return</span>
-            </div>
-            <div class="trust-point">
-              <span class="trust-icon">→</span>
-              <span class="trust-text">Free Ship $50+</span>
-            </div>
-            <div class="trust-point">
-              <span class="trust-icon">⚡</span>
-              <span class="trust-text">FDA Registered</span>
-            </div>
-          </div>
+                <div class="wm-micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+              </div>
 
-          <div class="details-section" id="detailsSection">
-            <h3 class="details-header boucherie">Product Details</h3>
-            
-            <div class="detail-row" data-detail="0">
-              <span class="detail-label">Why Faster?</span>
-              <span class="detail-toggle">+</span>
-            </div>
-            <div class="detail-content">
-              Wingman strips dissolve in your mouth and can enter your bloodstream straight away, bypassing stomach acid, the small intestine, and liver processing. Experience it for yourself.
+              <!-- WINGMAN EXCLUSIVE Tab -->
+              <div class="wm-tab-content" id="energy-exclusive-tab">
+                <div class="wm-pack-selector">
+                  <span class="wm-pack-label">Become a WINGMAN Partner — Elite Monthly Access</span>
+                </div>
+
+                <div class="wm-price-display">
+                  <div class="wm-price-main">
+                    <span class="wm-price-value wm-boucherie">$29.99</span>
+                    <span class="wm-price-compare">$82</span>
+                  </div>
+                  <span class="wm-price-per-strip">$0.47 PER STRIP</span>
+                  <div class="wm-free-shipping-badge">
+                    <span>✓</span>
+                    <span>FREE SHIPPING + PERKS</span>
+                  </div>
+                  <div class="wm-price-desc">60 strips/month • Energy + Sleep combo</div>
+                </div>
+
+                <div class="wm-value-stack">
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">☯</span>
+                    <span class="wm-value-text">YIN YANG: <span class="wm-underline-orange">30</span> pack of <span class="wm-underline-orange">Energy</span> + <span class="wm-underline-purple">30</span> pack of <span class="wm-underline-purple">Sleep</span></span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Member pricing -20%</span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Extra sample packs included in every delivery</span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Exclusive gift on month 3</span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Stickers, temporary tattoos, and more in every order</span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Early access to new flavors</span>
+                  </div>
+                  <div class="wm-value-item">
+                    <span class="wm-value-icon">✓</span>
+                    <span class="wm-value-text">Free shipping + pause/skip anytime</span>
+                  </div>
+                </div>
+
+                <button class="wm-action-primary" data-energy-action="bundle">
+                  <span>JOIN WINGMAN EXCLUSIVE — $29.99/mo</span>
+                </button>
+                <button class="wm-action-secondary" id="energy-bundle-add-cart" data-energy-action="add-bundle">
+                  Add to Cart
+                </button>
+
+                <div class="wm-micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+              </div>
             </div>
 
-            <div class="detail-row" data-detail="1">
-              <span class="detail-label">What's Inside?</span>
-              <span class="detail-toggle">+</span>
-            </div>
-            <div class="detail-content">
-              <strong>Energy Strips:</strong> Caffeine (50mg), L-Theanine (100mg), Vitamin B12 (2.4mcg, 100% DV), Vitamin B6 (1.7mg, 100% DV). Other Ingredients: Pullulan, Cellulose, Natural Flavors, Lecithin, Monk Fruit Extract, Sorbitol, Medium Chain Triglycerides, Steviol Glycosides.
-            </div>
-
-            <div class="detail-row" data-detail="2">
-              <span class="detail-label">How To Use?</span>
-              <span class="detail-toggle">+</span>
-            </div>
-            <div class="detail-content">
-              Place on tongue, under tongue, or against cheek (buccal). Let dissolve (30-45 seconds). Take 1-2 daily when you need energy. We recommend not taking 6 hours before sleep. Do not exceed 4 per day.
-            </div>
-
-            <div class="detail-row" data-detail="3">
-              <span class="detail-label">What Does It Taste Like?</span>
-              <span class="detail-toggle">+</span>
-            </div>
-            <div class="detail-content">
-              Dark roast coffee, no milk, no sugar.
+            <!-- Trust Bar -->
+            <div class="wm-trust-bar">
+              <div class="wm-trust-point">
+                <span class="wm-trust-icon">✓</span>
+                <span class="wm-trust-text"><span class="wm-trust-line1">Lab</span> <span class="wm-trust-line2">Tested</span></span>
+              </div>
+              <div class="wm-trust-point">
+                <span class="wm-trust-icon">↻</span>
+                <span class="wm-trust-text"><span class="wm-trust-line1">30-Day</span> <span class="wm-trust-line2">Return</span></span>
+              </div>
+              <div class="wm-trust-point">
+                <span class="wm-trust-icon">→</span>
+                <span class="wm-trust-text"><span class="wm-trust-line1">Free Ship</span> <span class="wm-trust-line2">$50+</span></span>
+              </div>
+              <div class="wm-trust-point">
+                <span class="wm-trust-icon">⚡</span>
+                <span class="wm-trust-text"><span class="wm-trust-line1">FDA Registered</span> <span class="wm-trust-line2">Facility</span></span>
+              </div>
             </div>
 
-            <div class="detail-row" data-detail="4">
-              <span class="detail-label">Comparison Chart</span>
-              <span class="detail-toggle">+</span>
-            </div>
-            <div class="detail-content">
-              <strong>Strips:</strong> $0.47-0.77/serving, 30 seconds to feel, 0 calories, portable<br>
-              <strong>Coffee:</strong> $2-5/serving, 10-15min to feel, 5-100 calories, not portable<br>
-              <strong>Energy drinks:</strong> $3-5/serving, 10-20min to feel, 140-300 calories, bulky<br>
-              <strong>Pills:</strong> $0.50-1.50/serving, 20-30min to feel, 0 calories, water needed
+            <!-- Details Section -->
+            <div class="wm-details-section" id="energyDetailsSection">
+              <h3 class="wm-details-header wm-boucherie">Product Details</h3>
+              
+              <div class="wm-detail-row" data-energy-detail="0">
+                <span class="wm-detail-label">Why Faster?</span>
+                <span class="wm-detail-toggle">+</span>
+              </div>
+              <div class="wm-detail-content">
+                Wingman strips dissolve in your mouth and can enter your bloodstream straight away, bypassing stomach acid, the small intestine, and liver processing. Experience it for yourself. 
+              </div>
+
+              <div class="wm-detail-row" data-energy-detail="1">
+                <span class="wm-detail-label">What's Inside?</span>
+                <span class="wm-detail-toggle">+</span>
+              </div>
+              <div class="wm-detail-content">
+                <strong>Energy Strips:</strong> Caffeine (50mg), L-Theanine (100mg), Vitamin B12 (2.4mcg, 100% DV), Vitamin B6 (1.7mg, 100% DV). Other Ingredients: Pullulan, Cellulose, Natural Flavors, Lecithin, Monk Fruit Extract, Sorbitol, Medium Chain Triglycerides, Steviol Glycosides.<br><br>
+                <strong>Sleep Strips:</strong> Valerian Root (25mg), Chamomile (10mg), Passion Flower (10mg), Lavender (10mg), Melatonin (5mg), Vitamin B6 (1.7mg, 100% DV). Other Ingredients: Pullulan, Cellulose, Cranberry Flavor, Lecithin, Monk Fruit Extract, Sorbitol, Medium Chain Triglycerides, Peppermint Flavor, Steviol Glycosides.
+              </div>
+
+              <div class="wm-detail-row" data-energy-detail="2">
+                <span class="wm-detail-label">How To Use?</span>
+                <span class="wm-detail-toggle">+</span>
+              </div>
+              <div class="wm-detail-content">
+                Place on tongue, under tongue, or against cheek (buccal). Let dissolve (30-45 seconds). Take 1-2 daily when you need energy. We recommend to not take 6 hours before sleep. Do not exceed 4 per day.
+              </div>
+
+              <div class="wm-detail-row" data-energy-detail="3">
+                <span class="wm-detail-label">What Does It Taste Like?</span>
+                <span class="wm-detail-toggle">+</span>
+              </div>
+              <div class="wm-detail-content">
+                Dark roast coffee, no milk, no sugar.
+              </div>
+
+              <div class="wm-detail-row" data-energy-detail="4">
+                <span class="wm-detail-label">Comparison Chart</span>
+                <span class="wm-detail-toggle">+</span>
+              </div>
+              <div class="wm-detail-content">
+                Strips: $0.47-0.77/serving, 30 seconds to feel, 0 calories, portable<br>
+                Coffee: $2-5/serving, 10-15min to feel, 5-100 calories, not portable<br>
+                Energy drinks: $3-5/serving, 10-20min to feel, 140-300 calories, bulky<br>
+                Pills: $0.50-1.50/serving, 20-30min to feel, 0 calories, water needed
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <section class="ingredients-section">
-      <div class="ingredients-container">
-        <h2 class="boucherie">What's Inside</h2>
-        <div class="ingredients-grid">
-          <div class="ingredient-card">
-            <div class="ingredient-name boucherie">Natural Caffeine</div>
-            <div class="ingredient-dosage energy">50mg per strip</div>
-            <p class="ingredient-desc">Derived from green coffee beans for clean, sustained energy without synthetic jitters. Half a cup of coffee, perfectly dosed.</p>
+
+    <!-- ===========================================
+         SECTION 2: CAFFEINE BANNER
+         Rotating value props
+         =========================================== -->
+    <section class="caffeine-banner-section">
+      <div class="banner-container">
+        <p class="banner-prefix">Caffeine, but</p>
+        
+        <div class="value-prop-wrapper">
+          <div class="value-prop active" data-index="0">
+            <p class="value-text">ultra-fast-acting.</p>
           </div>
-          <div class="ingredient-card">
-            <div class="ingredient-name boucherie">L-Theanine</div>
-            <div class="ingredient-dosage energy">100mg per strip</div>
-            <p class="ingredient-desc">Promotes calm focus and smooths out the energy curve. 2:1 ratio with caffeine for optimal synergy.</p>
+          <div class="value-prop" data-index="1">
+            <p class="value-text">focus-optimized.</p>
           </div>
-          <div class="ingredient-card">
-            <div class="ingredient-name boucherie">Vitamin B12</div>
-            <div class="ingredient-dosage energy">100% Daily Value</div>
-            <p class="ingredient-desc">Essential for energy metabolism and cognitive function. Supports natural energy production at the cellular level.</p>
+          <div class="value-prop" data-index="2">
+            <p class="value-text">always with you.</p>
           </div>
-          <div class="ingredient-card">
-            <div class="ingredient-name boucherie">Zero Additives</div>
-            <div class="ingredient-dosage energy">0 Calories • 0 Sugar</div>
-            <p class="ingredient-desc">No artificial colors, no synthetic sweeteners, no fillers. Just pure functional ingredients.</p>
+          <div class="value-prop" data-index="3">
+            <p class="value-text">jitter-free.</p>
           </div>
+          <div class="value-prop" data-index="4">
+            <p class="value-text">zero calories.</p>
+          </div>
+          <div class="value-prop" data-index="5">
+            <p class="value-text">zero artificial additives.</p>
+          </div>
+          <div class="value-prop" data-index="6">
+            <p class="value-text">no swallowing needed.</p>
+          </div>
+        </div>
+        
+        <div class="progress-track">
+          <div class="progress-dot active" data-index="0"></div>
+          <div class="progress-dot" data-index="1"></div>
+          <div class="progress-dot" data-index="2"></div>
+          <div class="progress-dot" data-index="3"></div>
+          <div class="progress-dot" data-index="4"></div>
+          <div class="progress-dot" data-index="5"></div>
+          <div class="progress-dot" data-index="6"></div>
         </div>
       </div>
     </section>
 
-    <section class="benefits-section">
-      <div class="benefits-container">
-        <h2 class="boucherie">Why Energy Strips?</h2>
-        <div class="benefits-grid">
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+
+    <!-- ===========================================
+         SECTION 3: ENERGY STATS
+         Animated bar charts and hero stat cards
+         =========================================== -->
+    <section class="energy-stats-section">
+      <div class="energy-stats-container">
+        <!-- Header Section -->
+        <div class="energy-stats-header">
+          <h2>Wingman Labs asked.<br>You answered.</h2>
+          <p>See what real people experience with <span class="wingman-energy"><span class="wingman-text">Wingman</span> <span class="energy-text">Energy</span></span>.</p>
+        </div>
+
+        <!-- Bar Charts Section -->
+        <div class="bottom-section">
+          <!-- Left Chart - Customer Feedback -->
+          <div class="chart-section liquid-glass-card left-chart">
+            <div class="bars-wrapper">
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="bar-percentage">88%</span>
+                  <span>feel improved focus</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="88"></div>
+                </div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="bar-percentage">93%</span>
+                  <span>find the format<br class="mobile-break"> more convenient</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="93"></div>
+                </div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="bar-percentage">94%</span>
+                  <span>recommend</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="94"></div>
+                </div>
+              </div>
             </div>
-            <h3 class="benefit-title boucherie">Fast Acting</h3>
-            <p class="benefit-desc">Feel the effects in 3-5 minutes, not 30-45 like pills or energy drinks.</p>
           </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+
+          <!-- Right Chart - Speed of Effect -->
+          <div class="chart-section liquid-glass-card right-chart">
+            <h3 class="chart-title">Customers feel effect</h3>
+            <div class="bars-wrapper">
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="time-label">Within 1 min</span>
+                  <span class="bar-percentage">40%</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="40"></div>
+                </div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="time-label">Within 2 min</span>
+                  <span class="bar-percentage">48%</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="48"></div>
+                </div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="time-label">Within 5 min</span>
+                  <span class="bar-percentage">84%</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="84"></div>
+                </div>
+              </div>
+              <div class="bar-item">
+                <div class="bar-label">
+                  <span class="time-label">Within 10 min</span>
+                  <span class="bar-percentage">92%</span>
+                </div>
+                <div class="bar-container">
+                  <div class="bar-fill" data-width="92"></div>
+                </div>
+              </div>
             </div>
-            <h3 class="benefit-title boucherie">Long Lasting</h3>
-            <p class="benefit-desc">4-6 hours of sustained focus without the crash thanks to L-theanine.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-            </div>
-            <h3 class="benefit-title boucherie">No Jitters</h3>
-            <p class="benefit-desc">L-Theanine balances the caffeine for smooth, focused energy.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
-            </div>
-            <h3 class="benefit-title boucherie">Travel Friendly</h3>
-            <p class="benefit-desc">TSA-approved. No liquids, no mess, fits in your wallet.</p>
           </div>
         </div>
+
+        <!-- Pagination dots for bar charts -->
+        <div class="pagination-dots" id="bottomChartsDots">
+          <div class="pagination-dot active"></div>
+          <div class="pagination-dot"></div>
+        </div>
+
+        <!-- Hero Stats Cards -->
+        <div class="top-stats">
+          <div class="stat-card liquid-glass-card">
+            <div class="stat-card-bg" 
+                 data-bg-mobile="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy_strip_in_water_e31c183c-82d2-404d-b9bc-ce81b2182ef2.jpg?v=1762996848&width=400"
+                 data-bg-desktop="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy_strip_in_water_e31c183c-82d2-404d-b9bc-ce81b2182ef2.jpg?v=1762996848&width=600"></div>
+            <div class="stat-content">
+              <div class="stat-number">88<span class="percent-sign">%</span></div>
+              <div class="stat-unit" style="opacity: 0; pointer-events: none;">SPACER</div>
+              <div class="stat-description">feel MORE energized<br>than from drinking coffee</div>
+            </div>
+          </div>
+          <div class="stat-card liquid-glass-card">
+            <div class="stat-card-bg" 
+                 data-bg-mobile="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Systemic_circulation.png?v=1761347245&width=400"
+                 data-bg-desktop="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Systemic_circulation.png?v=1761347245&width=600"></div>
+            <div class="stat-content">
+              <div class="stat-number">3.3</div>
+              <div class="stat-unit">MINUTES</div>
+              <div class="stat-description">average time to<br>feel Energy boost</div>
+            </div>
+          </div>
+          <div class="stat-card liquid-glass-card">
+            <div class="stat-card-bg" 
+                 data-bg-mobile="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_beans.jpg?v=1762996132&width=400"
+                 data-bg-desktop="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_beans.jpg?v=1762996132&width=600"></div>
+            <div class="stat-content">
+              <div class="stat-number">9</div>
+              <div class="stat-unit">/10</div>
+              <div class="stat-description">average<br>taste rating</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination dots for hero stats -->
+        <div class="pagination-dots" id="topStatsDots">
+          <div class="pagination-dot active"></div>
+          <div class="pagination-dot"></div>
+          <div class="pagination-dot"></div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="energy-stats-disclaimer">
+          <p>Self-reported results from voluntary participants, including customers and sample recipients. No compensation provided. Survey includes 84 responses to date and is not a clinical study.</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         SECTION 4: INGREDIENT SHOWCASE
+         Carousel with info modals
+         =========================================== -->
+    <div class="ingredient-section">
+      <div class="section-header">
+        <h2 class="section-title">Clinically-researched,</h2>
+        <h2 class="section-title">powerhouse ingredients</h2>
+        <p class="section-subtitle">for game-changing benefits.</p>
+      </div>
+      
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="carousel">
+          <!-- Caffeine Card -->
+          <div class="ingredient-card">
+            <div class="ingredient-image">
+              <span class="potency-badge">Premium Extract</span>
+              <span class="molecular-formula">C₈H₁₀N₄O₂</span>
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_cafeine_..png?v=1759363457&width=544" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_cafeine_..png?v=1759363457&width=272 272w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_cafeine_..png?v=1759363457&width=304 304w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_cafeine_..png?v=1759363457&width=544 544w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/coffee_cafeine_..png?v=1759363457&width=608 608w"
+                   sizes="(max-width: 767px) 272px, 304px"
+                   alt="Natural Caffeine"
+                   width="304" height="304"
+                   fetchpriority="high" decoding="async"
+                   onload="this.classList.add('loaded')">
+            </div>
+            <div class="ingredient-content">
+              <div class="ingredient-header">
+                <div class="ingredient-info">
+                  <h3 class="ingredient-name">Natural Caffeine</h3>
+                  <p class="ingredient-source">Coffea Arabica</p>
+                </div>
+                <div class="dosage-display">
+                  <div class="dosage-main">
+                    <span class="dosage-number">50</span>
+                    <span class="dosage-unit">mg</span>
+                  </div>
+                  <div class="dosage-percent">Optimal Dose</div>
+                </div>
+              </div>
+              <div class="specs-grid">
+                <div class="spec-item">
+                  <div class="spec-label">Source</div>
+                  <div class="spec-value">Natural</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Form</div>
+                  <div class="spec-value">Extract</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Purity</div>
+                  <div class="spec-value">98%</div>
+                </div>
+              </div>
+              <div class="function-section">
+                <p class="key-function">Primary Action</p>
+                <div class="function-claim">
+                  <span class="claim-text">Energy</span>
+                  <button class="info-btn" data-modal="caffeine">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- L-Theanine Card -->
+          <div class="ingredient-card">
+            <div class="ingredient-image">
+              <span class="potency-badge">Patented Form</span>
+              <span class="molecular-formula">C₇H₁₄N₂O₃</span>
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/L-theanine_ingredient_..png?v=1759363428&width=544" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/L-theanine_ingredient_..png?v=1759363428&width=272 272w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/L-theanine_ingredient_..png?v=1759363428&width=304 304w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/L-theanine_ingredient_..png?v=1759363428&width=544 544w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/L-theanine_ingredient_..png?v=1759363428&width=608 608w"
+                   sizes="(max-width: 767px) 272px, 304px"
+                   alt="L-Theanine"
+                   width="304" height="304"
+                   loading="lazy" decoding="async"
+                   onload="this.classList.add('loaded')">
+            </div>
+            <div class="ingredient-content">
+              <div class="ingredient-header">
+                <div class="ingredient-info">
+                  <h3 class="ingredient-name">L-Theanine</h3>
+                  <p class="ingredient-source">Camellia Sinensis</p>
+                </div>
+                <div class="dosage-display">
+                  <div class="dosage-main">
+                    <span class="dosage-number">30</span>
+                    <span class="dosage-unit">mg</span>
+                  </div>
+                  <div class="dosage-percent">Pure Form</div>
+                </div>
+              </div>
+              <div class="specs-grid">
+                <div class="spec-item">
+                  <div class="spec-label">Type</div>
+                  <div class="spec-value">Amino</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Source</div>
+                  <div class="spec-value">Tea</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Form</div>
+                  <div class="spec-value">L-isomer</div>
+                </div>
+              </div>
+              <div class="function-section">
+                <p class="key-function">Primary Action</p>
+                <div class="function-claim">
+                  <span class="claim-text">Focus</span>
+                  <button class="info-btn" data-modal="theanine">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- B12 Card -->
+          <div class="ingredient-card">
+            <div class="ingredient-image">
+              <span class="potency-badge">100% RDA</span>
+              <span class="molecular-formula">C₆₃H₈₈CoN₁₄O₁₄P</span>
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/B12_..png?v=1759363441&width=544" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/B12_..png?v=1759363441&width=272 272w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/B12_..png?v=1759363441&width=304 304w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/B12_..png?v=1759363441&width=544 544w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/B12_..png?v=1759363441&width=608 608w"
+                   sizes="(max-width: 767px) 272px, 304px"
+                   alt="Vitamin B12"
+                   width="304" height="304"
+                   loading="lazy" decoding="async"
+                   onload="this.classList.add('loaded')">
+            </div>
+            <div class="ingredient-content">
+              <div class="ingredient-header">
+                <div class="ingredient-info">
+                  <h3 class="ingredient-name">Vitamin B12</h3>
+                  <p class="ingredient-source">Methylcobalamin</p>
+                </div>
+                <div class="dosage-display">
+                  <div class="dosage-main">
+                    <span class="dosage-number">2.4</span>
+                    <span class="dosage-unit">mcg</span>
+                  </div>
+                  <div class="dosage-percent">100% DV</div>
+                </div>
+              </div>
+              <div class="specs-grid">
+                <div class="spec-item">
+                  <div class="spec-label">Form</div>
+                  <div class="spec-value">Methyl</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Type</div>
+                  <div class="spec-value">Active</div>
+                </div>
+                <div class="spec-item">
+                  <div class="spec-label">Soluble</div>
+                  <div class="spec-value">Water</div>
+                </div>
+              </div>
+              <div class="function-section">
+                <p class="key-function">Primary Action</p>
+                <div class="function-claim">
+                  <span class="claim-text">Metabolism</span>
+                  <button class="info-btn" data-modal="b12">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile navigation -->
+      <div class="mobile-nav">
+        <div class="page-indicator">
+          <span class="current-page" id="currentPage">01</span>
+          <span class="separator">/</span>
+          <span id="totalPages">03</span>
+        </div>
+        <div class="progress-indicators" id="progressIndicators">
+          <span class="indicator active" data-index="0"></span>
+          <span class="indicator" data-index="1"></span>
+          <span class="indicator" data-index="2"></span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Ingredient Modals -->
+    <div id="caffeineModal" class="ingredient-modal" data-modal-name="caffeine">
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal="caffeine">×</button>
+        <div class="modal-header">
+          <h3 class="modal-title">Natural Caffeine</h3>
+          <p class="modal-subtitle">Coffea Arabica Extract</p>
+        </div>
+        <div class="quick-benefit">
+          <p class="quick-benefit-text">Boosts energy and alertness by blocking adenosine receptors in the brain.</p>
+        </div>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <div class="stat-label">Dosage</div>
+            <div class="stat-value">50mg</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Source</div>
+            <div class="stat-value">Natural</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Form</div>
+            <div class="stat-value">Extract</div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Mechanism of Action</p>
+          <p class="modal-section-content">Caffeine works as an adenosine receptor antagonist in the central nervous system. Adenosine typically promotes sleepiness, so blocking these receptors helps maintain alertness and wakefulness.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Why This Dose</p>
+          <p class="modal-section-content">50mg provides alertness equivalent to about half a cup of coffee. This moderate dose is designed to enhance energy without causing jitters or crashes often associated with higher doses.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Source Quality</p>
+          <p class="modal-section-content">Extracted from green coffee beans using water extraction methods. This preserves natural compounds while ensuring purity and consistency.</p>
+        </div>
+        <p class="research-citation">Information based on established nutritional science</p>
+      </div>
+    </div>
+    
+    <div id="theanineModal" class="ingredient-modal" data-modal-name="theanine">
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal="theanine">×</button>
+        <div class="modal-header">
+          <h3 class="modal-title">L-Theanine</h3>
+          <p class="modal-subtitle">Camellia Sinensis Extract</p>
+        </div>
+        <div class="quick-benefit">
+          <p class="quick-benefit-text">Promotes calm focus by increasing alpha brain waves and balancing neurotransmitters.</p>
+        </div>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <div class="stat-label">Dosage</div>
+            <div class="stat-value">30mg</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Source</div>
+            <div class="stat-value">Green Tea</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Type</div>
+            <div class="stat-value">Amino Acid</div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">How It Works</p>
+          <p class="modal-section-content">L-Theanine is an amino acid that promotes alpha brain wave activity, which is associated with a state of relaxed alertness. It can cross the blood-brain barrier and influence neurotransmitter levels.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Synergy with Caffeine</p>
+          <p class="modal-section-content">L-Theanine is known to work synergistically with caffeine, potentially smoothing out caffeine's stimulant effects while maintaining alertness and focus.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Natural Occurrence</p>
+          <p class="modal-section-content">Found naturally in tea leaves, particularly green tea. The combination of L-theanine and caffeine in tea is why tea provides a different experience than coffee.</p>
+        </div>
+        <p class="research-citation">Information based on established nutritional science</p>
+      </div>
+    </div>
+    
+    <div id="b12Modal" class="ingredient-modal" data-modal-name="b12">
+      <div class="modal-content">
+        <button class="modal-close" data-close-modal="b12">×</button>
+        <div class="modal-header">
+          <h3 class="modal-title">Vitamin B12</h3>
+          <p class="modal-subtitle">Methylcobalamin</p>
+        </div>
+        <div class="quick-benefit">
+          <p class="quick-benefit-text">Essential for energy production, DNA synthesis, and healthy nerve function.</p>
+        </div>
+        <div class="modal-stats">
+          <div class="stat-item">
+            <div class="stat-label">Dosage</div>
+            <div class="stat-value">2.4mcg</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">DV</div>
+            <div class="stat-value">100%</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Form</div>
+            <div class="stat-value">Methyl</div>
+          </div>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Essential Functions</p>
+          <p class="modal-section-content">Vitamin B12 is essential for DNA synthesis, red blood cell formation, and neurological function. It plays a crucial role in energy metabolism at the cellular level.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Methylcobalamin Form</p>
+          <p class="modal-section-content">This is one of the active forms of B12 that the body can use directly, without requiring conversion like some other forms of B12.</p>
+        </div>
+        <div class="modal-section">
+          <p class="modal-section-title">Daily Value</p>
+          <p class="modal-section-content">2.4 micrograms represents 100% of the recommended daily value for adults. B12 is water-soluble, so excess amounts are typically excreted.</p>
+        </div>
+        <p class="research-citation">Information based on established nutritional science</p>
+      </div>
+    </div>
+
+
+    <!-- ===========================================
+         SECTION 5: USAGE CASES
+         Accordion with use case scenarios
+         =========================================== -->
+    <section class="usage-section">
+      <div class="section-header">
+        <div class="section-subtitle">Usage Cases: How to take advantage of the technology</div>
+        <h2 class="section-title">Feel The Difference</h2>
+      </div>
+      
+      <div class="benefits-row">
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+          </div>
+          <span>Fast Energy</span>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            </svg>
+          </div>
+          <span>No Crash</span>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <span>Mental Clarity</span>
+        </div>
+      </div>
+      
+      <div class="usage-grid" id="usageGrid">
+        <!-- Morning Kickstart -->
+        <div class="usage-item">
+          <div class="item-header">
+            <div class="header-left">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Grabbingstripsafterallarm_EnergySavior.jpg?v=1765237487&width=280" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Grabbingstripsafterallarm_EnergySavior.jpg?v=1765237487&width=100 100w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Grabbingstripsafterallarm_EnergySavior.jpg?v=1765237487&width=140 140w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Grabbingstripsafterallarm_EnergySavior.jpg?v=1765237487&width=200 200w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Grabbingstripsafterallarm_EnergySavior.jpg?v=1765237487&width=280 280w"
+                   sizes="(min-width: 1200px) 140px, (min-width: 768px) 120px, 100px"
+                   alt="Morning energy strip usage"
+                   width="140" height="140"
+                   class="item-thumb-small"
+                   fetchpriority="high" decoding="async">
+              <div class="header-text">
+                <h3 class="use-case-name">Turn Off the Snooze Reflex</h3>
+                <span class="time-badge">07:00 AM — Wake With Intent</span>
+              </div>
+            </div>
+            <div class="expand-icon">+</div>
+          </div>
+          <div class="item-content">
+            <div class="content-inner">
+              <div class="content-text">
+                <p class="content-description">Start the day clear, not groggy. A fast-acting lift that cuts through morning fog and gets your brain online before the world even starts moving. No brewing, no waiting—just immediate clarity you can feel.</p>
+                <div class="feature-icons">
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    <span>Instant Mental Activation</span>
+                  </div>
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span>Clear-Headed Start</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Afternoon Slump -->
+        <div class="usage-item">
+          <div class="item-header">
+            <div class="header-left">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_RIngs.png?v=1765232147&width=280" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_RIngs.png?v=1765232147&width=100 100w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_RIngs.png?v=1765232147&width=140 140w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_RIngs.png?v=1765232147&width=200 200w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_RIngs.png?v=1765232147&width=280 280w"
+                   sizes="(min-width: 1200px) 140px, (min-width: 768px) 120px, 100px"
+                   alt="Afternoon energy boost"
+                   width="140" height="140"
+                   class="item-thumb-small"
+                   loading="lazy" decoding="async">
+              <div class="header-text">
+                <h3 class="use-case-name">Break the 2PM Drop-Off</h3>
+                <span class="time-badge">02:00 PM — Reclaim Your Afternoon</span>
+              </div>
+            </div>
+            <div class="expand-icon">+</div>
+          </div>
+          <div class="item-content">
+            <div class="content-inner">
+              <div class="content-text">
+                <p class="content-description">When the slump hits, spike-free energy keeps you sharp without the jittery rebound of coffee or canned drinks. Stay focused, stay composed, and push through with steady cognitive power.</p>
+                <div class="feature-icons">
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                    </svg>
+                    <span>Steady Cognitive Drive</span>
+                  </div>
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="5"/>
+                    </svg>
+                    <span>No-Jitter Lift</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Workout Fuel -->
+        <div class="usage-item">
+          <div class="item-header">
+            <div class="header-left">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_Energy_strips_open_in_a_gym_bag.jpg?v=1758909974&width=280" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_Energy_strips_open_in_a_gym_bag.jpg?v=1758909974&width=100 100w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_Energy_strips_open_in_a_gym_bag.jpg?v=1758909974&width=140 140w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_Energy_strips_open_in_a_gym_bag.jpg?v=1758909974&width=200 200w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanLabs_Energy_strips_open_in_a_gym_bag.jpg?v=1758909974&width=280 280w"
+                   sizes="(min-width: 1200px) 140px, (min-width: 768px) 120px, 100px"
+                   alt="Pre-workout energy strips"
+                   width="140" height="140"
+                   class="item-thumb-small"
+                   loading="lazy" decoding="async">
+              <div class="header-text">
+                <h3 class="use-case-name">Switch On Training Mode</h3>
+                <span class="time-badge">Pre-Gym — Clean Performance Fuel</span>
+              </div>
+            </div>
+            <div class="expand-icon">+</div>
+          </div>
+          <div class="item-content">
+            <div class="content-inner">
+              <div class="content-text">
+                <p class="content-description">Hit the gym turned "on," not wired. Fast clarity plus calm focus helps you lock into reps, pacing, and endurance without bloat, sugar, or heavy pre-workout formulas.</p>
+                <div class="feature-icons">
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                    <span>Performance-Level Focus</span>
+                  </div>
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M12 2v20M2 12h20"/>
+                    </svg>
+                    <span>Clean, Light Activation</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Study / Deep Work -->
+        <div class="usage-item">
+          <div class="item-header">
+            <div class="header-left">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_Strip_On_Coffee_Mountain.jpg?v=1758855870&width=280" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_Strip_On_Coffee_Mountain.jpg?v=1758855870&width=100 100w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_Strip_On_Coffee_Mountain.jpg?v=1758855870&width=140 140w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_Strip_On_Coffee_Mountain.jpg?v=1758855870&width=200 200w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_Strip_On_Coffee_Mountain.jpg?v=1758855870&width=280 280w"
+                   sizes="(min-width: 1200px) 140px, (min-width: 768px) 120px, 100px"
+                   alt="Study session energy"
+                   width="140" height="140"
+                   class="item-thumb-small"
+                   loading="lazy" decoding="async">
+              <div class="header-text">
+                <h3 class="use-case-name">Stay Present. Stay Sharp.</h3>
+                <span class="time-badge">Study Mode — Sustained Mental Grip</span>
+              </div>
+            </div>
+            <div class="expand-icon">+</div>
+          </div>
+          <div class="item-content">
+            <div class="content-inner">
+              <div class="content-text">
+                <p class="content-description">For long study blocks or deep work sessions, the balanced lift keeps your attention anchored and your mind steady. No spikes, no crash—just reliable clarity that carries you through demanding cognitive tasks.</p>
+                <div class="feature-icons">
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M9 11l3 3L22 4"/>
+                      <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+                    </svg>
+                    <span>Long-Form Concentration</span>
+                  </div>
+                  <div class="feature-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/>
+                      <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span>Crash-Free Mental Stability</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="click-hint">Click a card to learn more</p>
+      
+      <div class="cta-container">
+        <button class="cta-button">Add Strips</button>
+        <a href="/products/sleep.html" class="bundle-link">Explore Sleep</a>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         SECTION 6: 50MG COMPARISON MODULE
+         Why 50mg hits harder
+         =========================================== -->
+    <div class="wm-energy-module">
+      <div class="wm-energy-container">
+        <h2 class="wm-head-boucherie">Why 50mg Hits Harder</h2>
+        <div class="wm-subhead-tech">Absorption Physics: Speed > Volume</div>
+    
+        <div class="wm-compare-grid">
+          <div class="wm-compare-card">
+            <div class="wm-img-zone">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Digestive_diagra__Simple.jpg?v=1765250396&width=600" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Digestive_diagra__Simple.jpg?v=1765250396&width=400 400w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Digestive_diagra__Simple.jpg?v=1765250396&width=500 500w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Digestive_diagra__Simple.jpg?v=1765250396&width=600 600w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Digestive_diagra__Simple.jpg?v=1765250396&width=800 800w"
+                   sizes="(max-width: 768px) calc(100vw - 24px), calc(50vw - 45px)"
+                   alt="Stomach Acid Digestion"
+                   width="600" height="338"
+                   fetchpriority="high" decoding="async">
+              <div class="wm-img-label">Digestive Absorption</div>
+            </div>
+            <div class="wm-txt-zone">
+              <h3 class="wm-card-title">The Old Way</h3>
+              <div class="wm-specs">
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">Time to Absorb</span>
+                  <span class="wm-spec-val val-slow">45 - 60 Minutes</span>
+                </div>
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">Metabolic Path</span>
+                  <span class="wm-spec-val">Stomach & Liver</span>
+                </div>
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">The Result</span>
+                  <span class="wm-spec-val val-bad">Slow Rise, Crash</span>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+          <div class="wm-compare-card">
+            <div class="wm-img-zone">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Simple_Diagram_tonguetoBlood.jpg?v=1765250397&width=600" 
+                   srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Simple_Diagram_tonguetoBlood.jpg?v=1765250397&width=400 400w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Simple_Diagram_tonguetoBlood.jpg?v=1765250397&width=500 500w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Simple_Diagram_tonguetoBlood.jpg?v=1765250397&width=600 600w,
+                           https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Simple_Diagram_tonguetoBlood.jpg?v=1765250397&width=800 800w"
+                   sizes="(max-width: 768px) calc(100vw - 24px), calc(50vw - 45px)"
+                   alt="Sublingual Absorption"
+                   width="600" height="338"
+                   loading="lazy" decoding="async">
+              <div class="wm-img-label orange">Direct Absorption</div>
+            </div>
+            <div class="wm-txt-zone">
+              <h3 class="wm-card-title" style="color:#F97316">Wingman Labs</h3>
+              <div class="wm-specs">
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">Dissolution Time</span>
+                  <span class="wm-spec-val">30 Seconds</span>
+                </div>
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">Metabolic Path</span>
+                  <span class="wm-spec-val">Mucosal (Direct)</span>
+                </div>
+                <div class="wm-spec-row">
+                  <span class="wm-spec-label">The Result</span>
+                  <span class="wm-spec-val val-good">Steady & Linear</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===========================================
+         SECTION 7: MONEY BACK GUARANTEE
+         =========================================== -->
+    <section class="mbg-inline">
+      <div class="mbg-inline__inner">
+        <div class="mbg-inline__coin">
+          <img 
+            class="mbg-inline__gif"
+            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy_coin_2.gif?v=1765325950&width=300"
+            alt="30 Day Money Back Guarantee"
+            width="150" height="150"
+            decoding="async">
+        </div>
+        <div class="mbg-inline__content">
+          <h3 class="mbg-inline__title">30-Day Money Back Guarantee</h3>
+          <p class="mbg-inline__text">In the highly unlikely event you're not blown away, simply let us know and we'll arrange for you to receive an immediate refund (even if you've used the entire pack).</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================================
+         SECTION 8: FULL COMPARISON TABLE
+         Mobile tabs and desktop slider versions
+         =========================================== -->
+    
+    <!-- Mobile Version -->
+    <div class="mobile-version">
+      <div class="wng-compare-wrapper">
+        <div class="wng-main">
+          <div class="wng-hero">
+            <h1 class="wng-hero-title">Compare latest energy options.</h1>
+            <p class="wng-hero-subtitle">See why Wingman transforms your days</p>
+          </div>
+          
+          <div class="wng-tabs-container">
+            <div class="wng-tabs" id="wngTabs">
+              <button class="wng-tab active" data-category="0">
+                <span class="wng-tab-icon">I</span>
+                <span>OVERVIEW</span>
+              </button>
+              <button class="wng-tab" data-category="1">
+                <span class="wng-tab-icon">N</span>
+                <span>NUTRITION</span>
+              </button>
+              <button class="wng-tab" data-category="2">
+                <span class="wng-tab-icon">E</span>
+                <span>EFFECTS</span>
+              </button>
+              <button class="wng-tab" data-category="3">
+                <span class="wng-tab-icon">P</span>
+                <span>PERFORMANCE</span>
+              </button>
+              <button class="wng-tab" data-category="4">
+                <span class="wng-tab-icon">$</span>
+                <span>PRICE</span>
+              </button>
+            </div>
+          </div>
+          
+          <div class="wng-content" id="wngContent">
+            <div class="wng-category-header">
+              <h2 class="wng-category-title" id="wngCategoryTitle">Overview</h2>
+              <p class="wng-category-desc" id="wngCategoryDesc">The complete picture</p>
+            </div>
+            
+            <div class="wng-products" id="wngProducts">
+              <!-- Dynamic content rendered by JS -->
+            </div>
+            
+            <div class="wng-disclaimer-mobile">
+              *Individual results may vary depending on caffeine tolerance, metabolism, activity level, and consistency of use. This comparison reflects typical user experiences.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Desktop Version -->
+    <div class="desktop-version">
+      <div class="wingman-compare-container">
+        <div class="compare-wrapper">
+          <div class="compare-header">
+            <h2 class="compare-title">Compare latest<br>energy options.</h2>
+            <p class="compare-subtitle">See why Wingman dominates</p>
+          </div>
+          
+          <div class="category-titles">
+            <div class="category-title-wrapper active" data-cat-title="0">
+              <h4 class="category-title">Overview</h4>
+            </div>
+            <div class="category-title-wrapper" data-cat-title="1">
+              <h4 class="category-title">Nutrition</h4>
+            </div>
+            <div class="category-title-wrapper" data-cat-title="2">
+              <h4 class="category-title">Effects</h4>
+            </div>
+            <div class="category-title-wrapper" data-cat-title="3">
+              <h4 class="category-title">Performance</h4>
+            </div>
+            <div class="category-title-wrapper" data-cat-title="4">
+              <h4 class="category-title">Price</h4>
+            </div>
+          </div>
+          
+          <div class="compare-layout">
+            <div class="products-sidebar">
+              <div class="product-item winner">
+                <div class="product-image">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/front.png?v=1758853033&width=260" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/front.png?v=1758853033&width=130 130w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/front.png?v=1758853033&width=260 260w"
+                       sizes="130px"
+                       alt="Wingman Energy"
+                       width="130" height="130"
+                       fetchpriority="high" decoding="async">
+                </div>
+                <div class="product-info">
+                  <div class="product-label current">Currently Viewing</div>
+                  <h3 class="product-name">Wingman Labs Energy</h3>
+                  <p class="product-tagline">Clean energy with breakthrough performance.</p>
+                </div>
+              </div>
+              
+              <div class="product-item">
+                <div class="product-image">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/CoffeeCupEnergyComparison.png?v=1758143867&width=260" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/CoffeeCupEnergyComparison.png?v=1758143867&width=130 130w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/CoffeeCupEnergyComparison.png?v=1758143867&width=260 260w"
+                       sizes="130px"
+                       alt="Frappuccino"
+                       width="130" height="130"
+                       loading="lazy" decoding="async">
+                </div>
+                <div class="product-info">
+                  <div class="product-label">Comparison</div>
+                  <h3 class="product-name">Frappuccino 16oz</h3>
+                  <p class="product-tagline">Sugar-loaded. Calorie bomb. Energy crash guaranteed.</p>
+                </div>
+              </div>
+              
+              <div class="product-item">
+                <div class="product-image">
+                  <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/EnergyDrinkComparison.png?v=1758079577&width=260" 
+                       srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/EnergyDrinkComparison.png?v=1758079577&width=130 130w,
+                               https://cdn.shopify.com/s/files/1/0606/2433/9038/files/EnergyDrinkComparison.png?v=1758079577&width=260 260w"
+                       sizes="130px"
+                       alt="Energy Drink"
+                       width="130" height="130"
+                       loading="lazy" decoding="async">
+                </div>
+                <div class="product-info">
+                  <div class="product-label">Comparison</div>
+                  <h3 class="product-name">Energy Drink 16oz</h3>
+                  <p class="product-tagline">Chemical cocktail. Synthetic everything.</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="compare-content">
+              <div class="peek-left"></div>
+              <div class="peek-right"></div>
+              
+              <div class="content-slider" id="contentSlider">
+                <!-- Overview -->
+                <div class="category-section">
+                  <div class="category-items">
+                    <div class="category-item winner">
+                      <p>Thinner than a credit card. 30-second activation. Zero sugar, zero calories. Natural caffeine + L-Theanine for smooth, jitter-free energy.</p>
+                    </div>
+                    <div class="category-item">
+                      <p>Overpriced sugar milk. 420 calories. Queue simulator at coffee shop. Highway to jitters and afternoon crash.</p>
+                    </div>
+                    <div class="category-item">
+                      <p>Synthetic caffeine bomb. Artificial ingredients. Bulky can. Heart palpitations often included.</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Nutrition -->
+                <div class="category-section">
+                  <div class="category-items">
+                    <div class="category-item winner">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value good">0</div>
+                          <div class="stat-label">Calories</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value good">0g/0g</div>
+                          <div class="stat-label">Sugar / Fat</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value bad">420</div>
+                          <div class="stat-label">Calories</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value bad">66g / 15g</div>
+                          <div class="stat-label">Sugar / Fat</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value bad">210</div>
+                          <div class="stat-label">Calories</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value bad">54g / 0g</div>
+                          <div class="stat-label">Sugar / Fat</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Effects -->
+                <div class="category-section">
+                  <div class="category-items">
+                    <div class="category-item winner">
+                      <div class="feature-list">
+                        <div class="feature-item">
+                          <div class="feature-icon">✓</div>
+                          <span class="feature-text">Clean, jitter-free energy</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon">✓</div>
+                          <span class="feature-text">Supports smooth mental focus</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon">✓</div>
+                          <span class="feature-text">Easy to dose and avoid over-caffeination</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon">✓</div>
+                          <span class="feature-text">Fast-acting, long-lasting support</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="feature-list">
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Can cause sudden sugar rush, then crash</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Heavy, sluggish feeling</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Acidic jolt can irritate stomach</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Stains teeth & causes coffee breath</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="feature-list">
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Can cause restless anxiety</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Heart racing and tense feeling</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Over-amped then sudden crash</span>
+                        </div>
+                        <div class="feature-item">
+                          <div class="feature-icon negative">×</div>
+                          <span class="feature-text">Linked to poor sleep and sleep cycle imbalance</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Performance -->
+                <div class="category-section">
+                  <div class="category-items">
+                    <div class="category-item winner">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value good">30 SEC</div>
+                          <div class="stat-label">Activation time</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value good">energy on demand</div>
+                          <div class="stat-label">Fits in wallet</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value bad">20+ MIN</div>
+                          <div class="stat-label">Wait time</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value bad">Spillable and perishable</div>
+                          <div class="stat-label">Waiting simulator</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="stat-group">
+                        <div class="stat-block">
+                          <div class="stat-value bad">20+ MIN</div>
+                          <div class="stat-label">Wait time</div>
+                        </div>
+                        <div class="stat-block">
+                          <div class="stat-value bad">Bulky</div>
+                          <div class="stat-label">Daily gas station run</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Price -->
+                <div class="category-section">
+                  <div class="category-items">
+                    <div class="category-item winner">
+                      <div class="price-wrapper">
+                        <div class="price-display best">$0.47</div>
+                        <div class="price-note">Per strip</div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="price-wrapper">
+                        <div class="price-display">$6.25</div>
+                        <div class="price-note">Per drink</div>
+                      </div>
+                    </div>
+                    <div class="category-item">
+                      <div class="price-wrapper">
+                        <div class="price-display">$3.99</div>
+                        <div class="price-note">Per can</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="nav-buttons" id="navButtons">
+            <button class="nav-btn active" data-nav="0">
+              <span class="nav-btn-icon">I</span>
+              <span>Overview</span>
+            </button>
+            <button class="nav-btn" data-nav="1">
+              <span class="nav-btn-icon">N</span>
+              <span>Nutrition</span>
+            </button>
+            <button class="nav-btn" data-nav="2">
+              <span class="nav-btn-icon">E</span>
+              <span>Effects</span>
+            </button>
+            <button class="nav-btn" data-nav="3">
+              <span class="nav-btn-icon">P</span>
+              <span>Performance</span>
+            </button>
+            <button class="nav-btn" data-nav="4">
+              <span class="nav-btn-icon">$</span>
+              <span>Price</span>
+            </button>
+          </div>
+          
+          <div class="wng-disclaimer">
+            *Individual results may vary depending on caffeine tolerance, metabolism, activity level, and consistency of use. This comparison reflects typical user experiences.
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===========================================
+         SECTION 9: FAQ SECTION
+         =========================================== -->
+    <section class="home-faq-wrapper">
+      <div class="home-faq-container">
+        <div class="home-faq-header">
+          <h2 class="home-faq-title">Energy Strip FAQ</h2>
+        </div>
+
+        <div class="home-faq-items">
+          <div class="home-faq-item">
+            <div class="home-faq-question">Will this replace my morning coffee?</div>
+            <div class="home-faq-answer">
+              <p>For many people, yes. Each strip has 50mg of caffeine – less than a full cup of coffee – but because it absorbs directly through your mouth and bypasses digestion, <strong>users often report feeling it more than their regular coffee.</strong> Most people feel it in minutes, not the 30-45 minutes it takes for coffee to kick in. No brewing, no coffee breath, no bathroom lines.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">How fast does it work?</div>
+            <div class="home-faq-answer">
+              <p>The strip dissolves in about <strong>30 seconds</strong> and absorbs through your mouth, bypassing your digestive system entirely. Most people feel the effects in minutes – much faster than pills, gummies, or even a cup of coffee that has to travel through your stomach first.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">Will I get jitters or a crash?</div>
+            <div class="home-faq-answer">
+              <p><strong>No jitters, no crash.</strong> We pair 50mg caffeine with 30mg L-theanine – a natural amino acid from green tea that smooths out the energy curve. You get calm, focused alertness without the anxiety or afternoon crash. Zero sugar means no blood sugar spike either. Many customers who can't handle coffee love our strips.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">How many strips can I take per day?</div>
+            <div class="home-faq-answer">
+              <p>We recommend starting with <strong>1 strip</strong> to gauge your response. The maximum is 4 strips per day (200mg total caffeine). Avoid combining with other caffeine sources like coffee or energy drinks if you're nearing that limit. If you're caffeine-sensitive, stick to 1-2 strips.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">What's in it?</div>
+            <div class="home-faq-answer">
+              <p><strong>50mg natural caffeine</strong> (from green tea), <strong>30mg L-theanine</strong>, plus Vitamin B12. Zero sugar, zero calories, coffee flavor. Made with plant-based pullulan film. Free from major allergens, gluten, artificial preservatives, and synthetic colors. Made in FDA-registered, GMP-certified facilities.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">Who shouldn't use it?</div>
+            <div class="home-faq-answer">
+              <p>Energy strips aren't for everyone. <strong>Avoid if you're:</strong> under 18, pregnant or nursing, caffeine-sensitive, or have heart conditions or anxiety disorders. If you're on medications – especially stimulants, sedatives, or antidepressants – consult your doctor first. When in doubt, start with one strip.</p>
+            </div>
+          </div>
+
+          <div class="home-faq-item">
+            <div class="home-faq-question">How do I use it?</div>
+            <div class="home-faq-answer">
+              <p><strong>Peel the sachet from the top and place the strip in your mouth.</strong> Let it dissolve – takes about 30 seconds. No water needed. <strong>Pro tip:</strong> place it under your tongue for faster absorption. And if it sticks to the roof of your mouth, don't worry – it will work no matter where in your mouth it sticks to. Works great first thing in the morning, pre-workout, or before a meeting.</p>
+            </div>
+          </div>
+        </div>
+
+        <p class="faq-disclaimer">
+          *These statements have not been evaluated by the FDA. This product is not intended to diagnose, treat, cure, or prevent any disease.
+        </p>
       </div>
     </section>
 
   </main>
 
+  <!-- Footer -->
   <footer class="wl-footer">
-    <div class="wl-est"><div class="wl-est-text"><span>EST. 2025</span><span class="wl-est-dot"></span><span>CALIFORNIA</span></div></div>
-    <div class="wl-footer-container">
-      <div class="wl-grid">
-        <div class="wl-brand"><h2>Wingman Labs</h2><p>Premium supplements engineered for peak performance</p></div>
-        <div class="wl-links-wrapper">
-          <div class="wl-link-group"><h3>Shop</h3><ul><li><a href="/products/energy.html">Energy</a></li><li><a href="/products/sleep.html">Sleep</a></li><li><a href="/pages/quickbuy.html">Bundle</a></li></ul></div>
-          <div class="wl-link-group"><h3>Company</h3><ul><li><a href="/pages/science.html">Science</a></li><li><a href="/pages/partners.html">Partners</a></li><li><a href="/pages/quality.html">Quality</a></li></ul></div>
-          <div class="wl-link-group"><h3>Support</h3><ul><li><a href="/pages/help.html">FAQ</a></li><li><a href="/pages/help.html">Contact</a></li><li><a href="/pages/quickbuy.html">Quick Buy</a></li></ul></div>
-          <div class="wl-link-group"><h3>Legal</h3><ul><li><a href="/pages/terms.html">Terms</a></li><li><a href="/pages/privacy.html">Privacy</a></li><li><a href="/pages/accessibility.html">Accessibility</a></li></ul></div>
+    <div class="wl-est">
+      <p class="wl-est-text">
+        <span class="wl-est-dot"></span>
+        EST. 2023
+        <span class="wl-est-dot"></span>
+        AUSTIN, TX
+        <span class="wl-est-dot"></span>
+      </p>
+    </div>
+    
+    <div class="wl-footer-main">
+      <div class="wl-footer-container">
+        <div class="wl-footer-grid">
+          <div class="wl-footer-col wl-footer-brand">
+            <a href="/" class="wl-footer-logo">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/logoblack.png?v=1747491479" alt="Wingman Labs">
+            </a>
+            <p class="wl-footer-tagline">Performance supplements that fit in your pocket.</p>
+          </div>
+          
+          <div class="wl-footer-col">
+            <h4 class="wl-footer-heading">Products</h4>
+            <ul class="wl-footer-links">
+              <li><a href="/products/energy.html">Energy Strips</a></li>
+              <li><a href="/products/sleep.html">Sleep Strips</a></li>
+              <li><a href="/pages/quickbuy.html">Quick Buy</a></li>
+            </ul>
+          </div>
+          
+          <div class="wl-footer-col">
+            <h4 class="wl-footer-heading">Company</h4>
+            <ul class="wl-footer-links">
+              <li><a href="/pages/about.html">About Us</a></li>
+              <li><a href="/pages/science.html">Science</a></li>
+              <li><a href="/pages/quality.html">Quality</a></li>
+              <li><a href="/pages/partners.html">Partners</a></li>
+            </ul>
+          </div>
+          
+          <div class="wl-footer-col">
+            <h4 class="wl-footer-heading">Support</h4>
+            <ul class="wl-footer-links">
+              <li><a href="/pages/help.html">Help/FAQ</a></li>
+              <li><a href="/pages/shipping.html">Shipping</a></li>
+              <li><a href="/pages/returns.html">Returns</a></li>
+              <li><a href="mailto:hello@thewingmanlabs.com">Contact</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="wl-stay-connected"><h3>Stay Connected</h3><div class="wl-social"><a href="https://www.instagram.com/thewingmanlabs/" aria-label="Instagram" target="_blank" rel="noopener"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="https://www.tiktok.com/@wingmanlabs" aria-label="TikTok" target="_blank" rel="noopener"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.34 6.34 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a></div></div>
       </div>
-      <div class="wl-bottom"><div class="wl-fda">*These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</div><span class="wl-copy">© 2026 Wingman Labs</span></div>
+    </div>
+    
+    <div class="wl-footer-bottom">
+      <div class="wl-footer-container">
+        <p class="wl-footer-copyright">© 2025 Wingman Labs. All rights reserved.</p>
+        <div class="wl-footer-legal">
+          <a href="/pages/privacy.html">Privacy Policy</a>
+          <a href="/pages/terms.html">Terms of Service</a>
+        </div>
+      </div>
     </div>
   </footer>
 
-  <script src="../config.js"></script>
-  <script src="../assets/js/header.js"></script>
-  <script src="../assets/js/products.js"></script>
+  <!-- Page JavaScript -->
+  <script src="../assets/js/page-energy.js"></script>
+  
 </body>
 </html>
