@@ -2,28 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Sleep Strips - Wingman Labs</title>
+  <meta name="description" content="Fall asleep faster with Wingman Sleep Strips. Melt on your tongue in 30 seconds with melatonin and a clinically researched natural sleep complex for restful nights.">
+  
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  
   <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+  
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-  <link rel="stylesheet" href="../assets/css/product.css">
+  <link rel="stylesheet" href="../assets/css/products.css">
+  
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/favicon-32x32.png">
 </head>
 <body>
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
   <header class="header solid">
     <div class="header-container">
       <a href="/" class="header-logo">WINGMAN LABS</a>
       <nav class="header-nav">
         <a href="/products/energy.html">Energy</a>
-        <a href="/products/sleep.html">Sleep</a>
+        <a href="/products/sleep.html" class="active">Sleep</a>
         <a href="/pages/science.html">Science</a>
         <a href="/pages/quickbuy.html">Quick Buy</a>
       </nav>
       <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
       <div class="header-actions">
-        <button class="header-icon" id="headerAccountBtn" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
-        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" style="display: none;">0</span></button>
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span id="cartCount" style="display: none;">0</span>
+        </button>
         <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
       </div>
     </div>
@@ -34,7 +57,9 @@
       <div class="cart-drawer-title">CART</div>
       <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
     </div>
-    <div class="cart-drawer-body" id="cartBody"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
     <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
       <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
       <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
@@ -42,97 +67,355 @@
     </div>
   </div>
 
-  <main class="product-main">
-    <section class="product-hero">
-      <div class="product-gallery sleep">
-        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-main.png?v=1762824900" alt="Sleep Strips" class="product-main-image" loading="lazy">
-        <div class="product-thumbnails">
-          <button class="product-thumbnail active"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-main.png?v=1762824900" alt="Main view"></button>
-          <button class="product-thumbnail"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/sleep-product-back.png?v=1762824900" alt="Back view"></button>
+  <main id="main-content" class="product-page" data-product="sleep">
+    
+    <div class="zoom-overlay" id="zoomOverlay">
+      <button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button>
+      <img id="zoomImage" src="" alt="Zoomed product image">
+    </div>
+
+    <div class="product-container">
+      
+      <div class="product-title-section">
+        <h1 class="product-main-title boucherie">SLEEP STRIPS</h1>
+        <p class="product-subtitle">Calm mind, pocket-thin</p>
+      </div>
+
+      <div class="product-content">
+        
+        <div class="product-gallery">
+          <div class="gallery-thumbs" id="galleryThumbs">
+            <button class="gallery-thumb active sleep" data-index="0">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Strip_and_Sachet.png?v=1765239278&width=120" 
+                   alt="Sleep strips package" width="60" height="60" loading="eager">
+            </button>
+            <button class="gallery-thumb sleep" data-index="1">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Calm_restful_sleep.jpg?v=1765234268&width=120" 
+                   alt="Calm restful sleep" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb sleep" data-index="2">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_howtouse.png?v=1765232763&width=120" 
+                   alt="How to use" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb sleep" data-index="3">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Ingredientss.png?v=1765233060&width=120" 
+                   alt="Ingredients" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb sleep" data-index="4">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsSleep.png?v=1764909962&width=120" 
+                   alt="Supplement facts" width="60" height="60" loading="lazy">
+            </button>
+          </div>
+
+          <div class="gallery-main" id="galleryMain">
+            <span class="image-counter" id="imageCounter">1/5</span>
+            <div class="gallery-nav" id="galleryNav">
+              <button class="gallery-nav-btn prev" data-nav="-1" aria-label="Previous image">‹</button>
+              <button class="gallery-nav-btn next" data-nav="1" aria-label="Next image">›</button>
+            </div>
+            <div class="gallery-slider" id="gallerySlider">
+              <div class="gallery-slide">
+                <span class="gallery-badge sleep">CRANBERRY MINT</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Strip_and_Sachet.png?v=1765239278&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Strip_and_Sachet.png?v=1765239278&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Strip_and_Sachet.png?v=1765239278&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Strip_and_Sachet.png?v=1765239278&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Sleep Strips product" width="600" height="600" fetchpriority="high">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge sleep">CRANBERRY MINT</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Calm_restful_sleep.jpg?v=1765234268&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Calm_restful_sleep.jpg?v=1765234268&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Calm_restful_sleep.jpg?v=1765234268&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Calm_restful_sleep.jpg?v=1765234268&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Calm restful sleep" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge sleep">CRANBERRY MINT</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_howtouse.png?v=1765232763&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_howtouse.png?v=1765232763&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_howtouse.png?v=1765232763&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_howtouse.png?v=1765232763&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="How to use" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge sleep">CRANBERRY MINT</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Ingredientss.png?v=1765233060&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Ingredientss.png?v=1765233060&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Ingredientss.png?v=1765233060&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanSleep_Ingredientss.png?v=1765233060&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Ingredients" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsSleep.png?v=1764909962&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsSleep.png?v=1764909962&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsSleep.png?v=1764909962&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsSleep.png?v=1764909962&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Supplement Facts" width="600" height="600" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-cards">
+            <div class="metric-card sleep">
+              <div class="metric-highlight sleep"></div>
+              <span class="metric-value boucherie">0</span>
+              <span class="metric-label">Sugar</span>
+            </div>
+            <div class="metric-card sleep">
+              <div class="metric-highlight sleep"></div>
+              <span class="metric-value boucherie">0</span>
+              <span class="metric-label">Calories</span>
+            </div>
+            <div class="metric-card sleep">
+              <div class="metric-highlight sleep"></div>
+              <span class="metric-value boucherie">
+                <span class="time-number">30</span> <span class="time-unit">sec</span>
+              </span>
+              <span class="metric-label">Dissolve</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-details">
+          
+          <div class="product-description">
+            Fall asleep faster. Wingman Sleep Strips melt on your tongue in 30 seconds and absorb through the mouth, so calming ingredients can start working sooner than gummies or capsules that must pass through digestion. Powered by melatonin and a clinically researched natural sleep complex including valerian root, chamomile, passionflower, and lavender—it's the zero-pill, zero-liquid way to wind down or recover your nights.
+          </div>
+
+          <div class="purchase-widget">
+            <div class="tab-nav" id="tabNav">
+              <button class="tab-btn" data-tab="onetime">One-Time</button>
+              <button class="tab-btn active" data-tab="subscribe">Subscribe & Save</button>
+              <button class="tab-btn" data-tab="bundle">
+                WINGMAN Bundle
+                <span class="tab-badge">BEST VALUE</span>
+              </button>
+            </div>
+
+            <div class="tab-content" id="onetime-tab">
+              <div class="pack-selector">
+                <span class="pack-label">Select Quantity</span>
+                <div class="pack-options" id="packOptions">
+                  <button class="pack-btn pack-sleep active" data-pack="1">1</button>
+                  <button class="pack-btn pack-sleep" data-pack="2">
+                    2
+                    <span class="discount-badge">-15%</span>
+                  </button>
+                  <button class="pack-btn pack-split-sleep" data-pack="3">
+                    1+1
+                    <span class="discount-badge">-15%</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie" id="onetime-price">$22.99</span>
+                  <span class="price-compare" id="onetime-compare">$32</span>
+                </div>
+                <div class="price-badges" id="onetime-badges">
+                  <span class="price-per-strip" id="onetime-perstrip">$0.77 PER STRIP</span>
+                </div>
+                <div class="price-desc shipping-emphasis" id="onetime-desc">30 strips • + $5.99 SHIPPING</div>
+              </div>
+
+              <button class="action-primary sleep" data-action="quickbuy-onetime">
+                <span id="onetime-cta">BUY NOW — $22.99</span>
+              </button>
+              <button class="action-secondary" id="onetime-add-cart" data-action="add-onetime">
+                Add to Cart
+              </button>
+
+              <div class="promo-link">
+                <a class="sleep" data-action="promo">Got a code?</a>
+              </div>
+            </div>
+
+            <div class="tab-content active" id="subscribe-tab">
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie" id="subscribe-price">$19.99</span>
+                  <span class="price-compare" id="subscribe-compare">$32</span>
+                  <div class="quantity-selector" id="qtySelector">
+                    <div class="quantity-controls">
+                      <button class="quantity-btn" id="qty-minus" data-qty-action="minus" disabled>−</button>
+                      <span class="quantity-display" id="qty-display">1</span>
+                      <button class="quantity-btn" id="qty-plus" data-qty-action="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <span class="price-per-strip" id="subscribe-perstrip">$0.67 PER STRIP</span>
+                <div class="free-shipping-badge">
+                  <span>✓</span>
+                  <span>FREE SHIPPING</span>
+                </div>
+                <div class="price-desc" id="subscribe-desc">30 strips • Deliver every 30 days • Cancel anytime</div>
+              </div>
+
+              <button class="action-primary sleep" data-action="subscribe">
+                <span id="subscribe-cta">SUBSCRIBE — $19.99/mo</span>
+              </button>
+              <button class="action-secondary" id="subscribe-add-cart" data-action="add-subscribe">
+                Add to Cart
+              </button>
+
+              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+            </div>
+
+            <div class="tab-content" id="bundle-tab">
+              <div class="pack-selector">
+                <span class="pack-label">Become a WINGMAN Partner — Elite Monthly Access</span>
+              </div>
+
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie">$29.99</span>
+                  <span class="price-compare">$82</span>
+                </div>
+                <span class="price-per-strip">$0.47 PER STRIP</span>
+                <div class="free-shipping-badge">
+                  <span>✓</span>
+                  <span>FREE SHIPPING + PERKS</span>
+                </div>
+                <div class="price-desc">60 strips/month • Sleep + Energy combo</div>
+              </div>
+
+              <div class="value-stack sleep-first">
+                <div class="value-item">
+                  <span class="value-icon sleep">☯</span>
+                  <span>YIN YANG: <span class="underline-sleep">30</span> pack of <span class="underline-sleep">Sleep</span> + <span class="underline-energy">30</span> pack of <span class="underline-energy">Energy</span></span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon sleep">✓</span>
+                  <span>Member pricing -20%</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon sleep">✓</span>
+                  <span>Extra sample packs in every delivery</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon sleep">✓</span>
+                  <span>Exclusive gift on month 3</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon sleep">✓</span>
+                  <span>Early access to new flavors</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon sleep">✓</span>
+                  <span>Free shipping + pause/skip anytime</span>
+                </div>
+              </div>
+
+              <button class="action-primary sleep" data-action="bundle">
+                <span>JOIN WINGMAN EXCLUSIVE — $29.99/mo</span>
+              </button>
+              <button class="action-secondary" id="bundle-add-cart" data-action="add-bundle">
+                Add to Cart
+              </button>
+
+              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+            </div>
+          </div>
+
+          <div class="trust-bar sleep">
+            <div class="trust-point">
+              <span class="trust-icon">✓</span>
+              <span class="trust-text">Lab Tested</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">↻</span>
+              <span class="trust-text">30-Day Return</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">→</span>
+              <span class="trust-text">Free Ship $50+</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">⚡</span>
+              <span class="trust-text">FDA Registered</span>
+            </div>
+          </div>
+
+          <div class="details-section" id="detailsSection">
+            <h3 class="details-header boucherie">Product Details</h3>
+            
+            <div class="detail-row" data-detail="0">
+              <span class="detail-label">Why Faster?</span>
+              <span class="detail-toggle sleep">+</span>
+            </div>
+            <div class="detail-content">
+              Wingman strips dissolve in your mouth and can enter your bloodstream straight away, bypassing stomach acid, the small intestine, and liver processing. No waiting 45 minutes for pills to kick in.
+            </div>
+
+            <div class="detail-row" data-detail="1">
+              <span class="detail-label">What's Inside?</span>
+              <span class="detail-toggle sleep">+</span>
+            </div>
+            <div class="detail-content">
+              <strong>Sleep Strips:</strong> Valerian Root (25mg), Chamomile (10mg), Passion Flower (10mg), Lavender (10mg), Melatonin (5mg), Vitamin B6 (1.7mg, 100% DV). Other Ingredients: Pullulan, Cellulose, Cranberry Flavor, Lecithin, Monk Fruit Extract, Sorbitol, Medium Chain Triglycerides, Peppermint Flavor, Steviol Glycosides.
+            </div>
+
+            <div class="detail-row" data-detail="2">
+              <span class="detail-label">How To Use?</span>
+              <span class="detail-toggle sleep">+</span>
+            </div>
+            <div class="detail-content">
+              Take 15-30 minutes before desired sleep time. Place on tongue, under tongue, or against cheek (buccal). Let dissolve (30-45 seconds). Use 1 strip nightly. Do not exceed 2 strips per 24 hours.
+            </div>
+
+            <div class="detail-row" data-detail="3">
+              <span class="detail-label">What Does It Taste Like?</span>
+              <span class="detail-toggle sleep">+</span>
+            </div>
+            <div class="detail-content">
+              Refreshing cranberry mint—tart cranberry with a cool peppermint finish. Pleasant and not overly sweet.
+            </div>
+
+            <div class="detail-row" data-detail="4">
+              <span class="detail-label">Comparison Chart</span>
+              <span class="detail-toggle sleep">+</span>
+            </div>
+            <div class="detail-content">
+              <strong>Strips:</strong> $0.47-0.77/serving, 5-15min to feel, 0 calories, portable<br>
+              <strong>Gummies:</strong> $0.30-0.80/serving, 30-45min to feel, 10-30 calories, sticky<br>
+              <strong>Pills:</strong> $0.15-0.50/serving, 30-60min to feel, 0 calories, water needed<br>
+              <strong>Liquid:</strong> $0.50-1.50/serving, 15-30min to feel, 5-50 calories, messy
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-info">
-        <span class="product-badge sleep">Sleep</span>
-        <h1 class="product-title">Sleep Strips</h1>
-        <p class="product-tagline">Fall asleep fast. Wake up refreshed. 30 strips per pack.</p>
-
-        <div class="product-price-block">
-          <span class="product-price" id="product-price">$19.99</span>
-          <span class="product-compare-price" id="compare-price">$22.99</span>
-          <span class="product-per-strip">$0.67 per strip</span>
-        </div>
-
-        <div class="purchase-options">
-          <div class="purchase-option" data-option="onetime">
-            <div class="purchase-option-header">
-              <span class="purchase-option-title">One-Time Purchase</span>
-              <span class="purchase-option-price">$22.99</span>
-            </div>
-            <p class="purchase-option-desc">+ $5.99 shipping</p>
-          </div>
-          <div class="purchase-option selected" data-option="subscribe">
-            <span class="purchase-save-badge">Save 20%</span>
-            <div class="purchase-option-header">
-              <span class="purchase-option-title">Subscribe & Save</span>
-              <span class="purchase-option-price">$19.99</span>
-            </div>
-            <p class="purchase-option-desc">Free shipping • Delivered every 30 days • Cancel anytime</p>
-          </div>
-        </div>
-
-        <div class="quantity-selector">
-          <span class="quantity-label">Quantity</span>
-          <div class="quantity-controls">
-            <button class="quantity-btn" id="qty-minus">−</button>
-            <input type="number" class="quantity-value" id="qty-value" value="1" min="1" max="10" readonly>
-            <button class="quantity-btn" id="qty-plus">+</button>
-          </div>
-        </div>
-
-        <button class="add-to-cart-btn sleep" id="add-to-cart">
-          <span>Add to Cart</span>
-        </button>
-
-        <div class="product-guarantees">
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>30-Day Guarantee</span>
-          </div>
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-            <span>Free Shipping on Subscribe</span>
-          </div>
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>Non-Habit Forming</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <section class="ingredients-section">
       <div class="ingredients-container">
         <h2 class="boucherie">What's Inside</h2>
         <div class="ingredients-grid">
           <div class="ingredient-card">
-            <div class="ingredient-name">Melatonin</div>
-            <div class="ingredient-dosage">3mg</div>
-            <p class="ingredient-desc">Your body's natural sleep hormone delivered at an optimal dose for fast, effective sleep onset.</p>
+            <div class="ingredient-name boucherie">Melatonin</div>
+            <div class="ingredient-dosage sleep">5mg per strip</div>
+            <p class="ingredient-desc">The body's natural sleep hormone. Helps regulate your circadian rhythm and signals to your body it's time for rest.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">L-Theanine</div>
-            <div class="ingredient-dosage">100mg</div>
-            <p class="ingredient-desc">Promotes relaxation and calm without sedation, helping you wind down naturally.</p>
+            <div class="ingredient-name boucherie">Valerian Root</div>
+            <div class="ingredient-dosage sleep">25mg per strip</div>
+            <p class="ingredient-desc">A clinically studied botanical that promotes relaxation and has been used for centuries to support healthy sleep.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">GABA</div>
-            <div class="ingredient-dosage">100mg</div>
-            <p class="ingredient-desc">A calming neurotransmitter that helps reduce anxiety and promote restful sleep.</p>
+            <div class="ingredient-name boucherie">Chamomile + Lavender</div>
+            <div class="ingredient-dosage sleep">20mg combined</div>
+            <p class="ingredient-desc">Traditional calming botanicals that help reduce anxiety and promote a sense of tranquility before bed.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">Chamomile</div>
-            <div class="ingredient-dosage">Extract</div>
-            <p class="ingredient-desc">Traditional botanical known for its gentle, soothing effects on mind and body.</p>
+            <div class="ingredient-name boucherie">Passionflower</div>
+            <div class="ingredient-dosage sleep">10mg per strip</div>
+            <p class="ingredient-desc">Supports GABA activity in the brain, helping to quiet racing thoughts and ease into restful sleep.</p>
           </div>
         </div>
       </div>
@@ -144,35 +427,36 @@
         <div class="benefits-grid">
           <div class="benefit-item">
             <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            </div>
-            <h3 class="benefit-title">Fall Asleep Fast</h3>
-            <p class="benefit-desc">Sublingual absorption means you'll feel relaxed in minutes, not hours.</p>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
-            <h3 class="benefit-title">No Grogginess</h3>
-            <p class="benefit-desc">Precise dosing means you wake up refreshed, not foggy.</p>
+            <h3 class="benefit-title boucherie">Fast Acting</h3>
+            <p class="benefit-desc">Feel calm in 5-15 minutes, not 45+ like gummies or pills.</p>
           </div>
           <div class="benefit-item">
             <div class="benefit-icon">
-              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.2-2.8-2.7L7 14.3"/></svg>
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
             </div>
-            <h3 class="benefit-title">Non-Habit Forming</h3>
-            <p class="benefit-desc">Use as needed without developing dependency.</p>
+            <h3 class="benefit-title boucherie">Wake Refreshed</h3>
+            <p class="benefit-desc">No grogginess. The right dose at the right absorption rate.</p>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon">
+              <svg viewBox="0 0 24 24" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="benefit-title boucherie">Natural Ingredients</h3>
+            <p class="benefit-desc">Clinically studied botanicals, not synthetic sleep aids.</p>
           </div>
           <div class="benefit-item">
             <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
             </div>
-            <h3 class="benefit-title">Perfect for Travel</h3>
-            <p class="benefit-desc">TSA-approved. Great for jet lag and hotel stays.</p>
+            <h3 class="benefit-title boucherie">Travel Perfect</h3>
+            <p class="benefit-desc">Jet lag solution. TSA-approved, fits anywhere.</p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="wl-footer">
@@ -194,6 +478,6 @@
 
   <script src="../config.js"></script>
   <script src="../assets/js/header.js"></script>
-  <script src="../assets/js/product.js"></script>
+  <script src="../assets/js/products.js"></script>
 </body>
 </html>

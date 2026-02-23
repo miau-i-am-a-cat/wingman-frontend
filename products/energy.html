@@ -2,28 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Energy Strips - Wingman Labs</title>
+  <meta name="description" content="Clean, sustained energy in minutes. Wingman Energy Strips dissolve on your tongue in 30 seconds with natural caffeine and L-theanine for smooth focus without jitters.">
+  
+  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+  <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+  
   <link rel="stylesheet" href="https://use.typekit.net/ykj2zlv.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap">
+  
   <link rel="stylesheet" href="../assets/css/global.css">
   <link rel="stylesheet" href="../assets/css/header.css">
   <link rel="stylesheet" href="../assets/css/footer.css">
-  <link rel="stylesheet" href="../assets/css/product.css">
+  <link rel="stylesheet" href="../assets/css/products.css">
+  
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/favicon-32x32.png">
 </head>
 <body>
+  <a href="#main-content" class="skip-nav">Skip to main content</a>
+
   <header class="header solid">
     <div class="header-container">
       <a href="/" class="header-logo">WINGMAN LABS</a>
       <nav class="header-nav">
-        <a href="/products/energy.html">Energy</a>
+        <a href="/products/energy.html" class="active">Energy</a>
         <a href="/products/sleep.html">Sleep</a>
         <a href="/pages/science.html">Science</a>
         <a href="/pages/quickbuy.html">Quick Buy</a>
       </nav>
       <a href="/pages/quickbuy.html" class="header-quick-buy">QUICK BUY</a>
       <div class="header-actions">
-        <button class="header-icon" id="headerAccountBtn" aria-label="Account"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></button>
-        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span id="cartCount" style="display: none;">0</span></button>
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span id="cartCount" style="display: none;">0</span>
+        </button>
         <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
       </div>
     </div>
@@ -34,7 +57,9 @@
       <div class="cart-drawer-title">CART</div>
       <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
     </div>
-    <div class="cart-drawer-body" id="cartBody"><div class="cart-empty">Your cart is empty</div></div>
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
     <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
       <div class="cart-subtotal"><span>Subtotal</span><span id="cartSubtotal">$0.00</span></div>
       <div class="cart-total"><span>Total</span><span id="cartTotal">$0.00</span></div>
@@ -42,97 +67,355 @@
     </div>
   </div>
 
-  <main class="product-main">
-    <section class="product-hero">
-      <div class="product-gallery energy">
-        <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy-product-main.png?v=1762824900" alt="Energy Strips" class="product-main-image" loading="lazy">
-        <div class="product-thumbnails">
-          <button class="product-thumbnail active"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy-product-main.png?v=1762824900" alt="Main view"></button>
-          <button class="product-thumbnail"><img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/energy-product-back.png?v=1762824900" alt="Back view"></button>
+  <main id="main-content" class="product-page" data-product="energy">
+    
+    <div class="zoom-overlay" id="zoomOverlay">
+      <button class="zoom-close" id="zoomClose" aria-label="Close zoom">×</button>
+      <img id="zoomImage" src="" alt="Zoomed product image">
+    </div>
+
+    <div class="product-container">
+      
+      <div class="product-title-section">
+        <h1 class="product-main-title boucherie">ENERGY STRIPS</h1>
+        <p class="product-subtitle">Clean focus, pocket-thin</p>
+      </div>
+
+      <div class="product-content">
+        
+        <div class="product-gallery">
+          <div class="gallery-thumbs" id="galleryThumbs">
+            <button class="gallery-thumb active" data-index="0">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=120" 
+                   alt="Energy strips package" width="60" height="60" loading="eager">
+            </button>
+            <button class="gallery-thumb" data-index="1">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=120" 
+                   alt="Coffee in your pocket" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb" data-index="2">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=120" 
+                   alt="How to use" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb" data-index="3">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=120" 
+                   alt="Ingredients" width="60" height="60" loading="lazy">
+            </button>
+            <button class="gallery-thumb" data-index="4">
+              <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=120" 
+                   alt="Supplement facts" width="60" height="60" loading="lazy">
+            </button>
+          </div>
+
+          <div class="gallery-main" id="galleryMain">
+            <span class="image-counter" id="imageCounter">1/5</span>
+            <div class="gallery-nav" id="galleryNav">
+              <button class="gallery-nav-btn prev" data-nav="-1" aria-label="Previous image">‹</button>
+              <button class="gallery-nav-btn next" data-nav="1" aria-label="Next image">›</button>
+            </div>
+            <div class="gallery-slider" id="gallerySlider">
+              <div class="gallery-slide">
+                <span class="gallery-badge">DARK-ROAST COFFEE</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/Energy_final_strip_and_sachet_1.jpg?v=1765239344&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Energy Strips product" width="600" height="600" fetchpriority="high">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge">DARK-ROAST COFFEE</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Strip_Coffeeinyourpocket.png?v=1765232073&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Coffee in your pocket" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge">DARK-ROAST COFFEE</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_howtouse.png?v=1765232749&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="How to use" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <span class="gallery-badge">DARK-ROAST COFFEE</span>
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/WingmanEnergy_Ingredients_falling.png?v=1765232758&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Ingredients" width="600" height="600" loading="lazy">
+              </div>
+              <div class="gallery-slide">
+                <img src="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600" 
+                     srcset="https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=400 400w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=600 600w,
+                             https://cdn.shopify.com/s/files/1/0606/2433/9038/files/SupplementFactsEnergy.png?v=1764909964&width=800 800w"
+                     sizes="(max-width: 767px) calc(100vw - 100px), 45vw"
+                     alt="Supplement Facts" width="600" height="600" loading="lazy">
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-cards">
+            <div class="metric-card">
+              <div class="metric-highlight"></div>
+              <span class="metric-value boucherie">0</span>
+              <span class="metric-label">Sugar</span>
+            </div>
+            <div class="metric-card">
+              <div class="metric-highlight"></div>
+              <span class="metric-value boucherie">0</span>
+              <span class="metric-label">Calories</span>
+            </div>
+            <div class="metric-card">
+              <div class="metric-highlight"></div>
+              <span class="metric-value boucherie">
+                <span class="time-number">30</span> <span class="time-unit">sec</span>
+              </span>
+              <span class="metric-label">Dissolve</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-details">
+          
+          <div class="product-description">
+            Get clean, sustained energy in minutes—not an hour. Wingman Energy Strips dissolve on your tongue in about 30 seconds and begin absorbing in the mouth, so actives reach your system faster than drinks or pills that must pass through the stomach. Powered by natural caffeine and L-theanine for smooth focus without the jittery spike, it's your pocket-sized upgrade for mornings, afternoons, work, workouts, and anytime you need energy and focus.
+          </div>
+
+          <div class="purchase-widget">
+            <div class="tab-nav" id="tabNav">
+              <button class="tab-btn" data-tab="onetime">One-Time</button>
+              <button class="tab-btn active" data-tab="subscribe">Subscribe & Save</button>
+              <button class="tab-btn" data-tab="bundle">
+                WINGMAN Bundle
+                <span class="tab-badge">BEST VALUE</span>
+              </button>
+            </div>
+
+            <div class="tab-content" id="onetime-tab">
+              <div class="pack-selector">
+                <span class="pack-label">Select Quantity</span>
+                <div class="pack-options" id="packOptions">
+                  <button class="pack-btn pack-energy active" data-pack="1">1</button>
+                  <button class="pack-btn pack-energy" data-pack="2">
+                    2
+                    <span class="discount-badge">-15%</span>
+                  </button>
+                  <button class="pack-btn pack-split" data-pack="3">
+                    1+1
+                    <span class="discount-badge">-15%</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie" id="onetime-price">$22.99</span>
+                  <span class="price-compare" id="onetime-compare">$32</span>
+                </div>
+                <div class="price-badges" id="onetime-badges">
+                  <span class="price-per-strip" id="onetime-perstrip">$0.77 PER STRIP</span>
+                </div>
+                <div class="price-desc shipping-emphasis" id="onetime-desc">30 strips • + $5.99 SHIPPING</div>
+              </div>
+
+              <button class="action-primary" data-action="quickbuy-onetime">
+                <span id="onetime-cta">BUY NOW — $22.99</span>
+              </button>
+              <button class="action-secondary" id="onetime-add-cart" data-action="add-onetime">
+                Add to Cart
+              </button>
+
+              <div class="promo-link">
+                <a data-action="promo">Got a code?</a>
+              </div>
+            </div>
+
+            <div class="tab-content active" id="subscribe-tab">
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie" id="subscribe-price">$19.99</span>
+                  <span class="price-compare" id="subscribe-compare">$32</span>
+                  <div class="quantity-selector" id="qtySelector">
+                    <div class="quantity-controls">
+                      <button class="quantity-btn" id="qty-minus" data-qty-action="minus" disabled>−</button>
+                      <span class="quantity-display" id="qty-display">1</span>
+                      <button class="quantity-btn" id="qty-plus" data-qty-action="plus">+</button>
+                    </div>
+                  </div>
+                </div>
+                <span class="price-per-strip" id="subscribe-perstrip">$0.67 PER STRIP</span>
+                <div class="free-shipping-badge">
+                  <span>✓</span>
+                  <span>FREE SHIPPING</span>
+                </div>
+                <div class="price-desc" id="subscribe-desc">30 strips • Deliver every 30 days • Cancel anytime</div>
+              </div>
+
+              <button class="action-primary" data-action="subscribe">
+                <span id="subscribe-cta">SUBSCRIBE — $19.99/mo</span>
+              </button>
+              <button class="action-secondary" id="subscribe-add-cart" data-action="add-subscribe">
+                Add to Cart
+              </button>
+
+              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+            </div>
+
+            <div class="tab-content" id="bundle-tab">
+              <div class="pack-selector">
+                <span class="pack-label">Become a WINGMAN Partner — Elite Monthly Access</span>
+              </div>
+
+              <div class="price-display">
+                <div class="price-main">
+                  <span class="price-value boucherie">$29.99</span>
+                  <span class="price-compare">$82</span>
+                </div>
+                <span class="price-per-strip">$0.47 PER STRIP</span>
+                <div class="free-shipping-badge">
+                  <span>✓</span>
+                  <span>FREE SHIPPING + PERKS</span>
+                </div>
+                <div class="price-desc">60 strips/month • Energy + Sleep combo</div>
+              </div>
+
+              <div class="value-stack">
+                <div class="value-item">
+                  <span class="value-icon">☯</span>
+                  <span>YIN YANG: <span class="underline-energy">30</span> pack of <span class="underline-energy">Energy</span> + <span class="underline-sleep">30</span> pack of <span class="underline-sleep">Sleep</span></span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">✓</span>
+                  <span>Member pricing -20%</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">✓</span>
+                  <span>Extra sample packs in every delivery</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">✓</span>
+                  <span>Exclusive gift on month 3</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">✓</span>
+                  <span>Early access to new flavors</span>
+                </div>
+                <div class="value-item">
+                  <span class="value-icon">✓</span>
+                  <span>Free shipping + pause/skip anytime</span>
+                </div>
+              </div>
+
+              <button class="action-primary" data-action="bundle">
+                <span>JOIN WINGMAN EXCLUSIVE — $29.99/mo</span>
+              </button>
+              <button class="action-secondary" id="bundle-add-cart" data-action="add-bundle">
+                Add to Cart
+              </button>
+
+              <div class="micro-trust">Cancel in 2 clicks • No junk fees • 30-day return</div>
+            </div>
+          </div>
+
+          <div class="trust-bar">
+            <div class="trust-point">
+              <span class="trust-icon">✓</span>
+              <span class="trust-text">Lab Tested</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">↻</span>
+              <span class="trust-text">30-Day Return</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">→</span>
+              <span class="trust-text">Free Ship $50+</span>
+            </div>
+            <div class="trust-point">
+              <span class="trust-icon">⚡</span>
+              <span class="trust-text">FDA Registered</span>
+            </div>
+          </div>
+
+          <div class="details-section" id="detailsSection">
+            <h3 class="details-header boucherie">Product Details</h3>
+            
+            <div class="detail-row" data-detail="0">
+              <span class="detail-label">Why Faster?</span>
+              <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-content">
+              Wingman strips dissolve in your mouth and can enter your bloodstream straight away, bypassing stomach acid, the small intestine, and liver processing. Experience it for yourself.
+            </div>
+
+            <div class="detail-row" data-detail="1">
+              <span class="detail-label">What's Inside?</span>
+              <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-content">
+              <strong>Energy Strips:</strong> Caffeine (50mg), L-Theanine (100mg), Vitamin B12 (2.4mcg, 100% DV), Vitamin B6 (1.7mg, 100% DV). Other Ingredients: Pullulan, Cellulose, Natural Flavors, Lecithin, Monk Fruit Extract, Sorbitol, Medium Chain Triglycerides, Steviol Glycosides.
+            </div>
+
+            <div class="detail-row" data-detail="2">
+              <span class="detail-label">How To Use?</span>
+              <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-content">
+              Place on tongue, under tongue, or against cheek (buccal). Let dissolve (30-45 seconds). Take 1-2 daily when you need energy. We recommend not taking 6 hours before sleep. Do not exceed 4 per day.
+            </div>
+
+            <div class="detail-row" data-detail="3">
+              <span class="detail-label">What Does It Taste Like?</span>
+              <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-content">
+              Dark roast coffee, no milk, no sugar.
+            </div>
+
+            <div class="detail-row" data-detail="4">
+              <span class="detail-label">Comparison Chart</span>
+              <span class="detail-toggle">+</span>
+            </div>
+            <div class="detail-content">
+              <strong>Strips:</strong> $0.47-0.77/serving, 30 seconds to feel, 0 calories, portable<br>
+              <strong>Coffee:</strong> $2-5/serving, 10-15min to feel, 5-100 calories, not portable<br>
+              <strong>Energy drinks:</strong> $3-5/serving, 10-20min to feel, 140-300 calories, bulky<br>
+              <strong>Pills:</strong> $0.50-1.50/serving, 20-30min to feel, 0 calories, water needed
+            </div>
+          </div>
         </div>
       </div>
-      <div class="product-info">
-        <span class="product-badge energy">Energy</span>
-        <h1 class="product-title">Energy Strips</h1>
-        <p class="product-tagline">Clean focus. Zero jitters. 30 strips per pack.</p>
-
-        <div class="product-price-block">
-          <span class="product-price" id="product-price">$19.99</span>
-          <span class="product-compare-price" id="compare-price">$22.99</span>
-          <span class="product-per-strip">$0.67 per strip</span>
-        </div>
-
-        <div class="purchase-options">
-          <div class="purchase-option" data-option="onetime">
-            <div class="purchase-option-header">
-              <span class="purchase-option-title">One-Time Purchase</span>
-              <span class="purchase-option-price">$22.99</span>
-            </div>
-            <p class="purchase-option-desc">+ $5.99 shipping</p>
-          </div>
-          <div class="purchase-option selected" data-option="subscribe">
-            <span class="purchase-save-badge">Save 20%</span>
-            <div class="purchase-option-header">
-              <span class="purchase-option-title">Subscribe & Save</span>
-              <span class="purchase-option-price">$19.99</span>
-            </div>
-            <p class="purchase-option-desc">Free shipping • Delivered every 30 days • Cancel anytime</p>
-          </div>
-        </div>
-
-        <div class="quantity-selector">
-          <span class="quantity-label">Quantity</span>
-          <div class="quantity-controls">
-            <button class="quantity-btn" id="qty-minus">−</button>
-            <input type="number" class="quantity-value" id="qty-value" value="1" min="1" max="10" readonly>
-            <button class="quantity-btn" id="qty-plus">+</button>
-          </div>
-        </div>
-
-        <button class="add-to-cart-btn energy" id="add-to-cart">
-          <span>Add to Cart</span>
-        </button>
-
-        <div class="product-guarantees">
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span>30-Day Guarantee</span>
-          </div>
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>
-            <span>Free Shipping on Subscribe</span>
-          </div>
-          <div class="guarantee-item">
-            <svg viewBox="0 0 24 24" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>GMP Certified</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <section class="ingredients-section">
       <div class="ingredients-container">
         <h2 class="boucherie">What's Inside</h2>
         <div class="ingredients-grid">
           <div class="ingredient-card">
-            <div class="ingredient-name">Natural Caffeine</div>
-            <div class="ingredient-dosage">100mg</div>
-            <p class="ingredient-desc">Derived from green coffee beans for clean, sustained energy without the synthetic jitters.</p>
+            <div class="ingredient-name boucherie">Natural Caffeine</div>
+            <div class="ingredient-dosage energy">50mg per strip</div>
+            <p class="ingredient-desc">Derived from green coffee beans for clean, sustained energy without synthetic jitters. Half a cup of coffee, perfectly dosed.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">L-Theanine</div>
-            <div class="ingredient-dosage">200mg</div>
-            <p class="ingredient-desc">Promotes calm focus and smooths out the energy curve for jitter-free alertness.</p>
+            <div class="ingredient-name boucherie">L-Theanine</div>
+            <div class="ingredient-dosage energy">100mg per strip</div>
+            <p class="ingredient-desc">Promotes calm focus and smooths out the energy curve. 2:1 ratio with caffeine for optimal synergy.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">B-Vitamins</div>
-            <div class="ingredient-dosage">Complex</div>
-            <p class="ingredient-desc">Essential vitamins that support natural energy metabolism and cognitive function.</p>
+            <div class="ingredient-name boucherie">Vitamin B12</div>
+            <div class="ingredient-dosage energy">100% Daily Value</div>
+            <p class="ingredient-desc">Essential for energy metabolism and cognitive function. Supports natural energy production at the cellular level.</p>
           </div>
           <div class="ingredient-card">
-            <div class="ingredient-name">Zero Calories</div>
-            <div class="ingredient-dosage">0g Sugar</div>
-            <p class="ingredient-desc">No added sugars, no carbs, no impact on your diet. Just pure functional energy.</p>
+            <div class="ingredient-name boucherie">Zero Additives</div>
+            <div class="ingredient-dosage energy">0 Calories • 0 Sugar</div>
+            <p class="ingredient-desc">No artificial colors, no synthetic sweeteners, no fillers. Just pure functional ingredients.</p>
           </div>
         </div>
       </div>
@@ -146,33 +429,34 @@
             <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </div>
-            <h3 class="benefit-title">Fast Acting</h3>
-            <p class="benefit-desc">Feel the effects in 5-10 minutes, not 30-45 like pills.</p>
+            <h3 class="benefit-title boucherie">Fast Acting</h3>
+            <p class="benefit-desc">Feel the effects in 3-5 minutes, not 30-45 like pills or energy drinks.</p>
           </div>
           <div class="benefit-item">
             <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             </div>
-            <h3 class="benefit-title">Long Lasting</h3>
-            <p class="benefit-desc">4-6 hours of sustained focus without the crash.</p>
+            <h3 class="benefit-title boucherie">Long Lasting</h3>
+            <p class="benefit-desc">4-6 hours of sustained focus without the crash thanks to L-theanine.</p>
           </div>
           <div class="benefit-item">
             <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
-            <h3 class="benefit-title">No Jitters</h3>
-            <p class="benefit-desc">L-Theanine balances the caffeine for smooth energy.</p>
+            <h3 class="benefit-title boucherie">No Jitters</h3>
+            <p class="benefit-desc">L-Theanine balances the caffeine for smooth, focused energy.</p>
           </div>
           <div class="benefit-item">
             <div class="benefit-icon">
               <svg viewBox="0 0 24 24" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
             </div>
-            <h3 class="benefit-title">Travel Friendly</h3>
-            <p class="benefit-desc">TSA-approved. No liquids, no mess, no fuss.</p>
+            <h3 class="benefit-title boucherie">Travel Friendly</h3>
+            <p class="benefit-desc">TSA-approved. No liquids, no mess, fits in your wallet.</p>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="wl-footer">
@@ -194,6 +478,6 @@
 
   <script src="../config.js"></script>
   <script src="../assets/js/header.js"></script>
-  <script src="../assets/js/product.js"></script>
+  <script src="../assets/js/products.js"></script>
 </body>
 </html>
