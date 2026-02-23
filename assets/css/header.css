@@ -127,7 +127,7 @@
   color: var(--white);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: opacity 0.2s ease;
@@ -138,7 +138,7 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  font-family: inherit;
+  font-family: 'boucherie-block', sans-serif;
 }
 
 .nav-link:hover {
@@ -184,10 +184,11 @@
   color: var(--white);
   text-decoration: none;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: background-color 0.2s ease;
+  font-family: 'boucherie-block', sans-serif;
 }
 
 .nav-dropdown-menu a:hover {
@@ -205,11 +206,12 @@
   color: var(--white);
   text-decoration: none;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   transition: all 0.3s ease;
   white-space: nowrap;
+  font-family: 'boucherie-block', sans-serif;
 }
 
 .header-quick-buy:hover {
@@ -347,14 +349,14 @@
   color: var(--white);
   text-decoration: none;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   background: none;
   border: none;
   cursor: pointer;
   text-align: left;
-  font-family: inherit;
+  font-family: 'boucherie-block', sans-serif;
 }
 
 .mobile-menu-link:hover {
@@ -395,10 +397,11 @@
   color: var(--gray);
   text-decoration: none;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   transition: color 0.2s ease;
+  font-family: 'boucherie-block', sans-serif;
 }
 
 .mobile-submenu a:hover {
