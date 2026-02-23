@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wingman Labs - Energy & Sleep In Seconds</title>
+  <link rel="stylesheet" href="assets/css/header.css">
+  <style>
+    /* Hero Section - Dark background for transparent header demo */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 40px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(230, 57, 70, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero h1 span {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .hero p {
+      font-size: 18px;
+      color: var(--light-gray);
+      margin-bottom: 40px;
+      line-height: 1.6;
+    }
+    
+    .hero-cta {
+      padding: 16px 40px;
+      background: #E63946;
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    
+    .hero-cta:hover {
+      opacity: 0.9;
+    }
+    
+    /* Content Section - to demonstrate scroll behavior */
+    .content {
+      padding: 100px 40px;
+      background: var(--black);
+      min-height: 100vh;
+    }
+    
+    .content-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .content h2 {
+      font-size: 36px;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    
+    .content p {
+      font-size: 16px;
+      color: var(--gray);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+    
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+    
+    .product-card {
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      padding: 32px;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+    
+    .product-card:hover {
+      border-color: var(--light-gray);
+    }
+    
+    .product-card h3 {
+      font-size: 18px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    .product-card p {
+      font-size: 14px;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    
+    .product-card-price {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    
+    .product-card button {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .product-card button:hover {
+      background: white;
+      color: var(--black);
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 40px;
+      }
+      
+      .hero p {
+        font-size: 16px;
+      }
+      
+      .content h2 {
+        font-size: 28px;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="homepage">
+  
+  <!-- Include Header Component -->
+  <header class="header">
+    <div class="header-container">
+      <a href="/" class="header-logo">WINGMAN LABS</a>
+      
+      <nav class="header-nav">
+        <a href="/products/energy">Energy</a>
+        <a href="/products/sleep">Sleep</a>
+        <a href="/pages/science">Science</a>
+        <a href="/pages/more">More</a>
+      </nav>
+      
+      <a href="/pages/quick-buy" class="header-quick-buy">QUICK BUY</a>
+      
+      <div class="header-actions">
+        <button class="header-icon" id="headerAccountBtn" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+        
+        <button class="header-icon" id="headerCartBtn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="9" cy="21" r="1"/>
+            <circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span id="cartCount" style="display: none;">0</span>
+        </button>
+        
+        <button class="header-menu-toggle" id="headerMenuToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>
+        energy & sleep
+        <span>IN SECONDS.</span>
+      </h1>
+      <p>Rapid, Functional Results, by Melting on your Tongue.</p>
+      <a href="/pages/quick-buy" class="hero-cta">TRY RISK-FREE →</a>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content">
+    <div class="content-inner">
+      <h2>Ultra-fast-acting supplements are here.</h2>
+      <p>Formulations that provide best-in-class results with clinically studied natural botanicals. Experience the difference with strips that work in minutes, not hours.</p>
+      
+      <div class="product-grid" id="productGrid">
+        <div class="product-card">
+          <h3>Energy</h3>
+          <p>Focus-driven & jitter free.</p>
+          <div class="product-card-price">$73</div>
+          <button onclick="alert('Product page coming soon!')">Discover</button>
+        </div>
+        
+        <div class="product-card">
+          <h3>Sleep</h3>
+          <p>Restful, regenerative sleep.</p>
+          <div class="product-card-price">$73</div>
+          <button onclick="alert('Product page coming soon!')">Discover</button>
+        </div>
+        
+        <div class="product-card">
+          <h3>Bundle</h3>
+          <p>30 Days of Energy. 30 Nights of Sleep.</p>
+          <div class="product-card-price">$109</div>
+          <button onclick="alert('Bundle page coming soon!')">Shop Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Drawer -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">CART</div>
+      <button class="cart-drawer-close" id="closeCart" aria-label="Close cart">×</button>
+    </div>
+    <div class="cart-drawer-body" id="cartBody">
+      <div class="cart-empty">Your cart is empty</div>
+    </div>
+    <div class="cart-drawer-footer" id="cartFooter" style="display: none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+      <button class="cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="assets/js/header.js"></script>
+  
+</body>
+</html>
