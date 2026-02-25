@@ -34,6 +34,7 @@
         // Initialize
         init: function() {
             this.bindEvents();
+            this.cartManager.initCartDrawerEvents();
         },
         
         // Bind all events using event delegation
@@ -378,68 +379,163 @@
             }
         },
         
-        // Cart Manager
+        // Cart Manager - Storefront API Integration
         cartManager: {
             isUpdating: false,
+            cartId: null,
             
-            getSectionIds: function() {
-                var components = document.querySelectorAll('cart-items-component');
-                return Array.from(components).map(function(c) { return c.dataset.sectionId; }).filter(Boolean);
+            // Convert numeric variant ID to Storefront API global ID
+            toGlobalId: function(numericId) {
+                return 'gid://shopify/ProductVariant/' + numericId;
             },
             
-            updateCartCount: function() {
-                return fetch('/cart.js')
-                    .then(function(response) { return response.json(); })
-                    .then(function(cart) {
-                        document.querySelectorAll('.cart-count, .cart-count-bubble, [data-cart-count]').forEach(function(el) {
-                            el.textContent = cart.item_count;
-                        });
-                    })
-                    .catch(function(error) {
-                        console.error('Error updating cart count:', error);
-                    });
+            // Get or create cart
+            getOrCreateCart: async function() {
+                if (this.cartId) {
+                    return this.cartId;
+                }
+                
+                // Check localStorage
+                var storedCartId = localStorage.getItem('wingman_cart_id');
+                if (storedCartId) {
+                    this.cartId = storedCartId;
+                    return this.cartId;
+                }
+                
+                // Create new cart
+                try {
+                    var cart = await createCart();
+                    this.cartId = cart.id;
+                    localStorage.setItem('wingman_cart_id', cart.id);
+                    return this.cartId;
+                } catch (error) {
+                    console.error('Failed to create cart:', error);
+                    throw error;
+                }
             },
             
-            dispatchCartUpdate: function(data) {
-                var event = new CustomEvent('cart:update', {
-                    detail: {
-                        resource: data.items ? data.items[0] : {},
-                        sourceId: 'add-to-cart',
-                        data: {
-                            source: 'product-form',
-                            itemCount: data.item_count || 1,
-                            productId: data.product_id,
-                            sections: data.sections
-                        }
-                    }
+            // Update cart badge count
+            updateCartCount: function(count) {
+                var badges = document.querySelectorAll('.cart-badge, #cartBadge, .cart-count');
+                badges.forEach(function(badge) {
+                    badge.textContent = count;
+                    badge.style.display = count > 0 ? 'flex' : 'none';
                 });
-                document.dispatchEvent(event);
             },
             
+            // Render cart drawer contents
+            renderCartDrawer: function(cart) {
+                var content = document.getElementById('cartContent');
+                if (!content) return;
+                
+                var lines = cart.lines.edges;
+                var totalCount = lines.reduce(function(sum, edge) { return sum + edge.node.quantity; }, 0);
+                this.updateCartCount(totalCount);
+                
+                if (lines.length === 0) {
+                    content.innerHTML = '<div class="cart-empty"><h3 class="cart-empty-title">Your cart is empty</h3><p>Have an account? <a href="#">Log in</a> to check out faster.</p><a href="/pages/quickbuy.html" class="cart-continue-btn">Continue shopping</a></div>';
+                    return;
+                }
+                
+                var html = '<div class="cart-items">';
+                lines.forEach(function(edge) {
+                    var item = edge.node;
+                    var merch = item.merchandise;
+                    var price = parseFloat(merch.priceV2.amount).toFixed(2);
+                    var imageUrl = merch.image ? merch.image.url : '';
+                    
+                    html += '<div class="cart-item" data-line-id="' + item.id + '">' +
+                        '<div class="cart-item-image">' + (imageUrl ? '<img src="' + imageUrl + '" alt="">' : '') + '</div>' +
+                        '<div class="cart-item-details">' +
+                            '<div class="cart-item-title">' + merch.product.title + '</div>' +
+                            '<div class="cart-item-variant">' + merch.title + '</div>' +
+                            '<div class="cart-item-price">$' + price + '</div>' +
+                            '<div class="cart-item-qty">' +
+                                '<button class="cart-qty-btn" data-action="decrease" data-line="' + item.id + '">−</button>' +
+                                '<span class="cart-qty-value">' + item.quantity + '</span>' +
+                                '<button class="cart-qty-btn" data-action="increase" data-line="' + item.id + '">+</button>' +
+                            '</div>' +
+                            '<button class="cart-item-remove" data-line="' + item.id + '">Remove</button>' +
+                        '</div>' +
+                    '</div>';
+                });
+                html += '</div>';
+                
+                var total = parseFloat(cart.cost.totalAmount.amount).toFixed(2);
+                html += '<div class="cart-footer">' +
+                    '<div class="cart-totals">' +
+                        '<div class="cart-total"><span>Total</span><span>$' + total + '</span></div>' +
+                    '</div>' +
+                    '<a href="' + cart.checkoutUrl + '" class="cart-checkout-btn">Checkout</a>' +
+                '</div>';
+                
+                content.innerHTML = html;
+                
+                // Bind cart item events
+                this.bindCartItemEvents();
+            },
+            
+            // Bind events for cart item buttons
+            bindCartItemEvents: function() {
+                var self = this;
+                var content = document.getElementById('cartContent');
+                if (!content) return;
+                
+                content.querySelectorAll('.cart-qty-btn').forEach(function(btn) {
+                    btn.addEventListener('click', async function() {
+                        var lineId = this.dataset.line;
+                        var action = this.dataset.action;
+                        var qtyEl = this.parentElement.querySelector('.cart-qty-value');
+                        var currentQty = parseInt(qtyEl.textContent);
+                        var newQty = action === 'increase' ? currentQty + 1 : currentQty - 1;
+                        
+                        if (newQty < 1) {
+                            var cart = await removeCartLine(self.cartId, lineId);
+                            self.renderCartDrawer(cart);
+                        } else {
+                            var cart = await updateCartLine(self.cartId, lineId, newQty);
+                            self.renderCartDrawer(cart);
+                        }
+                    });
+                });
+                
+                content.querySelectorAll('.cart-item-remove').forEach(function(btn) {
+                    btn.addEventListener('click', async function() {
+                        var lineId = this.dataset.line;
+                        var cart = await removeCartLine(self.cartId, lineId);
+                        self.renderCartDrawer(cart);
+                    });
+                });
+            },
+            
+            // Open cart drawer
             openCartDrawer: function() {
-                var triggers = [
-                    '[data-cart-drawer-trigger]',
-                    '.js-drawer-open-cart',
-                    '.cart-drawer-toggle',
-                    '.cart-icon',
-                    '[href="/cart"]'
-                ];
-
-                for (var i = 0; i < triggers.length; i++) {
-                    var trigger = document.querySelector(triggers[i]);
-                    if (trigger) {
-                        trigger.click();
-                        break;
-                    }
-                }
-
-                var drawer = document.querySelector('#CartDrawer, .cart-drawer, [data-cart-drawer]');
+                var drawer = document.getElementById('cartDrawer');
+                var overlay = document.getElementById('cartOverlay');
                 if (drawer) {
-                    drawer.classList.add('active', 'is-open');
+                    drawer.classList.add('active');
                 }
+                if (overlay) {
+                    overlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden';
             },
             
-            addToCart: function(variantId, quantity, sellingPlan, buttonId) {
+            // Close cart drawer
+            closeCartDrawer: function() {
+                var drawer = document.getElementById('cartDrawer');
+                var overlay = document.getElementById('cartOverlay');
+                if (drawer) {
+                    drawer.classList.remove('active');
+                }
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            },
+            
+            // Add to cart and open drawer
+            addToCart: async function(variantId, quantity, sellingPlan, buttonId) {
                 var self = this;
                 if (this.isUpdating) return;
                 this.isUpdating = true;
@@ -451,35 +547,17 @@
                     button.disabled = true;
                 }
                 
-                var sectionIds = this.getSectionIds();
-                var formData = new FormData();
-                
-                formData.append('id', variantId);
-                formData.append('quantity', quantity);
-                
-                if (sellingPlan) {
-                    formData.append('selling_plan', sellingPlan);
-                }
-                
-                if (sectionIds.length > 0) {
-                    formData.append('sections', sectionIds.join(','));
-                }
-                
-                fetch('/cart/add.js', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function(response) {
-                    if (!response.ok) throw new Error('Failed to add to cart');
-                    return response.json();
-                })
-                .then(function(data) {
-                    return self.updateCartCount().then(function() { return data; });
-                })
-                .then(function(data) {
-                    if (data.sections) {
-                        self.dispatchCartUpdate(data);
+                try {
+                    var cartId = await this.getOrCreateCart();
+                    var globalVariantId = this.toGlobalId(variantId);
+                    
+                    var result = await addToCart(cartId, globalVariantId, quantity);
+                    
+                    if (result.userErrors && result.userErrors.length > 0) {
+                        throw new Error(result.userErrors[0].message);
                     }
+                    
+                    this.renderCartDrawer(result.cart);
                     
                     if (button) {
                         button.classList.remove('wm-cart-loading');
@@ -493,9 +571,9 @@
                         }, 2000);
                     }
                     
-                    self.openCartDrawer();
-                })
-                .catch(function(error) {
+                    this.openCartDrawer();
+                    
+                } catch (error) {
                     console.error('Error adding to cart:', error);
                     if (button) {
                         button.classList.remove('wm-cart-loading');
@@ -505,13 +583,13 @@
                             button.textContent = 'Add to Cart';
                         }, 2000);
                     }
-                })
-                .finally(function() {
-                    self.isUpdating = false;
-                });
+                } finally {
+                    this.isUpdating = false;
+                }
             },
             
-            addBundleProducts: function(buttonId) {
+            // Add bundle (energy + sleep) to cart
+            addBundleProducts: async function(buttonId) {
                 var self = this;
                 if (this.isUpdating) return;
                 this.isUpdating = true;
@@ -523,33 +601,15 @@
                     button.disabled = true;
                 }
                 
-                var sectionIds = this.getSectionIds();
-                var formData = new FormData();
-                
-                if (sectionIds.length > 0) {
-                    formData.append('sections', sectionIds.join(','));
-                }
-                
-                formData.append('items[0][id]', WingmanEnergyStrips.ENERGY_VARIANT_ID);
-                formData.append('items[0][quantity]', '1');
-                formData.append('items[1][id]', WingmanEnergyStrips.SLEEP_VARIANT_ID);
-                formData.append('items[1][quantity]', '1');
-                
-                fetch('/cart/add.js', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(function(response) {
-                    if (!response.ok) throw new Error('Failed to add bundle');
-                    return response.json();
-                })
-                .then(function(data) {
-                    return self.updateCartCount().then(function() { return data; });
-                })
-                .then(function(data) {
-                    if (data.sections) {
-                        self.dispatchCartUpdate(data);
-                    }
+                try {
+                    var cartId = await this.getOrCreateCart();
+                    
+                    // Add energy
+                    await addToCart(cartId, this.toGlobalId(WingmanEnergyStrips.ENERGY_VARIANT_ID), 1);
+                    // Add sleep
+                    var result = await addToCart(cartId, this.toGlobalId(WingmanEnergyStrips.SLEEP_VARIANT_ID), 1);
+                    
+                    this.renderCartDrawer(result.cart);
                     
                     if (button) {
                         button.classList.remove('wm-cart-loading');
@@ -563,9 +623,9 @@
                         }, 2000);
                     }
                     
-                    self.openCartDrawer();
-                })
-                .catch(function(error) {
+                    this.openCartDrawer();
+                    
+                } catch (error) {
                     console.error('Error adding bundle:', error);
                     if (button) {
                         button.classList.remove('wm-cart-loading');
@@ -575,10 +635,9 @@
                             button.textContent = 'Add to Cart';
                         }, 2000);
                     }
-                })
-                .finally(function() {
-                    self.isUpdating = false;
-                });
+                } finally {
+                    this.isUpdating = false;
+                }
             },
             
             addOneTimeToCart: function() {
@@ -592,91 +651,102 @@
             },
             
             addSubscriptionToCart: function() {
+                // Note: Storefront API subscription handling requires selling plan - for now treat as one-time
                 this.addToCart(
                     WingmanEnergyStrips.ENERGY_VARIANT_ID, 
                     WingmanEnergyStrips.selections.subscribe.quantity, 
-                    WingmanEnergyStrips.ENERGY_SELLING_PLAN_ID, 
+                    null, 
                     'energy-subscribe-add-cart'
                 );
             },
             
             addBundleToCart: function() {
-                this.addToCart(WingmanEnergyStrips.WINGMAN_BUNDLE_VARIANT_ID, 1, WingmanEnergyStrips.WINGMAN_BUNDLE_SELLING_PLAN_ID, 'energy-bundle-add-cart');
+                // Wingman bundle is a subscription product
+                this.addToCart(WingmanEnergyStrips.WINGMAN_BUNDLE_VARIANT_ID, 1, null, 'energy-bundle-add-cart');
+            },
+            
+            // Initialize cart drawer close events
+            initCartDrawerEvents: function() {
+                var self = this;
+                var closeBtn = document.getElementById('cartClose');
+                var overlay = document.getElementById('cartOverlay');
+                
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() { self.closeCartDrawer(); });
+                }
+                if (overlay) {
+                    overlay.addEventListener('click', function() { self.closeCartDrawer(); });
+                }
+                
+                // Cart button in header
+                var cartBtn = document.getElementById('cartBtn');
+                if (cartBtn) {
+                    cartBtn.addEventListener('click', async function() {
+                        try {
+                            var cartId = await self.getOrCreateCart();
+                            var cart = await getCart(cartId);
+                            if (cart) {
+                                self.renderCartDrawer(cart);
+                            }
+                        } catch (e) {
+                            console.error('Error loading cart:', e);
+                        }
+                        self.openCartDrawer();
+                    });
+                }
             }
         },
         
-        // Quick buy functions
-        quickBuyOneTime: function() {
+        // Quick buy functions - go straight to checkout
+        quickBuyOneTime: async function() {
             var isBundle = this.selections.onetime.isBundle;
             var self = this;
             
-            if (isBundle) {
-                fetch('/cart/add.js', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        items: [
-                            { id: this.ENERGY_VARIANT_ID, quantity: 1 },
-                            { id: this.SLEEP_VARIANT_ID, quantity: 1 }
-                        ]
-                    })
-                })
-                .then(function() { window.location.href = '/checkout'; })
-                .catch(function(error) { console.error('Error:', error); });
-            } else {
-                fetch('/cart/add.js', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        items: [{
-                            id: this.ENERGY_VARIANT_ID,
-                            quantity: this.selections.onetime.quantity
-                        }]
-                    })
-                })
-                .then(function() { window.location.href = '/checkout'; })
-                .catch(function(error) { console.error('Error:', error); });
+            try {
+                // Create a fresh cart for checkout
+                var cart = await createCart();
+                var cartId = cart.id;
+                
+                if (isBundle) {
+                    await addToCart(cartId, this.cartManager.toGlobalId(this.ENERGY_VARIANT_ID), 1);
+                    var result = await addToCart(cartId, this.cartManager.toGlobalId(this.SLEEP_VARIANT_ID), 1);
+                    window.location.href = result.cart.checkoutUrl;
+                } else {
+                    var result = await addToCart(cartId, this.cartManager.toGlobalId(this.ENERGY_VARIANT_ID), this.selections.onetime.quantity);
+                    window.location.href = result.cart.checkoutUrl;
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error processing checkout. Please try again.');
             }
         },
         
-        subscribeToProduct: function() {
-            fetch('/cart/add.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    items: [{
-                        id: this.ENERGY_VARIANT_ID,
-                        quantity: this.selections.subscribe.quantity,
-                        selling_plan: this.ENERGY_SELLING_PLAN_ID
-                    }]
-                })
-            })
-            .then(function() { window.location.href = '/checkout'; })
-            .catch(function(error) { console.error('Error:', error); });
+        subscribeToProduct: async function() {
+            try {
+                var cart = await createCart();
+                var result = await addToCart(cart.id, this.cartManager.toGlobalId(this.ENERGY_VARIANT_ID), this.selections.subscribe.quantity);
+                window.location.href = result.cart.checkoutUrl;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error processing checkout. Please try again.');
+            }
         },
         
-        joinWingmanBundle: function() {
-            fetch('/cart/add.js', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    items: [{
-                        id: this.WINGMAN_BUNDLE_VARIANT_ID,
-                        quantity: 1,
-                        selling_plan: this.WINGMAN_BUNDLE_SELLING_PLAN_ID
-                    }]
-                })
-            })
-            .then(function() { window.location.href = '/checkout'; })
-            .catch(function(error) { console.error('Error:', error); });
+        joinWingmanBundle: async function() {
+            try {
+                var cart = await createCart();
+                var result = await addToCart(cart.id, this.cartManager.toGlobalId(this.WINGMAN_BUNDLE_VARIANT_ID), 1);
+                window.location.href = result.cart.checkoutUrl;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error processing checkout. Please try again.');
+            }
         },
         
         showPromoCode: function() {
             var code = prompt('Enter promo code:');
-            if (code && this.currentTab === 'onetime') {
-                fetch('/discount/' + code)
-                    .then(function() { alert('Promo code applied!'); })
-                    .catch(function() { alert('Invalid promo code'); });
+            if (code) {
+                alert('Promo codes can be applied at checkout.');
             }
         }
     };
