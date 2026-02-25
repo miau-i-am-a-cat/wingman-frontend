@@ -1,6 +1,6 @@
 // Wingman Labs - Shopify Storefront API Configuration
 const SHOPIFY_CONFIG = {
-  domain: 'wingman-labs.myshopify.com',
+  domain: 'thewingmanlabs.myshopify.com',
   storefrontAccessToken: '6d2b1b56f5d725e6d618494391f6dc9b',
   customerAccountAccessToken: 'bc5bc84f-fbb7-4f3f-aace-97cc2c1282e7',
   apiVersion: '2024-01'
